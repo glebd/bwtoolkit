@@ -55,6 +55,16 @@ static NSImage *trackLeftImage, *trackFillImage, *trackRightImage, *thumbPImage,
 	
 }
 
+- (NSInteger)numberOfTickMarks
+{
+	return 0;
+}
+
+- (void)setNumberOfTickMarks:(NSInteger)numberOfTickMarks
+{
+	
+}
+
 - (void)drawBarInside:(NSRect)cellFrame flipped:(BOOL)flipped
 {	
 	NSRect slideRect = cellFrame;
