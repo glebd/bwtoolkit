@@ -13,7 +13,4 @@
 	
 }
 
-- (void)drawTitleInFrame:(NSRect)cellFrame;
-- (void)drawImageInFrame:(NSRect)cellFrame;
-
 @end

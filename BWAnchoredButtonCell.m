@@ -19,6 +19,11 @@ static NSColor *borderedSideBorderColor, *borderedTopBorderColor;
 static NSGradient *fillGradient;
 static float scaleFactor = 1.0f;
 
+@interface BWAnchoredButtonCell (BWABCPrivate)
+- (void)drawTitleInFrame:(NSRect)cellFrame;
+- (void)drawImageInFrame:(NSRect)cellFrame;
+@end
+
 @implementation BWAnchoredButtonCell
 
 + (void)initialize;

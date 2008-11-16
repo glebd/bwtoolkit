@@ -14,6 +14,11 @@ static NSColor *fillStop1, *fillStop2, *fillStop3, *fillStop4;
 static NSColor *borderColor, *topBorderColor, *bottomInsetColor, *topInsetColor, *pressedColor;
 static NSGradient *fillGradient;
 
+@interface BWAnchoredButtonCell (BWUBCPrivate)
+- (void)drawTitleInFrame:(NSRect)cellFrame;
+- (void)drawImageInFrame:(NSRect)cellFrame;
+@end
+
 @implementation BWUnanchoredButtonCell
 
 + (void)initialize;
