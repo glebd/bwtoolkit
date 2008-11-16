@@ -7,33 +7,24 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "BWSelectableToolbarHelper.h"
 
-@interface BWSelectableToolbar : NSToolbar {
+@class BWSelectableToolbarHelper;
+
+@interface BWSelectableToolbar : NSToolbar 
+{
 	BWSelectableToolbarHelper *helper;
-	
 	NSMutableArray *itemIdentifiers;
 	NSMutableDictionary *itemsByIdentifier;
 	NSWindow *window;
+	BOOL inIB;
 	
 	// For the IB inspector
 	NSMutableArray *labels;
 	int selectedIndex;
 	BOOL isPreferencesToolbar;
-	
-	BOOL inIB;
 }
 
-@property(retain) BWSelectableToolbarHelper *helper;
-@property(copy) NSMutableArray *labels;
-@property BOOL isPreferencesToolbar;
-
-- (void)selectItemAtIndex:(int)anIndex;
-- (int)selectedIndex;
-- (void)setSelectedIndex:(int)anIndex;
-- (NSMutableArray *)labels;
-- (void)setLabels:(NSMutableArray *)anArray;
-- (void)setDocumentToolbar:(BWSelectableToolbar *)obj;
-- (void)selectItemAtIndex:(int)anIndex;
-
+// Call one of these methods to set the active tab. 
+- (void)setSelectedItemIdentifier:(NSString *)itemIdentifier; // Use if you want an action in the tabbed window to change the tab.
+- (void)setSelectedItemIdentifierWithoutAnimation:(NSString *)itemIdentifier; // Use if you want to show the window with a certain item selected.
 @end

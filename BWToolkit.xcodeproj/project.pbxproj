@@ -37,7 +37,7 @@
 		CA325ACE0DCABE22001446BB /* BWAnchoredButtonIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = CA325ACD0DCABE22001446BB /* BWAnchoredButtonIntegration.m */; };
 		CA325B4F0DCAE25A001446BB /* BWAnchoredButtonBar.h in Headers */ = {isa = PBXBuildFile; fileRef = CA325B4D0DCAE25A001446BB /* BWAnchoredButtonBar.h */; };
 		CA325B500DCAE25A001446BB /* BWAnchoredButtonBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CA325B4E0DCAE25A001446BB /* BWAnchoredButtonBar.m */; };
-		CA325B8D0DCBF32E001446BB /* BWSelectableToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630AE80DC7FC3400AD7F9E /* BWSelectableToolbar.h */; };
+		CA325B8D0DCBF32E001446BB /* BWSelectableToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630AE80DC7FC3400AD7F9E /* BWSelectableToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA325D4E0DCD2EEE001446BB /* BWAnchoredButtonBarInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA325D4D0DCD2EEE001446BB /* BWAnchoredButtonBarInspector.xib */; };
 		CA325D530DCD3019001446BB /* BWAnchoredButtonBarInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = CA325D520DCD3019001446BB /* BWAnchoredButtonBarInspector.m */; };
 		CA325D550DCD3045001446BB /* BWAnchoredButtonBarIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = CA325D540DCD3045001446BB /* BWAnchoredButtonBarIntegration.m */; };

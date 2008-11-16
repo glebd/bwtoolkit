@@ -7,6 +7,7 @@
 //
 
 #import "BWSelectableToolbar.h"
+#import "BWSelectableToolbarHelper.h"
 #import "NSWindow+BWAdditions.h"
 
 static BWSelectableToolbar *documentToolbar;
@@ -28,6 +29,7 @@ static NSToolbar *editableToolbar;
 - (void)switchToItemAtIndex:(int)anIndex animate:(BOOL)flag;
 - (int)toolbarIndexFromSelectableIndex:(int)selectableIndex;
 - (void)selectInitialItem;
+- (void)selectItemAtIndex:(int)anIndex;
 // IBDocument methods
 - (void)addObject:(id)object toParent:(id)parent;
 - (void)moveObject:(id)object toParent:(id)parent;
@@ -35,6 +37,12 @@ static NSToolbar *editableToolbar;
 - (id)parentOfObject:(id)anObj;
 - (NSArray *)objectsforDocumentObject:(id)anObj;
 - (NSArray *)childrenOfObject:(id)object;
+@end
+
+@interface BWSelectableToolbar ()
+@property (retain) BWSelectableToolbarHelper *helper;
+@property (copy) NSMutableArray *labels;
+@property BOOL isPreferencesToolbar;
 @end
 
 @implementation BWSelectableToolbar
@@ -153,6 +161,16 @@ static NSToolbar *editableToolbar;
 		
 		[self performSelector:@selector(selectInitialItem) withObject:nil afterDelay:0];
 	}
+}
+
+- (void)setSelectedItemIdentifier:(NSString *)itemIdentifier
+{
+	[self switchToItemAtIndex:[itemIdentifiers indexOfObject:itemIdentifier] animate:YES];
+}
+
+- (void)setSelectedItemIdentifierWithoutAnimation:(NSString *)itemIdentifier
+{
+	[self switchToItemAtIndex:[itemIdentifiers indexOfObject:itemIdentifier] animate:NO];
 }
 
 - (void)selectFirstItem
@@ -282,7 +300,7 @@ static NSToolbar *editableToolbar;
 	{
 		NSToolbarItem *item = [toolbarItems objectAtIndex:anIndex];
 		NSString *identifier = [item itemIdentifier];
-		[self setSelectedItemIdentifier:identifier];
+		[super setSelectedItemIdentifier:identifier];
 		
 		[helper setSelectedIdentifier:identifier];
 	}

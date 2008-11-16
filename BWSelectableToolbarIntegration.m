@@ -17,6 +17,7 @@
 
 @interface BWSelectableToolbar (BWSTIntPrivate)
 - (id)parentOfObject:(id)anObj;
+- (void)setDocumentToolbar:(BWSelectableToolbar *)obj;
 @end
 
 @interface IBDocument (BWSTIntPrivate)
