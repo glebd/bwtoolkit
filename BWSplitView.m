@@ -21,6 +21,10 @@ static float scaleFactor = 1.0f;
 - (void)drawGradientDividerInRect:(NSRect)aRect;
 @end
 
+@interface BWSplitView ()
+@property BOOL checkboxIsEnabled;
+@end
+
 @implementation BWSplitView
 
 @synthesize color;
@@ -69,7 +73,7 @@ static float scaleFactor = 1.0f;
 {	
     if ([self isVertical])
     {
-		if (colorIsEnabled)
+		if (colorIsEnabled && color != nil)
 			[color drawSwatchInRect:aRect];
 		else
 			[super drawDividerInRect:aRect];
@@ -78,7 +82,7 @@ static float scaleFactor = 1.0f;
 	{
 		if ([self dividerThickness] <= 1.01)
 		{
-			if (colorIsEnabled)
+			if (colorIsEnabled && color != nil)
 				[color drawSwatchInRect:aRect];
 			else
 				[super drawDividerInRect:aRect];

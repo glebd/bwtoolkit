@@ -176,7 +176,7 @@
 		CA630B170DC8004A00AD7F9E /* BWTransparentSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = CA630B050DC8004A00AD7F9E /* BWTransparentSlider.m */; };
 		CA630B180DC8004A00AD7F9E /* BWTransparentSliderCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630B060DC8004A00AD7F9E /* BWTransparentSliderCell.h */; };
 		CA630B190DC8004A00AD7F9E /* BWTransparentSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA630B070DC8004A00AD7F9E /* BWTransparentSliderCell.m */; };
-		CA630B1E0DC82DD600AD7F9E /* BWSplitView.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630B1C0DC82DD600AD7F9E /* BWSplitView.h */; };
+		CA630B1E0DC82DD600AD7F9E /* BWSplitView.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630B1C0DC82DD600AD7F9E /* BWSplitView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA630B1F0DC82DD600AD7F9E /* BWSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA630B1D0DC82DD600AD7F9E /* BWSplitView.m */; };
 		CA630B260DC82E2100AD7F9E /* BWTexturedSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630B220DC82E2100AD7F9E /* BWTexturedSlider.h */; };
 		CA630B270DC82E2100AD7F9E /* BWTexturedSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = CA630B230DC82E2100AD7F9E /* BWTexturedSlider.m */; };
