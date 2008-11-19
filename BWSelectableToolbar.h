@@ -15,7 +15,6 @@
 	BWSelectableToolbarHelper *helper;
 	NSMutableArray *itemIdentifiers;
 	NSMutableDictionary *itemsByIdentifier;
-	NSWindow *window;
 	BOOL inIB;
 	
 	// For the IB inspector
@@ -27,4 +26,5 @@
 // Call one of these methods to set the active tab. 
 - (void)setSelectedItemIdentifier:(NSString *)itemIdentifier; // Use if you want an action in the tabbed window to change the tab.
 - (void)setSelectedItemIdentifierWithoutAnimation:(NSString *)itemIdentifier; // Use if you want to show the window with a certain item selected.
+
 @end

@@ -150,12 +150,10 @@ static NSToolbar *editableToolbar;
 	if ([self respondsToSelector:@selector(ibDidAddToDesignableDocument:)] == NO)
 	{
 		inIB = NO;
-
-		window = [self _window];
 		
 		if ([helper isPreferencesToolbar])
 		{
-			[window setShowsToolbarButton:NO];
+			[[self _window] setShowsToolbarButton:NO];
 			[self setAllowsUserCustomization:NO];		
 		}
 		
@@ -207,7 +205,6 @@ static NSToolbar *editableToolbar;
 				helper = anObj;
 //				NSLog(@"Got a reference to helper: %@",helper);
 			}
-				
 		}
 	}
 	
@@ -218,20 +215,16 @@ static NSToolbar *editableToolbar;
 	if ([self isMemberOfClass:NSClassFromString(@"IBEditableBWSelectableToolbar")])
 	{
 		[self setEditableToolbar:self];
-		// realEditableToolbar = self;
-		window = [[self editableToolbar] _window];
 		
 		if ([helper contentViewsByIdentifier].count == 0)
-			[helper setInitialIBWindowSize:[window frame].size];
+			[helper setInitialIBWindowSize:[[[self editableToolbar] _window] frame].size];
 			
 		[[NSNotificationCenter defaultCenter] addObserver:self 
 												 selector:@selector(windowDidResize:)
 													 name:NSWindowDidResizeNotification 
-												   object:window];
+												   object:[[self editableToolbar] _window]];
 
 	}
-	
-	window = [[self editableToolbar] _window];
 	
 	NSToolbarItem *currentItem;
 	for (currentItem in [self items]) 
@@ -258,11 +251,11 @@ static NSToolbar *editableToolbar;
 	{
 		// When the toolbar is initially dragged onto the canvas, record the content view and size of the window		
 		NSMutableDictionary *tempCVBI = [[helper contentViewsByIdentifier] mutableCopy];
-		[tempCVBI setObject:[window contentView] forKey:[helper selectedIdentifier]];
+		[tempCVBI setObject:[[[self editableToolbar] _window] contentView] forKey:[helper selectedIdentifier]];
 		[helper setContentViewsByIdentifier:tempCVBI];
 		
 		NSMutableDictionary *tempWSBI = [[helper windowSizesByIdentifier] mutableCopy];	
-		[tempWSBI setObject:[NSValue valueWithSize:[window frame].size] forKey:[helper selectedIdentifier]];
+		[tempWSBI setObject:[NSValue valueWithSize:[[[self editableToolbar] _window] frame].size] forKey:[helper selectedIdentifier]];
 		[helper setWindowSizesByIdentifier:tempWSBI];
 	}
 }
@@ -343,7 +336,7 @@ static NSToolbar *editableToolbar;
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self
 													name:NSWindowDidResizeNotification
-												  object:window];
+												  object:[[self editableToolbar] _window]];
 	[itemIdentifiers release];
 	[itemsByIdentifier release];
     [super dealloc];
@@ -353,7 +346,7 @@ static NSToolbar *editableToolbar;
 
 - (void)windowDidResize:(NSNotification *)notification
 {
-	NSSize size = [window frame].size;
+	NSSize size = [[[self editableToolbar] _window] frame].size;
 	NSValue *sizeValue = [NSValue valueWithSize:size];
 	NSString *key = [helper selectedIdentifier];
 	
@@ -499,12 +492,12 @@ static NSToolbar *editableToolbar;
 	[(BWSelectableToolbar *)[self editableToolbar] selectItemAtIndex:anIndex];
 
 	// Make a new container view and add it to the IB document
-	NSView *containerView = [[NSView alloc] initWithFrame:[[window contentView] frame]];
+	NSView *containerView = [[NSView alloc] initWithFrame:[[[[self editableToolbar] _window] contentView] frame]];
 	if (inIB)
 		[self addObject:containerView toParent:[self parentOfObject:self]];
 	
 	// Move the subviews from the content view to the container view
-	NSArray *oldSubviews = [[[[window contentView] subviews] copy] autorelease];
+	NSArray *oldSubviews = [[[[[[self editableToolbar] _window] contentView] subviews] copy] autorelease];
 	for (NSView *view in oldSubviews)
 	{
 		if (inIB)
@@ -517,7 +510,7 @@ static NSToolbar *editableToolbar;
 	[tempCVBI setObject:containerView forKey:oldIdentifier];
 	[helper setContentViewsByIdentifier:tempCVBI];
 	
-	NSSize oldWindowSize = [window frame].size;
+	NSSize oldWindowSize = [[[self editableToolbar] _window] frame].size;
 	NSMutableDictionary *tempWSBI = [[helper windowSizesByIdentifier] mutableCopy];
 	[tempWSBI setObject:[NSValue valueWithSize:oldWindowSize] forKey:oldIdentifier];
 	[helper setWindowSizesByIdentifier:tempWSBI];
@@ -528,17 +521,17 @@ static NSToolbar *editableToolbar;
 	if ([[helper contentViewsByIdentifier] objectForKey:newIdentifier] == nil) // If we haven't stored the content view in our dictionary. i.e. this is a new tab
 	{
 		// Resize the window
-		[window resizeToSize:[helper initialIBWindowSize] animate:shouldAnimate];	
+		[[[self editableToolbar] _window] resizeToSize:[helper initialIBWindowSize] animate:shouldAnimate];	
 		
 		// Record the new tab content view and window size
 		if (inIB)
 		{
 			NSMutableDictionary *tempCVBI = [[helper contentViewsByIdentifier] mutableCopy];
-			[tempCVBI setObject:[window contentView] forKey:newIdentifier];
+			[tempCVBI setObject:[[[self editableToolbar] _window] contentView] forKey:newIdentifier];
 			[helper setContentViewsByIdentifier:tempCVBI];
 			
 			NSMutableDictionary *tempWSBI = [[helper windowSizesByIdentifier] mutableCopy];	
-			[tempWSBI setObject:[NSValue valueWithSize:[window frame].size] forKey:newIdentifier];
+			[tempWSBI setObject:[NSValue valueWithSize:[[[self editableToolbar] _window] frame].size] forKey:newIdentifier];
 			[helper setWindowSizesByIdentifier:tempWSBI];
 		}
 	}
@@ -546,7 +539,7 @@ static NSToolbar *editableToolbar;
 	{
 		// Resize the window
 		NSSize windowSize = [[[helper windowSizesByIdentifier] objectForKey:newIdentifier] sizeValue];
-		[window resizeToSize:windowSize animate:shouldAnimate];
+		[[[self editableToolbar] _window] resizeToSize:windowSize animate:shouldAnimate];
 
 		NSArray *newSubviews = [[[[[helper contentViewsByIdentifier] objectForKey:newIdentifier] subviews] copy] autorelease];
 		
@@ -556,10 +549,10 @@ static NSToolbar *editableToolbar;
 			{
 				if (inIB)
 				{
-					[self moveObject:view toParent:[window contentView]];
+					[self moveObject:view toParent:[[self parentOfObject:self] contentView]];
 				}
 				
-				[[window contentView] addSubview:view];
+				[[[[self editableToolbar] _window] contentView] addSubview:view];
 			}
 		}
 					
@@ -576,7 +569,7 @@ static NSToolbar *editableToolbar;
 		{
 			if ([[item itemIdentifier] isEqualToString:newIdentifier])
 			{
-				[window setTitle:[item label]];
+				[[[self editableToolbar] _window] setTitle:[item label]];
 				
 				if (inIB)
 					[[self parentOfObject:self] setTitle:[item label]];
