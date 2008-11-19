@@ -33,6 +33,12 @@
 		[[self window] setBottomCornerRounded:NO];
 }
 
+- (void)drawRect:(NSRect)aRect
+{
+	if ([[self window] contentBorderThicknessForEdge:NSMinYEdge] == 0)
+		[self performSelector:@selector(addBottomBar) withObject:nil afterDelay:0];	
+}
+
 - (NSRect)bounds
 {
 	return NSMakeRect(-10000,-10000,0,0);
