@@ -559,7 +559,9 @@ static NSToolbar *editableToolbar;
 		// Remove the container view for the selected tab from the document since those items are now in the window's content view.			
 		if (inIB)
 			[self removeObject:[[helper contentViewsByIdentifier] objectForKey:newIdentifier]];
-					
+		
+		// Tell the window to recalculate the key view loop so the views we added to the content view are keyboard accessible
+		[[[self editableToolbar] _window] recalculateKeyViewLoop];
 	}
 	
 	// After the new content view is swapped in, change the window title to be the selected item label
