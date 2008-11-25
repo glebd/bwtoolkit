@@ -337,4 +337,11 @@ static float scaleFactor = 0.0f;
 	}
 }
 
+-(void)dealloc
+{
+	[minWidth release];
+	[maxWidth release];
+	[super dealloc];
+}
+
 @end
