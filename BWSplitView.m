@@ -204,4 +204,10 @@ static float scaleFactor = 1.0f;
 	[self setNeedsDisplay:YES];
 }
 
+- (void)dealloc
+{
+	[color release];
+	[super dealloc];
+}
+
 @end

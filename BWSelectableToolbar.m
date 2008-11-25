@@ -339,6 +339,7 @@ static NSToolbar *editableToolbar;
 												  object:[[self editableToolbar] _window]];
 	[itemIdentifiers release];
 	[itemsByIdentifier release];
+	[labels release];
     [super dealloc];
 }
 

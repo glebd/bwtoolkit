@@ -172,4 +172,11 @@ static float imageInset = 25;
 	indicatorIndex = anIndex;
 }
 
+- (void)dealloc
+{
+	[minButton release];
+	[maxButton release];
+	[super dealloc];
+}
+
 @end

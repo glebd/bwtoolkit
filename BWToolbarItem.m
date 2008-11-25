@@ -45,4 +45,10 @@
 	}
 }
 
+- (void)dealloc
+{
+	[identifierString release];
+	[super dealloc];
+}
+
 @end
