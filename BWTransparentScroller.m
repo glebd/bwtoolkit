@@ -137,7 +137,7 @@ static NSColor *backgroundColor;
 	if (isVertical)
 		NSDrawThreePartImage(knobRect, knobTop, knobVerticalFill, knobBottom, YES, NSCompositeSourceOver, 1, NO);
 	else
-		NSDrawThreePartImage(knobRect, knobLeft, knobHorizontalFill, knobTop, NO, NSCompositeSourceOver, 1, NO);
+		NSDrawThreePartImage(knobRect, knobLeft, knobHorizontalFill, knobRight, NO, NSCompositeSourceOver, 1, NO);
 }
 
 - (NSRect)_drawingRectForPart:(NSScrollerPart)aPart;
