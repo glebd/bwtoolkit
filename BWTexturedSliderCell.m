@@ -80,7 +80,10 @@ static NSImage *trackLeftImage, *trackFillImage, *trackRightImage, *thumbPImage,
 	slideRect.size.width -= 9;
 	slideRect.origin.x += 5;
 
-	NSDrawThreePartImage(slideRect, trackLeftImage, trackFillImage, trackRightImage, NO, NSCompositeSourceOver, 1, flipped);
+	if ([self isEnabled])
+		NSDrawThreePartImage(slideRect, trackLeftImage, trackFillImage, trackRightImage, NO, NSCompositeSourceOver, 1, flipped);
+	else
+		NSDrawThreePartImage(slideRect, trackLeftImage, trackFillImage, trackRightImage, NO, NSCompositeSourceOver, 0.5, flipped);
 }
 
 - (void)drawKnob:(NSRect)rect
