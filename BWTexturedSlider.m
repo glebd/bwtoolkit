@@ -172,6 +172,12 @@ static float imageInset = 25;
 	indicatorIndex = anIndex;
 }
 
+- (void)scrollWheel:(NSEvent*)event
+{
+	[self setFloatValue:[self floatValue] + [event deltaY]];
+	[self sendAction:[self action] to:[self target]];
+}
+
 - (void)dealloc
 {
 	[minButton release];
