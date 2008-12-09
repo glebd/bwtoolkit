@@ -111,12 +111,16 @@ static NSColor *backgroundColor;
 	if (isVertical && ([self bounds].size.height - verticalPaddingTop - verticalPaddingBottom + 1) > minKnobHeight)
 	{
 		[self drawKnobSlot];
-		[self drawKnob];
+		
+		if ([self knobProportion] > 0.0)	
+			[self drawKnob];
 	}
 	else if (!isVertical && ([self bounds].size.width - horizontalPaddingLeft - horizontalPaddingRight + 1) > minKnobWidth)
 	{
 		[self drawKnobSlot];
-		[self drawKnob];
+
+		if ([self knobProportion] > 0.0)	
+			[self drawKnob];
 	}
 }
 
