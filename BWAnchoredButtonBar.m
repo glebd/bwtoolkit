@@ -26,13 +26,7 @@ static float scaleFactor = 0.0f;
 
 @implementation BWAnchoredButtonBar
 
-@synthesize selectedIndex;
-@synthesize isAtBottom;
-@synthesize isResizable;
-@synthesize selectedMinWidthUnit;
-@synthesize selectedMaxWidthUnit;
-@synthesize minWidth;
-@synthesize maxWidth;
+@synthesize selectedIndex, isAtBottom, isResizable, selectedMinWidthUnit, selectedMaxWidthUnit, minWidth, maxWidth, splitViewDelegate;
 
 + (void)initialize;
 {
@@ -244,11 +238,21 @@ static float scaleFactor = 0.0f;
 	return wasBorderedBar;
 }
 
+-(void)dealloc
+{
+	[minWidth release];
+	[maxWidth release];
+	[super dealloc];
+}
+
 #pragma mark NSSplitView Delegate Methods
 
 // Add the resize handle rect to the split view hot zone
 - (NSRect)splitView:(NSSplitView *)aSplitView additionalEffectiveRectOfDividerAtIndex:(NSInteger)dividerIndex
 {
+	if ([splitViewDelegate respondsToSelector:@selector(splitView:additionalEffectiveRectOfDividerAtIndex:)])
+		return [splitViewDelegate splitView:aSplitView additionalEffectiveRectOfDividerAtIndex:dividerIndex];
+	
 	NSRect paddedHandleRect;
 	paddedHandleRect.origin.y = [aSplitView frame].size.height - [self frame].origin.y - [self bounds].size.height;
 	paddedHandleRect.origin.x = NSMaxX([self bounds]) - 15;
@@ -261,6 +265,9 @@ static float scaleFactor = 0.0f;
 // Set the min width of the left most pane
 - (CGFloat)splitView:(NSSplitView *)sender constrainMinCoordinate:(CGFloat)proposedMin ofSubviewAt:(NSInteger)offset
 {
+	if ([splitViewDelegate respondsToSelector:@selector(splitView:constrainMinCoordinate:ofSubviewAt:)])
+		return [splitViewDelegate splitView:sender constrainMinCoordinate:proposedMin ofSubviewAt:offset];
+	
 	if (minWidth != nil && offset == 0)
 	{
 		if (selectedMinWidthUnit == 0) // Points
@@ -278,6 +285,9 @@ static float scaleFactor = 0.0f;
 // Set the max width of the left most pane
 - (CGFloat)splitView:(NSSplitView *)sender constrainMaxCoordinate:(CGFloat)proposedMax ofSubviewAt:(NSInteger)offset
 {
+	if ([splitViewDelegate respondsToSelector:@selector(splitView:constrainMaxCoordinate:ofSubviewAt:)])
+		return [splitViewDelegate splitView:sender constrainMaxCoordinate:proposedMax ofSubviewAt:offset];
+	
 	if (maxWidth != nil && offset == 0)
 	{
 		if (selectedMaxWidthUnit == 0) // Points
@@ -295,6 +305,9 @@ static float scaleFactor = 0.0f;
 // When the window resizes, keep all of the split view subviews at a constant width except for the right most view
 - (void)splitView:(NSSplitView*)sender resizeSubviewsWithOldSize:(NSSize)oldSize
 {
+	if ([splitViewDelegate respondsToSelector:@selector(splitView:resizeSubviewsWithOldSize:)])
+		return [splitViewDelegate splitView:sender resizeSubviewsWithOldSize:oldSize];
+	
 	NSRect newFrame = [sender frame];
 	float totalDividerThickness = [sender dividerThickness] * ([[sender subviews] count] - 1);
 	float totalSubviewWidth;
@@ -337,11 +350,38 @@ static float scaleFactor = 0.0f;
 	}
 }
 
--(void)dealloc
+// Remaining delegate methods. They test for an implementation by the splitViewDelegate (otherwise perform default behavior)
+
+- (BOOL)splitView:(NSSplitView *)sender canCollapseSubview:(NSView *)subview
 {
-	[minWidth release];
-	[maxWidth release];
-	[super dealloc];
+	if ([splitViewDelegate respondsToSelector:@selector(splitView:canCollapseSubview:)])
+		return [splitViewDelegate splitView:sender canCollapseSubview:subview];
+	
+	return NO;
+}
+
+- (CGFloat)splitView:(NSSplitView *)sender constrainSplitPosition:(CGFloat)proposedPosition ofSubviewAt:(NSInteger)offset
+{
+	if ([splitViewDelegate respondsToSelector:@selector(splitView:constrainSplitPosition:ofSubviewAt:)])
+		return [splitViewDelegate splitView:sender constrainSplitPosition:proposedPosition ofSubviewAt:offset];
+	
+	return proposedPosition;
+}
+
+- (NSRect)splitView:(NSSplitView *)splitView effectiveRect:(NSRect)proposedEffectiveRect forDrawnRect:(NSRect)drawnRect ofDividerAtIndex:(NSInteger)dividerIndex
+{
+	if ([splitViewDelegate respondsToSelector:@selector(splitView:effectiveRect:forDrawnRect:ofDividerAtIndex:)])
+		return [splitViewDelegate splitView:splitView effectiveRect:proposedEffectiveRect forDrawnRect:drawnRect ofDividerAtIndex:dividerIndex];
+	
+	return proposedEffectiveRect;
+}
+
+- (BOOL)splitView:(NSSplitView *)splitView shouldCollapseSubview:(NSView *)subview forDoubleClickOnDividerAtIndex:(NSInteger)dividerIndex
+{
+	if ([splitViewDelegate respondsToSelector:@selector(splitView:shouldCollapseSubview:forDoubleClickOnDividerAtIndex:)])
+		return [splitViewDelegate splitView:splitView shouldCollapseSubview:subview forDoubleClickOnDividerAtIndex:dividerIndex];
+	
+	return NO;
 }
 
 @end
