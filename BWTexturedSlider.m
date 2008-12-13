@@ -172,6 +172,14 @@ static float imageInset = 25;
 	indicatorIndex = anIndex;
 }
 
+- (void)setEnabled:(BOOL)flag
+{
+	[super setEnabled:flag];
+	
+	[minButton setEnabled:flag];
+	[maxButton setEnabled:flag];
+}
+
 - (void)scrollWheel:(NSEvent*)event
 {
 	[self setFloatValue:[self floatValue] + [event deltaY]];
