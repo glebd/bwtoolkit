@@ -44,11 +44,11 @@ static NSImage *checkboxOffN, *checkboxOffP, *checkboxOnN, *checkboxOnP;
 	if ([[self controlView] isMemberOfClass:[BWTransparentTableView class]])
 		frame.origin.x += 4;
 	
-	float y = NSMaxY(frame) - (frame.size.height - checkboxOffN.size.height) / 2.0 - 15;
-	float x = frame.origin.x + 1;
+	CGFloat y = NSMaxY(frame) - (frame.size.height - checkboxOffN.size.height) / 2.0 - 15;
+	CGFloat x = frame.origin.x + 1;
 	NSPoint point = NSMakePoint(x, roundf(y));
 	
-	float alpha = 1.0;
+	CGFloat alpha = 1.0;
 	
 	if (![self isEnabled])
 		alpha = 0.6;

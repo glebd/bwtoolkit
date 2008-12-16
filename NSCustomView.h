@@ -16,7 +16,7 @@
 }
 
 + (void)initialize;
-- (id)initWithFrame:(struct _NSRect)fp8;
+- (id)initWithFrame:(NSRect)fp8;
 - (void)dealloc;
 - (void)finalize;
 - (id)nibInstantiate;

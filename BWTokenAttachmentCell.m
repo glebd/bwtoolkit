@@ -150,7 +150,7 @@ static float arrowHeight = 6.0;
 	}
 
 	// Darken on mouse over
-	float red, blue, green, alpha;
+	CGFloat red, blue, green, alpha;
 	[[self tokenBackgroundColor] getRed:&red green:&green blue:&blue alpha:&alpha];
 	
 	if (red > 0.427 && red < 0.428)

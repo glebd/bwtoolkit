@@ -185,6 +185,8 @@
 		CA630CB90DC83EB700AD7F9E /* BWTransparentSliderIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = CA630CB80DC83EB700AD7F9E /* BWTransparentSliderIntegration.m */; };
 		CA630CFA0DC843DD00AD7F9E /* BWAddSmallBottomBar.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630CF80DC843DD00AD7F9E /* BWAddSmallBottomBar.h */; };
 		CA630CFB0DC843DD00AD7F9E /* BWAddSmallBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CA630CF90DC843DD00AD7F9E /* BWAddSmallBottomBar.m */; };
+		CA66C0F60EF79AC0005EE9A5 /* NSString+BWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CA66C0F40EF79AC0005EE9A5 /* NSString+BWAdditions.m */; };
+		CA66C0F70EF79AC0005EE9A5 /* NSString+BWAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CA66C0F50EF79AC0005EE9A5 /* NSString+BWAdditions.h */; };
 		CA685D7D0E6639680003D937 /* BWSplitViewInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA685D7C0E6639680003D937 /* BWSplitViewInspector.xib */; };
 		CA685D840E663E4D0003D937 /* BWSplitViewInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = CA685D830E663E4D0003D937 /* BWSplitViewInspector.m */; };
 		CA685D8C0E6646000003D937 /* BWSplitViewIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = CA685D8B0E6646000003D937 /* BWSplitViewIntegration.m */; };
@@ -491,6 +493,8 @@
 		CA630CB80DC83EB700AD7F9E /* BWTransparentSliderIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWTransparentSliderIntegration.m; sourceTree = "<group>"; };
 		CA630CF80DC843DD00AD7F9E /* BWAddSmallBottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWAddSmallBottomBar.h; sourceTree = "<group>"; };
 		CA630CF90DC843DD00AD7F9E /* BWAddSmallBottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWAddSmallBottomBar.m; sourceTree = "<group>"; };
+		CA66C0F40EF79AC0005EE9A5 /* NSString+BWAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BWAdditions.m"; sourceTree = "<group>"; };
+		CA66C0F50EF79AC0005EE9A5 /* NSString+BWAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BWAdditions.h"; sourceTree = "<group>"; };
 		CA685D7C0E6639680003D937 /* BWSplitViewInspector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BWSplitViewInspector.xib; sourceTree = "<group>"; };
 		CA685D820E663E4D0003D937 /* BWSplitViewInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWSplitViewInspector.h; sourceTree = "<group>"; };
 		CA685D830E663E4D0003D937 /* BWSplitViewInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWSplitViewInspector.m; sourceTree = "<group>"; };
@@ -807,6 +811,8 @@
 				CA944DD90DDF800D00F103BC /* NSWindow+BWAdditions.m */,
 				CA944F060DE00CC000F103BC /* NSView+BWAdditions.h */,
 				CA944F070DE00CC000F103BC /* NSView+BWAdditions.m */,
+				CA66C0F50EF79AC0005EE9A5 /* NSString+BWAdditions.h */,
+				CA66C0F40EF79AC0005EE9A5 /* NSString+BWAdditions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1267,6 +1273,7 @@
 				CA405A700EBF2E400010580A /* BWTransparentScroller.h in Headers */,
 				CA3A18890ECA9E86000C3A43 /* BWTransparentTextFieldCell.h in Headers */,
 				CAEA804D0ED0A73E0062B378 /* BWToolbarItem.h in Headers */,
+				CA66C0F70EF79AC0005EE9A5 /* NSString+BWAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1529,6 +1536,7 @@
 				CA405A6F0EBF2E400010580A /* BWTransparentScroller.m in Sources */,
 				CA3A188A0ECA9E86000C3A43 /* BWTransparentTextFieldCell.m in Sources */,
 				CAEA804E0ED0A73E0062B378 /* BWToolbarItem.m in Sources */,
+				CA66C0F60EF79AC0005EE9A5 /* NSString+BWAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1662,6 +1670,8 @@
 		C056398408A954F8003078D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "\"/Developer/Library/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1679,6 +1689,8 @@
 		C056398508A954F8003078D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "\"/Developer/Library/Frameworks\"";
@@ -1726,6 +1738,8 @@
 		C056398C08A954F8003078D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
 				GCC_MODEL_TUNING = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1737,10 +1751,8 @@
 		C056398D08A954F8003078D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
 				GCC_MODEL_TUNING = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

@@ -55,7 +55,7 @@ static NSImage *trackLeftImage, *trackFillImage, *trackRightImage, *thumbPImage,
 		slideRect.size.width++;
 	}
 	
-	float alpha = 1.0;
+	CGFloat alpha = 1.0;
 	
 	if (![self isEnabled])
 		alpha = 0.6;

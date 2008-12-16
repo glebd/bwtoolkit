@@ -8,8 +8,8 @@
 
 #import "NSView+BWAdditions.h"
 
-int compareViews(id firstView, id secondView, id context);
-int compareViews(id firstView, id secondView, id context)
+NSComparisonResult compareViews(id firstView, id secondView, id context);
+NSComparisonResult compareViews(id firstView, id secondView, id context)
 {
 	if (firstView != context && secondView != context) {return NSOrderedSame;}
 	else
@@ -23,7 +23,7 @@ int compareViews(id firstView, id secondView, id context)
 
 - (void)bringToFront
 {
-	[[self superview] sortSubviewsUsingFunction:(int (*)(id, id, void *))compareViews context:self];
+	[[self superview] sortSubviewsUsingFunction:(NSComparisonResult (*)(id, id, void *))compareViews context:self];
 }
 
 @end
