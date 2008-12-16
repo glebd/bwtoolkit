@@ -7,6 +7,7 @@
 //
 
 #import "BWToolbarItem.h"
+#import "NSString+BWAdditions.h"
 
 @interface BWToolbarItem ()
 @property (copy) NSString *identifierString;
@@ -29,20 +30,9 @@
 	}
 	
 	if (identifierString == nil || [identifierString isEqualToString:@""])
-	{
-		// Generate a random UUID
-		CFUUIDRef uuidObj = CFUUIDCreate(nil);
-		NSString *newUUID = (NSString*)CFUUIDCreateString(nil, uuidObj);
-		CFRelease(uuidObj);
-		[newUUID autorelease];
-		
-		// Set the identifier to the UUID
-		[self _setItemIdentifier:[super itemIdentifier]];
-	}
+		[self _setItemIdentifier:[NSString randomUUID]];
 	else
-	{
 		[self _setItemIdentifier:identifierString];
-	}
 }
 
 - (void)dealloc
