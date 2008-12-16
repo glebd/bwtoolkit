@@ -2,12 +2,11 @@
 //  NSString+BWAdditions.m
 //  BWToolkit
 //
-//  Created by Brandon Walkin on 15/12/08.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
+//  Created by Brandon Walkin (www.brandonwalkin.com)
+//  All code is provided under the New BSD license.
 //
 
 #import "NSString+BWAdditions.h"
-
 
 @implementation NSString (BWAdditions)
 
