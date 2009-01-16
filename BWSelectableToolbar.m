@@ -10,6 +10,8 @@
 #import "BWSelectableToolbarHelper.h"
 #import "NSWindow+BWAdditions.h"
 
+NSString * const BWSelectableToolbarItemClickedNotification = @"BWSelectableToolbarItemClicked";
+
 static BWSelectableToolbar *documentToolbar;
 static NSToolbar *editableToolbar;
 
@@ -306,6 +308,8 @@ static NSToolbar *editableToolbar;
 
 	selectedIndex = [itemIdentifiers indexOfObject:identifier];
 
+	[[NSNotificationCenter defaultCenter] postNotificationName:BWSelectableToolbarItemClickedNotification object:self userInfo:[NSDictionary dictionaryWithObject:sender forKey:@"BWClickedItem"]];
+	
 	[self switchToItemAtIndex:selectedIndex animate:YES];
 }
 

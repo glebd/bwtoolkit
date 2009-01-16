@@ -10,6 +10,10 @@
 
 @class BWSelectableToolbarHelper;
 
+// Notification that gets sent when a toolbar item has been clicked. You can get the button that was clicked by getting the object
+// for the key @"BWClickedItem" in the supplied userInfo dictionary.
+extern NSString * const BWSelectableToolbarItemClickedNotification;
+
 @interface BWSelectableToolbar : NSToolbar 
 {
 	BWSelectableToolbarHelper *helper;
