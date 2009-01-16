@@ -7,6 +7,7 @@
 //
 
 #import "BWAddSheetBottomBar.h"
+#import "NSWindow-NSTimeMachineSupport.h"
 
 @interface NSWindow (BWPrivate)
 - (void)setBottomCornerRounded:(BOOL)flag;
@@ -37,6 +38,9 @@
 {
 	if ([[self window] contentBorderThicknessForEdge:NSMinYEdge] == 0)
 		[self performSelector:@selector(addBottomBar) withObject:nil afterDelay:0];	
+	
+	if ([[self window] isSheet] && [[self window] respondsToSelector:@selector(setMovable:)])
+		[[self window] setMovable:NO];
 }
 
 - (NSRect)bounds
