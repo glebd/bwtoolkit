@@ -165,12 +165,30 @@ static NSToolbar *editableToolbar;
 
 - (void)setSelectedItemIdentifier:(NSString *)itemIdentifier
 {
-	[self switchToItemAtIndex:[itemIdentifiers indexOfObject:itemIdentifier] animate:YES];
+	BOOL validIdentifier = NO;
+	
+	for (NSString *identifier in itemIdentifiers)
+	{
+		if ([identifier isEqualToString:itemIdentifier])
+			validIdentifier = YES;
+	}
+	
+	if (validIdentifier)
+		[self switchToItemAtIndex:[itemIdentifiers indexOfObject:itemIdentifier] animate:YES];
 }
 
 - (void)setSelectedItemIdentifierWithoutAnimation:(NSString *)itemIdentifier
 {
-	[self switchToItemAtIndex:[itemIdentifiers indexOfObject:itemIdentifier] animate:NO];
+	BOOL validIdentifier = NO;
+	
+	for (NSString *identifier in itemIdentifiers)
+	{
+		if ([identifier isEqualToString:itemIdentifier])
+			validIdentifier = YES;
+	}
+	
+	if (validIdentifier)
+		[self switchToItemAtIndex:[itemIdentifiers indexOfObject:itemIdentifier] animate:NO];
 }
 
 - (void)selectFirstItem
