@@ -8,20 +8,19 @@
 
 #import "BWToolbarShowFontsItem.h"
 
-static NSImage *fontsIcon;
-
 @implementation BWToolbarShowFontsItem
 
-+ (void)initialize
+- (id)initWithItemIdentifier:(NSString *)itemIdentifier
 {
-	NSBundle *bundle = [NSBundle bundleForClass:[BWToolbarShowFontsItem class]];
-	
-	fontsIcon = [[[NSImage alloc] initWithContentsOfFile:[bundle pathForImageResource:@"ToolbarItemFonts.tiff"]] copy];
-}
-
-- (NSImage *)image
-{
-	return [fontsIcon copy];
+	if (self = [super initWithItemIdentifier:itemIdentifier])
+	{
+		NSBundle *bundle = [NSBundle bundleForClass:[BWToolbarShowFontsItem class]];
+		
+		NSImage *fontsIcon = [[[NSImage alloc] initWithContentsOfFile:[bundle pathForImageResource:@"ToolbarItemFonts.tiff"]] autorelease];
+		
+		[self setImage:fontsIcon];
+	}
+	return self;
 }
 
 - (NSString *)itemIdentifier

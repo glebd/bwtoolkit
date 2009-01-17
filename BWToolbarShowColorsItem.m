@@ -8,20 +8,19 @@
 
 #import "BWToolbarShowColorsItem.h"
 
-static NSImage *colorsIcon;
-
 @implementation BWToolbarShowColorsItem
 
-+ (void)initialize
+- (id)initWithItemIdentifier:(NSString *)itemIdentifier
 {
-	NSBundle *bundle = [NSBundle bundleForClass:[BWToolbarShowColorsItem class]];
-	
-	colorsIcon = [[[NSImage alloc] initWithContentsOfFile:[bundle pathForImageResource:@"ToolbarItemColors.tiff"]] copy];
-}
-
-- (NSImage *)image
-{
-	return [colorsIcon copy];
+	if (self = [super initWithItemIdentifier:itemIdentifier])
+	{
+		NSBundle *bundle = [NSBundle bundleForClass:[BWToolbarShowColorsItem class]];
+		
+		NSImage *colorsIcon = [[[NSImage alloc] initWithContentsOfFile:[bundle pathForImageResource:@"ToolbarItemColors.tiff"]] autorelease];
+		
+		[self setImage:colorsIcon];
+	}
+	return self;
 }
 
 - (NSString *)itemIdentifier
