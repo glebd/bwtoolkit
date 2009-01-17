@@ -10,17 +10,12 @@
 
 @implementation BWToolbarShowFontsItem
 
-- (id)initWithItemIdentifier:(NSString *)itemIdentifier
+- (NSImage *)image
 {
-	if (self = [super initWithItemIdentifier:itemIdentifier])
-	{
-		NSBundle *bundle = [NSBundle bundleForClass:[BWToolbarShowFontsItem class]];
-		
-		NSImage *fontsIcon = [[[NSImage alloc] initWithContentsOfFile:[bundle pathForImageResource:@"ToolbarItemFonts.tiff"]] autorelease];
-		
-		[self setImage:fontsIcon];
-	}
-	return self;
+	NSBundle *bundle = [NSBundle bundleForClass:[BWToolbarShowFontsItem class]];
+	NSImage *image = [[[NSImage alloc] initWithContentsOfFile:[bundle pathForImageResource:@"ToolbarItemFonts.tiff"]] autorelease];
+	
+	return image;
 }
 
 - (NSString *)itemIdentifier

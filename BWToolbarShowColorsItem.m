@@ -10,17 +10,12 @@
 
 @implementation BWToolbarShowColorsItem
 
-- (id)initWithItemIdentifier:(NSString *)itemIdentifier
+- (NSImage *)image
 {
-	if (self = [super initWithItemIdentifier:itemIdentifier])
-	{
-		NSBundle *bundle = [NSBundle bundleForClass:[BWToolbarShowColorsItem class]];
-		
-		NSImage *colorsIcon = [[[NSImage alloc] initWithContentsOfFile:[bundle pathForImageResource:@"ToolbarItemColors.tiff"]] autorelease];
-		
-		[self setImage:colorsIcon];
-	}
-	return self;
+	NSBundle *bundle = [NSBundle bundleForClass:[BWToolbarShowColorsItem class]];
+	NSImage *image = [[[NSImage alloc] initWithContentsOfFile:[bundle pathForImageResource:@"ToolbarItemColors.tiff"]] autorelease];
+	
+	return image;
 }
 
 - (NSString *)itemIdentifier
