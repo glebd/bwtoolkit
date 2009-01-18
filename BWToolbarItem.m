@@ -15,11 +15,29 @@
 
 @interface NSToolbarItem (BWTIPrivate)
 - (void)_setItemIdentifier:(id)fp8;
+- (id)initWithCoder:(NSCoder *)coder;
+- (void)encodeWithCoder:(NSCoder*)coder;
 @end
 
 @implementation BWToolbarItem
 
 @synthesize identifierString;
+
+- (id)initWithCoder:(NSCoder *)coder 
+{
+    if ((self = [super initWithCoder:coder]) != nil)
+	{
+		[self setIdentifierString:[coder decodeObjectForKey:@"BWTIIdentifierString"]];
+	}
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder*)coder
+{
+	[super encodeWithCoder:coder];
+	
+	[coder encodeObject:[self identifierString] forKey:@"BWTIIdentifierString"];
+}
 
 - (void)setIdentifierString:(NSString *)aString
 {
@@ -28,7 +46,7 @@
 		[identifierString release];
 		identifierString = [aString copy];
 	}
-	
+
 	if (identifierString == nil || [identifierString isEqualToString:@""])
 		[self _setItemIdentifier:[NSString randomUUID]];
 	else
