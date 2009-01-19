@@ -251,8 +251,8 @@
 		CA960A550E75F89400308367 /* BWTokenFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA960A530E75F89400308367 /* BWTokenFieldCell.m */; };
 		CA960A560E75F8D800308367 /* BWTokenField.classdescription in Resources */ = {isa = PBXBuildFile; fileRef = CA960A4A0E75F84700308367 /* BWTokenField.classdescription */; };
 		CA960A570E75F8DD00308367 /* BWTokenFieldCell.classdescription in Resources */ = {isa = PBXBuildFile; fileRef = CA960A4C0E75F85800308367 /* BWTokenFieldCell.classdescription */; };
-		CA960A7E0E76766E00308367 /* NSTokenAttachmentCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA960A7C0E76766E00308367 /* NSTokenAttachmentCell.h */; };
-		CA960A7F0E76766E00308367 /* NSTokenAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = CA960A7D0E76766E00308367 /* NSTokenAttachment.h */; };
+		CA960A7E0E76766E00308367 /* NSTokenAttachmentCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA960A7C0E76766E00308367 /* NSTokenAttachmentCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA960A7F0E76766E00308367 /* NSTokenAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = CA960A7D0E76766E00308367 /* NSTokenAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA960AAB0E7676E000308367 /* BWTokenAttachmentCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA960AA90E7676E000308367 /* BWTokenAttachmentCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA960AAC0E7676E000308367 /* BWTokenAttachmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA960AAA0E7676E000308367 /* BWTokenAttachmentCell.m */; };
 		CA9918340DF4DA5200FE0577 /* BWButtonBarLibrary.nib in Resources */ = {isa = PBXBuildFile; fileRef = CA9918330DF4DA5200FE0577 /* BWButtonBarLibrary.nib */; };
@@ -274,6 +274,7 @@
 		CAD1E00D0E1B476C005E4CBF /* Inspector-ButtonBarMode3Pressed.tif in Resources */ = {isa = PBXBuildFile; fileRef = CAD1E00C0E1B476C005E4CBF /* Inspector-ButtonBarMode3Pressed.tif */; };
 		CAD1E0130E1B4C2C005E4CBF /* Inspector-ButtonBarMode1Pressed.tif in Resources */ = {isa = PBXBuildFile; fileRef = CAD1E0120E1B4C2C005E4CBF /* Inspector-ButtonBarMode1Pressed.tif */; };
 		CAD1E0190E1B7425005E4CBF /* Library-SelectableToolbar.tif in Resources */ = {isa = PBXBuildFile; fileRef = CAD1E0180E1B7425005E4CBF /* Library-SelectableToolbar.tif */; };
+		CAD38BB60F2453250022131D /* BWToolkitFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = CAD38BB50F2453250022131D /* BWToolkitFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAEA804D0ED0A73E0062B378 /* BWToolbarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEA804B0ED0A73E0062B378 /* BWToolbarItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAEA804E0ED0A73E0062B378 /* BWToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEA804C0ED0A73E0062B378 /* BWToolbarItem.m */; };
 		CAEA80500ED0A75E0062B378 /* BWToolbarItem.classdescription in Resources */ = {isa = PBXBuildFile; fileRef = CAEA804F0ED0A7500062B378 /* BWToolbarItem.classdescription */; };
@@ -585,6 +586,9 @@
 		CAD1E00C0E1B476C005E4CBF /* Inspector-ButtonBarMode3Pressed.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Inspector-ButtonBarMode3Pressed.tif"; sourceTree = "<group>"; };
 		CAD1E0120E1B4C2C005E4CBF /* Inspector-ButtonBarMode1Pressed.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Inspector-ButtonBarMode1Pressed.tif"; sourceTree = "<group>"; };
 		CAD1E0180E1B7425005E4CBF /* Library-SelectableToolbar.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Library-SelectableToolbar.tif"; sourceTree = "<group>"; };
+		CAD38BB50F2453250022131D /* BWToolkitFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWToolkitFramework.h; sourceTree = "<group>"; };
+		CAD38BF10F2456C30022131D /* License.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
+		CAD38BF20F2456D70022131D /* Release Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Release Notes.rtf"; sourceTree = "<group>"; };
 		CAEA804B0ED0A73E0062B378 /* BWToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWToolbarItem.h; sourceTree = "<group>"; };
 		CAEA804C0ED0A73E0062B378 /* BWToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWToolbarItem.m; sourceTree = "<group>"; };
 		CAEA804F0ED0A7500062B378 /* BWToolbarItem.classdescription */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BWToolbarItem.classdescription; sourceTree = "<group>"; };
@@ -634,6 +638,8 @@
 		0259C582FE90428111CA0C5A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CAD38BF20F2456D70022131D /* Release Notes.rtf */,
+				CAD38BF10F2456C30022131D /* License.rtf */,
 				8D1AC9730486D14A00FE50C9 /* Info.plist */,
 				53DF68FE067E5B5A0090B5B0 /* BWToolkitFramework-Info.plist */,
 				8D1AC97F0486D23B00FE50C9 /* InfoPlist.strings */,
@@ -1026,6 +1032,7 @@
 		CA630AAD0DC7F8ED00AD7F9E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CAD38BB50F2453250022131D /* BWToolkitFramework.h */,
 				CA960A4D0E75F87500308367 /* Token Field */,
 				CA4A50D80E1DC79000BC7395 /* Sheet Controller */,
 				CA325ABD0DCAB76C001446BB /* Button Bar */,
@@ -1274,6 +1281,7 @@
 				CA3A18890ECA9E86000C3A43 /* BWTransparentTextFieldCell.h in Headers */,
 				CAEA804D0ED0A73E0062B378 /* BWToolbarItem.h in Headers */,
 				CA66C0F70EF79AC0005EE9A5 /* NSString+BWAdditions.h in Headers */,
+				CAD38BB60F2453250022131D /* BWToolkitFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
