@@ -17,8 +17,9 @@
 	[sheet setAlphaValue:0];
 	[sheet performSelector:@selector(orderOut:) withObject:nil afterDelay:0];
 	
-	// If the sheet has a toolbar, make sure it isn't movable (private API)
-	[sheet setMovable:NO];
+	// If the sheet has a toolbar or a bottom bar, make sure those elements can't move the window (private API)
+	if ([sheet respondsToSelector:@selector(setMovable:)])
+		[sheet setMovable:NO];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder;
@@ -59,7 +60,7 @@
 {
 	if (delegate != nil && [delegate respondsToSelector:@selector(shouldCloseSheet:)])
 	{	
-		if ([delegate performSelector:@selector(shouldCloseSheet:) withObject:sheet])	
+		if ([delegate performSelector:@selector(shouldCloseSheet:) withObject:sender])	
 			[self closeSheet:self];
 	}
 	else

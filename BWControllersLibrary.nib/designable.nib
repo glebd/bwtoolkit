@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.03">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">9E17</string>
+		<string key="IBDocument.SystemVersion">9G55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">677</string>
-		<string key="IBDocument.AppKitVersion">949.33</string>
-		<string key="IBDocument.HIToolboxVersion">352.00</string>
+		<string key="IBDocument.AppKitVersion">949.43</string>
+		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="7"/>
@@ -151,7 +151,7 @@
 						<string key="identifier">FB2E7CB9-EA98-4C6F-B4EE-7CFA4E1599D2</string>
 						<string key="briefDescription">Controller object for loading and dismissing sheets.</string>
 						<object class="NSAttributedString" key="fullDescription">
-							<string key="NSString">Controller object for loading and dismissing sheets. To use, connect its outlets and actions. Optionally, you can connect the delegate outlet if you want to execute code when an action occurs on the sheet. The delegate should implement the method -(BOOL)shouldCloseSheet:(NSWindow *)sheet.</string>
+							<string key="NSString">Controller object for loading and dismissing sheets. To use, connect its outlets and actions. Optionally, you can connect the delegate outlet if you want to execute code when an action occurs on the sheet. The delegate should implement the method -(BOOL)shouldCloseSheet:(id)sender.</string>
 							<object class="NSMutableArray" key="NSAttributes">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSDictionary">
@@ -258,7 +258,7 @@
 								</object>
 							</object>
 							<object class="NSMutableData" key="NSAttributeInfo">
-								<bytes key="NS.bytes">9wEAAgEEAhMBCAMDAQYEA</bytes>
+								<bytes key="NS.bytes">9wEAAgEEAhUBBwMBBA</bytes>
 							</object>
 						</object>
 						<string key="initialCategoryPath">Controllers</string>
@@ -450,7 +450,7 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>closeSheet:</string>
-							<string>closeSheetAndMessageDelegate:</string>
+							<string>messageDelegateAndCloseSheet:</string>
 							<string>openSheet:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
