@@ -237,7 +237,11 @@ static float scaleFactor = 1.0f;
 		[transform concat];
 		
 		[shadowImage drawAtPoint:shadowPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
-		[glyphImage drawAtPoint:drawPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
+		
+		if ([self isEnabled])
+			[glyphImage drawAtPoint:drawPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
+		else
+			[glyphImage drawAtPoint:drawPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:0.5];
 		
 		[transform invert];
 		[transform concat];
