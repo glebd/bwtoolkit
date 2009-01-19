@@ -44,6 +44,7 @@ static NSToolbar *editableToolbar;
 @interface BWSelectableToolbar ()
 @property (retain) BWSelectableToolbarHelper *helper;
 @property (copy) NSMutableArray *labels;
+@property (copy) NSMutableDictionary *enabledByIdentifier;
 @property BOOL isPreferencesToolbar;
 @end
 
@@ -52,6 +53,7 @@ static NSToolbar *editableToolbar;
 @synthesize helper;
 @synthesize labels;
 @synthesize isPreferencesToolbar;
+@synthesize enabledByIdentifier;
 
 - (BWSelectableToolbar *)documentToolbar
 {
@@ -93,6 +95,7 @@ static NSToolbar *editableToolbar;
 		[self setDocumentToolbar:[decoder decodeObjectForKey:@"BWSTDocumentToolbar"]];
 		[self setHelper:[decoder decodeObjectForKey:@"BWSTHelper"]];
 		isPreferencesToolbar = [decoder decodeBoolForKey:@"BWSTIsPreferencesToolbar"];
+		[self setEnabledByIdentifier:[decoder decodeObjectForKey:@"BWSTEnabledByIdentifier"]];
 		
 //		NSLog(@"init with coder. helper decoded: %@", helper);
 	}
@@ -106,6 +109,7 @@ static NSToolbar *editableToolbar;
 	[coder encodeObject:[self documentToolbar] forKey:@"BWSTDocumentToolbar"];
 	[coder encodeObject:[self helper] forKey:@"BWSTHelper"];
 	[coder encodeBool:isPreferencesToolbar forKey:@"BWSTIsPreferencesToolbar"];
+	[coder encodeObject:[self enabledByIdentifier] forKey:@"BWSTEnabledByIdentifier"];
 	
 //	NSLog(@"encode with coder. helper encoded: %@",helper);
 }
@@ -135,7 +139,7 @@ static NSToolbar *editableToolbar;
 	if (self = [super initWithIdentifier:identifier])
 	{		
 		itemIdentifiers = [[NSMutableArray alloc] init];
-        itemsByIdentifier = [[NSMutableDictionary alloc] init];  
+        itemsByIdentifier = [[NSMutableDictionary alloc] init];
 		labels = [NSMutableArray array];
 		
 		selectedIndex = 0;
@@ -161,34 +165,6 @@ static NSToolbar *editableToolbar;
 		
 		[self performSelector:@selector(selectInitialItem) withObject:nil afterDelay:0];
 	}
-}
-
-- (void)setSelectedItemIdentifier:(NSString *)itemIdentifier
-{
-	BOOL validIdentifier = NO;
-	
-	for (NSString *identifier in itemIdentifiers)
-	{
-		if ([identifier isEqualToString:itemIdentifier])
-			validIdentifier = YES;
-	}
-	
-	if (validIdentifier)
-		[self switchToItemAtIndex:[itemIdentifiers indexOfObject:itemIdentifier] animate:YES];
-}
-
-- (void)setSelectedItemIdentifierWithoutAnimation:(NSString *)itemIdentifier
-{
-	BOOL validIdentifier = NO;
-	
-	for (NSString *identifier in itemIdentifiers)
-	{
-		if ([identifier isEqualToString:itemIdentifier])
-			validIdentifier = YES;
-	}
-	
-	if (validIdentifier)
-		[self switchToItemAtIndex:[itemIdentifiers indexOfObject:itemIdentifier] animate:NO];
 }
 
 - (void)selectFirstItem
@@ -361,8 +337,74 @@ static NSToolbar *editableToolbar;
 												  object:[[self editableToolbar] _window]];
 	[itemIdentifiers release];
 	[itemsByIdentifier release];
+	[enabledByIdentifier release];
 	[labels release];
     [super dealloc];
+}
+
+#pragma mark Public Methods
+
+- (void)setSelectedItemIdentifier:(NSString *)itemIdentifier
+{
+	BOOL validIdentifier = NO;
+	
+	for (NSString *identifier in itemIdentifiers)
+	{
+		if ([identifier isEqualToString:itemIdentifier])
+			validIdentifier = YES;
+	}
+	
+	if (validIdentifier)
+		[self switchToItemAtIndex:[itemIdentifiers indexOfObject:itemIdentifier] animate:YES];
+}
+
+- (void)setSelectedItemIdentifierWithoutAnimation:(NSString *)itemIdentifier
+{
+	BOOL validIdentifier = NO;
+	
+	for (NSString *identifier in itemIdentifiers)
+	{
+		if ([identifier isEqualToString:itemIdentifier])
+			validIdentifier = YES;
+	}
+	
+	if (validIdentifier)
+		[self switchToItemAtIndex:[itemIdentifiers indexOfObject:itemIdentifier] animate:NO];
+}
+
+- (void)setEnabled:(BOOL)flag forIdentifier:(NSString *)itemIdentifier
+{
+	NSMutableDictionary *enabledDict = [[self enabledByIdentifier] mutableCopy];
+	
+	[enabledDict setObject:[NSNumber numberWithBool:flag] forKey:itemIdentifier];
+	
+	[self setEnabledByIdentifier:enabledDict];
+}
+
+#pragma mark Public Method Support Methods
+
+- (BOOL)validateToolbarItem:(NSToolbarItem *)theItem
+{
+	if ([self respondsToSelector:@selector(ibDidAddToDesignableDocument:)] == NO)
+	{
+		NSString *identifier = [theItem itemIdentifier];		
+		
+		if ([[self enabledByIdentifier] objectForKey:identifier] != nil)
+		{
+			if ([[[self enabledByIdentifier] objectForKey:identifier] boolValue] == NO)
+				return NO;
+		}
+	}
+	
+	return YES;
+}
+
+- (NSMutableDictionary *)enabledByIdentifier
+{
+	if (enabledByIdentifier == nil)
+		enabledByIdentifier = [NSMutableDictionary new];
+	
+    return [[enabledByIdentifier retain] autorelease]; 
 }
 
 #pragma mark NSWindow notifications
