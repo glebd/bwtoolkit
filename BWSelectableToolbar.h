@@ -22,7 +22,6 @@ extern NSString * const BWSelectableToolbarItemClickedNotification;
 	BOOL inIB;
 	
 	// For the IB inspector
-	NSMutableArray *labels;
 	int selectedIndex;
 	BOOL isPreferencesToolbar;
 }

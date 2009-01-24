@@ -43,7 +43,7 @@ static NSToolbar *editableToolbar;
 
 @interface BWSelectableToolbar ()
 @property (retain) BWSelectableToolbarHelper *helper;
-@property (copy) NSMutableArray *labels;
+@property (readonly) NSMutableArray *labels;
 @property (copy) NSMutableDictionary *enabledByIdentifier;
 @property BOOL isPreferencesToolbar;
 @end
@@ -51,7 +51,6 @@ static NSToolbar *editableToolbar;
 @implementation BWSelectableToolbar
 
 @synthesize helper;
-@synthesize labels;
 @synthesize isPreferencesToolbar;
 @synthesize enabledByIdentifier;
 
@@ -140,7 +139,6 @@ static NSToolbar *editableToolbar;
 	{		
 		itemIdentifiers = [[NSMutableArray alloc] init];
         itemsByIdentifier = [[NSMutableDictionary alloc] init];
-		labels = [NSMutableArray array];
 		
 		selectedIndex = 0;
 		inIB = YES;
@@ -338,7 +336,7 @@ static NSToolbar *editableToolbar;
 	[itemIdentifiers release];
 	[itemsByIdentifier release];
 	[enabledByIdentifier release];
-	[labels release];
+	[helper release];
     [super dealloc];
 }
 
@@ -515,7 +513,7 @@ static NSToolbar *editableToolbar;
 
 - (NSMutableArray *)labels
 {	
-	NSMutableArray *labelArray = [[NSMutableArray alloc] init];
+	NSMutableArray *labelArray = [NSMutableArray array];
 	
 	for (NSToolbarItem *currentItem in [[self editableToolbar] items]) 
 	{
@@ -527,7 +525,7 @@ static NSToolbar *editableToolbar;
 		}
 	}
 	
-	return [[labelArray retain] autorelease];
+	return labelArray;
 }
 
 - (int)selectedIndex
