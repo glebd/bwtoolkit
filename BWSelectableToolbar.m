@@ -246,11 +246,11 @@ static NSToolbar *editableToolbar;
 	if ([self isMemberOfClass:NSClassFromString(@"IBEditableBWSelectableToolbar")])
 	{
 		// When the toolbar is initially dragged onto the canvas, record the content view and size of the window		
-		NSMutableDictionary *tempCVBI = [[helper contentViewsByIdentifier] mutableCopy];
+		NSMutableDictionary *tempCVBI = [[[helper contentViewsByIdentifier] mutableCopy] autorelease];
 		[tempCVBI setObject:[[[self editableToolbar] _window] contentView] forKey:[helper selectedIdentifier]];
 		[helper setContentViewsByIdentifier:tempCVBI];
 		
-		NSMutableDictionary *tempWSBI = [[helper windowSizesByIdentifier] mutableCopy];	
+		NSMutableDictionary *tempWSBI = [[[helper windowSizesByIdentifier] mutableCopy] autorelease];	
 		[tempWSBI setObject:[NSValue valueWithSize:[[[self editableToolbar] _window] frame].size] forKey:[helper selectedIdentifier]];
 		[helper setWindowSizesByIdentifier:tempWSBI];
 	}
@@ -374,7 +374,7 @@ static NSToolbar *editableToolbar;
 
 - (void)setEnabled:(BOOL)flag forIdentifier:(NSString *)itemIdentifier
 {
-	NSMutableDictionary *enabledDict = [[self enabledByIdentifier] mutableCopy];
+	NSMutableDictionary *enabledDict = [[[self enabledByIdentifier] mutableCopy] autorelease];
 	
 	[enabledDict setObject:[NSNumber numberWithBool:flag] forKey:itemIdentifier];
 	
@@ -417,7 +417,7 @@ static NSToolbar *editableToolbar;
 	
 	if ([helper selectedIdentifier])
 	{
-		NSMutableDictionary *tempWSBI = [[helper windowSizesByIdentifier] mutableCopy];	
+		NSMutableDictionary *tempWSBI = [[[helper windowSizesByIdentifier] mutableCopy] autorelease];	
 		[tempWSBI setObject:sizeValue forKey:key];
 		[helper setWindowSizesByIdentifier:tempWSBI];
 	}
@@ -557,7 +557,7 @@ static NSToolbar *editableToolbar;
 	[(BWSelectableToolbar *)[self editableToolbar] selectItemAtIndex:anIndex];
 
 	// Make a new container view and add it to the IB document
-	NSView *containerView = [[NSView alloc] initWithFrame:[[[[self editableToolbar] _window] contentView] frame]];
+	NSView *containerView = [[[NSView alloc] initWithFrame:[[[[self editableToolbar] _window] contentView] frame]] autorelease];
 	if (inIB)
 		[self addObject:containerView toParent:[self parentOfObject:self]];
 	
@@ -571,12 +571,12 @@ static NSToolbar *editableToolbar;
 	}
 	
 	// Store the container view and window size in the dictionaries
-	NSMutableDictionary *tempCVBI = [[helper contentViewsByIdentifier] mutableCopy];
+	NSMutableDictionary *tempCVBI = [[[helper contentViewsByIdentifier] mutableCopy] autorelease];
 	[tempCVBI setObject:containerView forKey:oldIdentifier];
 	[helper setContentViewsByIdentifier:tempCVBI];
 	
 	NSSize oldWindowSize = [[[self editableToolbar] _window] frame].size;
-	NSMutableDictionary *tempWSBI = [[helper windowSizesByIdentifier] mutableCopy];
+	NSMutableDictionary *tempWSBI = [[[helper windowSizesByIdentifier] mutableCopy] autorelease];
 	[tempWSBI setObject:[NSValue valueWithSize:oldWindowSize] forKey:oldIdentifier];
 	[helper setWindowSizesByIdentifier:tempWSBI];
 
@@ -591,11 +591,11 @@ static NSToolbar *editableToolbar;
 		// Record the new tab content view and window size
 		if (inIB)
 		{
-			NSMutableDictionary *tempCVBI = [[helper contentViewsByIdentifier] mutableCopy];
+			NSMutableDictionary *tempCVBI = [[[helper contentViewsByIdentifier] mutableCopy] autorelease];
 			[tempCVBI setObject:[[[self editableToolbar] _window] contentView] forKey:newIdentifier];
 			[helper setContentViewsByIdentifier:tempCVBI];
 			
-			NSMutableDictionary *tempWSBI = [[helper windowSizesByIdentifier] mutableCopy];	
+			NSMutableDictionary *tempWSBI = [[[helper windowSizesByIdentifier] mutableCopy] autorelease];	
 			[tempWSBI setObject:[NSValue valueWithSize:[[[self editableToolbar] _window] frame].size] forKey:newIdentifier];
 			[helper setWindowSizesByIdentifier:tempWSBI];
 		}
