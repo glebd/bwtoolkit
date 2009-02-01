@@ -27,7 +27,7 @@
 
 // A certain mode of this bar makes use of some NSSplitView delegate methods. Use the splitViewDelegate for any custom delegate implementations
 // you'd like to provide.
-@property (copy) id splitViewDelegate;
+@property (assign) id splitViewDelegate;
 
 + (BOOL)wasBorderedBar;
 

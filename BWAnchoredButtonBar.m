@@ -310,7 +310,7 @@ static float scaleFactor = 0.0f;
 	
 	NSRect newFrame = [sender frame];
 	float totalDividerThickness = [sender dividerThickness] * ([[sender subviews] count] - 1);
-	float totalSubviewWidth;
+	float totalSubviewWidth = 0.0;
 	
 	// Sum the total width of the views except for the right most one
 	int i;
@@ -327,19 +327,26 @@ static float scaleFactor = 0.0f;
 	NSRect lastViewFrame = [lastView frame];
 	lastViewFrame.size.height = newFrame.size.height;
 	lastViewFrame.size.width = newFrame.size.width - totalDividerThickness - totalSubviewWidth;
+	lastViewFrame.origin.x = totalDividerThickness + totalSubviewWidth;
 	
 	// Workaround for a bug
 	if (newFrame.size.width - totalDividerThickness - totalSubviewWidth == lastViewFrame.size.width)
 	{
 		// Set frames on all views except the right most view
+		float subTotalSubviewWidth = 0;
 		int j;
 		for (j = 0; j < [sender subviews].count - 1; j++)
 		{
 			NSView *view = [[sender subviews] objectAtIndex:j];
 			NSRect viewFrame = [view frame];
 			viewFrame.size.height = newFrame.size.height;
+			viewFrame.origin.x = subTotalSubviewWidth;
 			[view setFrame:viewFrame];
+			
+			subTotalSubviewWidth += viewFrame.size.width + [sender dividerThickness];
 		}
+		
+		assert(subTotalSubviewWidth == totalDividerThickness + totalSubviewWidth);
 		
 		// Set frame on the right most view
 		[lastView setFrame:lastViewFrame];
