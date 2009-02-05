@@ -65,11 +65,13 @@ static float imageInset = 25;
 - (void)setSliderToMinimum
 {
 	[self setDoubleValue:[self minValue]];
+	[self sendAction:[self action] to:[self target]];
 }
 
 - (void)setSliderToMaximum
 {
 	[self setDoubleValue:[self maxValue]];
+	[self sendAction:[self action] to:[self target]];
 }
 
 - (NSView *)hitTest:(NSPoint)aPoint
