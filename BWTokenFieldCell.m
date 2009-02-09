@@ -19,6 +19,7 @@
 	[attachmentCell setAttachment:[aCell attachment]];
 	[attachmentCell setControlSize:[self controlSize]];
 	[attachmentCell setTextColor:[NSColor blackColor]];
+	[attachmentCell setFont:[self font]];
 	
 	return [attachmentCell autorelease];
 }
