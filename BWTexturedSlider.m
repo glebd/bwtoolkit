@@ -76,7 +76,6 @@ static float imageInset = 25;
 
 - (NSView *)hitTest:(NSPoint)aPoint
 {
-	NSLog(@"index: %d",[self indicatorIndex]);
 	if ([self indicatorIndex] == 0)
 		return [super hitTest:aPoint];
 	
