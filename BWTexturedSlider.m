@@ -34,10 +34,7 @@ static float imageInset = 25;
 	{
 		indicatorIndex = [decoder decodeIntForKey:@"BWTSIndicatorIndex"];
 		[self setMinButton:[decoder decodeObjectForKey:@"BWTSMinButton"]];
-		[self setMaxButton:[decoder decodeObjectForKey:@"BWTSMaxButton"]];
-		
-		minButtonRect = NSMakeRect(0, 0, imageInset, self.bounds.size.height);
-		maxButtonRect = NSMakeRect(NSMaxX(self.bounds) - imageInset, 0, imageInset, self.bounds.size.height);		
+		[self setMaxButton:[decoder decodeObjectForKey:@"BWTSMaxButton"]];	
 	}
 	return self;
 }
@@ -81,9 +78,9 @@ static float imageInset = 25;
 	
 	NSPoint convertedPoint = [self convertPoint:aPoint fromView:nil];
 	
-	if (NSPointInRect(convertedPoint, minButtonRect))
+	if (NSPointInRect(convertedPoint, minButton.frame))
 		return minButton;
-	else if (NSPointInRect(convertedPoint, maxButtonRect))
+	else if (NSPointInRect(convertedPoint, maxButton.frame))
 		return maxButton;
 	else
 		return [super hitTest:aPoint];

@@ -11,7 +11,7 @@
 @interface BWTexturedSlider : NSSlider
 {
 	int trackHeight, indicatorIndex;
-	NSRect sliderCellRect, minButtonRect, maxButtonRect;
+	NSRect sliderCellRect;
 	NSButton *minButton, *maxButton;
 }
 
