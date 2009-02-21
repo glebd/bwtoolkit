@@ -554,6 +554,9 @@ static NSToolbar *editableToolbar;
 	// Put the selection highlight on the toolbar item
 	[(BWSelectableToolbar *)[self editableToolbar] selectItemAtIndex:anIndex];
 
+	// Clear out the window's first responder
+	[[[self editableToolbar] _window] makeFirstResponder:nil];
+	
 	// Make a new container view and add it to the IB document
 	NSView *containerView = [[[NSView alloc] initWithFrame:[[[[self editableToolbar] _window] contentView] frame]] autorelease];
 	if (inIB)
