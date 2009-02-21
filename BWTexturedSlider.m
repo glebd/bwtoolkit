@@ -184,8 +184,27 @@ static float imageInset = 25;
 
 - (void)scrollWheel:(NSEvent*)event
 {
-	[self setFloatValue:[self floatValue] + [event deltaY]];
-	[self sendAction:[self action] to:[self target]];
+	/* Scroll wheel movement appears to be specified in terms of pixels, and 
+	   definitely not in terms of the values that the slider contains.  Because 
+	   of this, we'll have to map our current value to pixel space, adjust the 
+	   pixel space value, and then map back to value space again. */
+	
+	CGFloat valueRange = [self maxValue] - [self minValue];
+	CGFloat valueOffset = [self doubleValue] - [self minValue];
+	CGFloat pixelRange = [self isVertical] ? NSHeight([self frame]) : NSWidth([self frame]);
+	 
+	CGFloat valueInPixelSpace = ((valueOffset / valueRange) * pixelRange);
+	 
+	/* deltaX and deltaY are 'flipped' from what you'd expect. Scrolling down 
+	   produces + Y values, and scrolling left produces + X values. Because we
+	   want left/down scrolling to decrease the value, we adjust accordingly. */
+	valueInPixelSpace += [event deltaY];
+	valueInPixelSpace -= [event deltaX];
+	 
+	double newValue = [self minValue] + ((valueInPixelSpace / pixelRange) * valueRange);
+	
+	[self setFloatValue:newValue];
+ 	[self sendAction:[self action] to:[self target]];
 }
 
 - (void)dealloc
