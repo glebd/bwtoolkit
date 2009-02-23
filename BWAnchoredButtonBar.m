@@ -26,7 +26,7 @@ static float scaleFactor = 0.0f;
 
 @implementation BWAnchoredButtonBar
 
-@synthesize selectedIndex, isAtBottom, isResizable, selectedMinWidthUnit, selectedMaxWidthUnit, minWidth, maxWidth, splitViewDelegate;
+@synthesize selectedIndex, isAtBottom, isResizable, splitViewDelegate;
 
 + (void)initialize;
 {
@@ -69,10 +69,6 @@ static float scaleFactor = 0.0f;
 		[self setIsResizable:[decoder decodeBoolForKey:@"BWABBIsResizable"]];
 		[self setIsAtBottom:[decoder decodeBoolForKey:@"BWABBIsAtBottom"]];
 		[self setSelectedIndex:[decoder decodeIntForKey:@"BWABBSelectedIndex"]];
-		[self setSelectedMinWidthUnit:[decoder decodeIntForKey:@"BWABBSelectedMinWidthUnit"]];
-		[self setSelectedMaxWidthUnit:[decoder decodeIntForKey:@"BWABBSelectedMaxWidthUnit"]];
-		[self setMinWidth:[decoder decodeObjectForKey:@"BWABBMinWidth"]];
-		[self setMaxWidth:[decoder decodeObjectForKey:@"BWABBMaxWidth"]];
 	}
 	return self;
 }
@@ -84,10 +80,6 @@ static float scaleFactor = 0.0f;
 	[coder encodeBool:[self isResizable] forKey:@"BWABBIsResizable"];
 	[coder encodeBool:[self isAtBottom] forKey:@"BWABBIsAtBottom"];
 	[coder encodeInt:[self selectedIndex] forKey:@"BWABBSelectedIndex"];
-	[coder encodeInt:[self selectedMinWidthUnit] forKey:@"BWABBSelectedMinWidthUnit"];
-	[coder encodeInt:[self selectedMaxWidthUnit] forKey:@"BWABBSelectedMaxWidthUnit"];
-	[coder encodeObject:[self minWidth] forKey:@"BWABBMinWidth"];
-	[coder encodeObject:[self maxWidth] forKey:@"BWABBMaxWidth"];
 }
 
 - (void)awakeFromNib
@@ -238,13 +230,6 @@ static float scaleFactor = 0.0f;
 	return wasBorderedBar;
 }
 
--(void)dealloc
-{
-	[minWidth release];
-	[maxWidth release];
-	[super dealloc];
-}
-
 #pragma mark NSSplitView Delegate Methods
 
 // Add the resize handle rect to the split view hot zone
@@ -262,102 +247,31 @@ static float scaleFactor = 0.0f;
 	return paddedHandleRect;
 }
 
-// Set the min width of the left most pane
+// Remaining delegate methods. They test for an implementation by the splitViewDelegate (otherwise perform default behavior)
+
 - (CGFloat)splitView:(NSSplitView *)sender constrainMinCoordinate:(CGFloat)proposedMin ofSubviewAt:(NSInteger)offset
 {
 	if ([splitViewDelegate respondsToSelector:@selector(splitView:constrainMinCoordinate:ofSubviewAt:)])
 		return [splitViewDelegate splitView:sender constrainMinCoordinate:proposedMin ofSubviewAt:offset];
 	
-	if (minWidth != nil && offset == 0)
-	{
-		if (selectedMinWidthUnit == 0) // Points
-			return [minWidth floatValue];
-		else if (selectedMinWidthUnit == 1) // %
-		{
-			float splitViewWidth = [sender bounds].size.width;
-			return splitViewWidth * [minWidth floatValue] * 0.01;
-		}
-	}
-	
-	return 0.0;
+	return proposedMin;
 }
 
-// Set the max width of the left most pane
 - (CGFloat)splitView:(NSSplitView *)sender constrainMaxCoordinate:(CGFloat)proposedMax ofSubviewAt:(NSInteger)offset
 {
 	if ([splitViewDelegate respondsToSelector:@selector(splitView:constrainMaxCoordinate:ofSubviewAt:)])
 		return [splitViewDelegate splitView:sender constrainMaxCoordinate:proposedMax ofSubviewAt:offset];
 	
-	if (maxWidth != nil && offset == 0)
-	{
-		if (selectedMaxWidthUnit == 0) // Points
-			return [maxWidth floatValue];
-		else if (selectedMaxWidthUnit == 1) // %
-		{
-			float splitViewWidth = [sender bounds].size.width;
-			return splitViewWidth * [maxWidth floatValue] * 0.01;
-		}
-	}
-	
-	return [sender bounds].size.width;
+	return proposedMax;
 }
 
-// When the window resizes, keep all of the split view subviews at a constant width except for the right most view
 - (void)splitView:(NSSplitView*)sender resizeSubviewsWithOldSize:(NSSize)oldSize
 {
 	if ([splitViewDelegate respondsToSelector:@selector(splitView:resizeSubviewsWithOldSize:)])
 		return [splitViewDelegate splitView:sender resizeSubviewsWithOldSize:oldSize];
 	
-	NSRect newFrame = [sender frame];
-	float totalDividerThickness = [sender dividerThickness] * ([[sender subviews] count] - 1);
-	float totalSubviewWidth = 0.0;
-	
-	// Sum the total width of the views except for the right most one
-	int i;
-	for (i = 0; i < [sender subviews].count - 1; i++)
-	{
-		NSView *view = [[sender subviews] objectAtIndex:i];
-		NSRect viewFrame = [view frame];
-		
-		totalSubviewWidth += viewFrame.size.width;
-	}
-	
-	// Calculate the frame for the right most view
-	NSView *lastView = [[sender subviews] lastObject];
-	NSRect lastViewFrame = [lastView frame];
-	lastViewFrame.size.height = newFrame.size.height;
-	lastViewFrame.size.width = newFrame.size.width - totalDividerThickness - totalSubviewWidth;
-	lastViewFrame.origin.x = totalDividerThickness + totalSubviewWidth;
-	
-	// Workaround for a bug
-	if (newFrame.size.width - totalDividerThickness - totalSubviewWidth == lastViewFrame.size.width)
-	{
-		// Set frames on all views except the right most view
-		float subTotalSubviewWidth = 0;
-		int j;
-		for (j = 0; j < [sender subviews].count - 1; j++)
-		{
-			NSView *view = [[sender subviews] objectAtIndex:j];
-			NSRect viewFrame = [view frame];
-			viewFrame.size.height = newFrame.size.height;
-			viewFrame.origin.x = subTotalSubviewWidth;
-			[view setFrame:viewFrame];
-			
-			subTotalSubviewWidth += viewFrame.size.width + [sender dividerThickness];
-		}
-		
-		assert(subTotalSubviewWidth == totalDividerThickness + totalSubviewWidth);
-		
-		// Set frame on the right most view
-		[lastView setFrame:lastViewFrame];
-	}
-	else
-	{
-		[sender adjustSubviews];
-	}
+	[sender adjustSubviews];
 }
-
-// Remaining delegate methods. They test for an implementation by the splitViewDelegate (otherwise perform default behavior)
 
 - (BOOL)splitView:(NSSplitView *)sender canCollapseSubview:(NSView *)subview
 {
@@ -387,6 +301,14 @@ static float scaleFactor = 0.0f;
 {
 	if ([splitViewDelegate respondsToSelector:@selector(splitView:shouldCollapseSubview:forDoubleClickOnDividerAtIndex:)])
 		return [splitViewDelegate splitView:splitView shouldCollapseSubview:subview forDoubleClickOnDividerAtIndex:dividerIndex];
+	
+	return NO;
+}
+
+- (BOOL)splitView:(NSSplitView *)splitView shouldHideDividerAtIndex:(NSInteger)dividerIndex
+{
+	if ([splitViewDelegate respondsToSelector:@selector(splitView:shouldHideDividerAtIndex:)])
+		return [splitViewDelegate splitView:splitView shouldHideDividerAtIndex:dividerIndex];
 	
 	return NO;
 }

@@ -16,26 +16,13 @@
 - (void)ibPopulateKeyPaths:(NSMutableDictionary *)keyPaths {
     [super ibPopulateKeyPaths:keyPaths];
 
-    [[keyPaths objectForKey:IBAttributeKeyPaths] addObjectsFromArray:[NSArray arrayWithObjects:@"selectedIndex", @"selectedMinWidthUnit", @"selectedMaxWidthUnit", @"minWidth", @"maxWidth", nil]];
+    [[keyPaths objectForKey:IBAttributeKeyPaths] addObjectsFromArray:[NSArray arrayWithObjects:@"selectedIndex", nil]];
 }
 
 - (void)ibPopulateAttributeInspectorClasses:(NSMutableArray *)classes {
     [super ibPopulateAttributeInspectorClasses:classes];
 
     [classes addObject:[BWAnchoredButtonBarInspector class]];
-}
-
-// Provide default values. A min width of 135 pt and a max width of 60% of the window width.
-- (void)ibDidAddToDesignableDocument:(IBDocument *)document
-{
-	[super ibDidAddToDesignableDocument:document];
-	
-	if ([self maxWidth] == nil && [self minWidth] == nil && [self selectedMinWidthUnit] == 0 && [self selectedMaxWidthUnit] == 0)
-	{
-		[self setSelectedMaxWidthUnit:1];
-		[self setMinWidth:[NSNumber numberWithInt:135]];
-		[self setMaxWidth:[NSNumber numberWithInt:60]];
-	}
 }
 
 - (NSArray *)ibDefaultChildren
