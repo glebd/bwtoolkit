@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.03">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">9F33</string>
+		<string key="IBDocument.SystemVersion">9G55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">677</string>
-		<string key="IBDocument.AppKitVersion">949.34</string>
-		<string key="IBDocument.HIToolboxVersion">352.00</string>
+		<string key="IBDocument.AppKitVersion">949.43</string>
+		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="7"/>
@@ -151,7 +151,7 @@
 						<string key="identifier">4441130C-85E3-495B-A733-21AC7F883A78</string>
 						<string type="base64-UTF8" key="briefDescription">Q29sb3JzIHRvb2xiYXIgaWNvbiBmcm9tIGlXb3JrICcwOC4</string>
 						<object class="NSAttributedString" key="fullDescription">
-							<string type="base64-UTF8" key="NSString">Q29sb3JzIHRvb2xiYXIgaWNvbiBmcm9tIGlXb3JrICcwOC4gTW9yZSBhcHByb3ByaWF0ZSBmb3IgTGVv
+							<string type="base64-UTF8" key="NSString">Q29sb3JzIHRvb2xiYXIgaWNvbiBmcm9tIGlXb3JrICcwOS4gTW9yZSBhcHByb3ByaWF0ZSBmb3IgTGVv
 cGFyZCB0b29sYmFycyB0aGFuIHRoZSBzdGFuZGFyZCBpY29uLg</string>
 							<object class="NSDictionary" key="NSAttributes" id="671287353">
 								<bool key="EncodedWithXMLCoder">YES</bool>
@@ -226,7 +226,7 @@ cGFyZCB0b29sYmFycyB0aGFuIHRoZSBzdGFuZGFyZCBpY29uLg</string>
 						<string key="identifier">4B4B332F-9188-40E1-B5DF-5DFBC63F9881</string>
 						<string type="base64-UTF8" key="briefDescription">Rm9udHMgdG9vbGJhciBpY29uIGZyb20gaVdvcmsgJzA4Lg</string>
 						<object class="NSAttributedString" key="fullDescription">
-							<string type="base64-UTF8" key="NSString">Rm9udHMgdG9vbGJhciBpY29uIGZyb20gaVdvcmsgJzA4LiBNb3JlIGFwcHJvcHJpYXRlIGZvciBMZW9w
+							<string type="base64-UTF8" key="NSString">Rm9udHMgdG9vbGJhciBpY29uIGZyb20gaVdvcmsgJzA5LiBNb3JlIGFwcHJvcHJpYXRlIGZvciBMZW9w
 YXJkIHRvb2xiYXJzIHRoYW4gdGhlIHN0YW5kYXJkIGljb24uA</string>
 							<reference key="NSAttributes" ref="671287353"/>
 						</object>
@@ -606,7 +606,7 @@ YXJkIHRvb2xiYXJzIHRoYW4gdGhlIHN0YW5kYXJkIGljb24uA</string>
 					<string>com.apple.InterfaceBuilder.IBSDKPlugin</string>
 					<string>BWToolbarItem</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{518, 121}, {452, 343}}</string>
+					<string>{{614, 121}, {452, 343}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSMutableArray">
 						<bool key="EncodedWithXMLCoder">YES</bool>
