@@ -15,7 +15,7 @@
 - (void)ibPopulateKeyPaths:(NSMutableDictionary *)keyPaths {
     [super ibPopulateKeyPaths:keyPaths];
 
-    [[keyPaths objectForKey:IBAttributeKeyPaths] addObjectsFromArray:[NSArray arrayWithObjects:@"color",@"colorIsEnabled",nil]];
+    [[keyPaths objectForKey:IBAttributeKeyPaths] addObjectsFromArray:[NSArray arrayWithObjects:@"color",@"colorIsEnabled",@"dividerCanCollapse",nil]];
 }
 
 - (void)ibPopulateAttributeInspectorClasses:(NSMutableArray *)classes {
@@ -27,8 +27,6 @@
 - (void)ibDidAddToDesignableDocument:(IBDocument *)document
 {
 	[super ibDidAddToDesignableDocument:document];
-	
-	[self setColor:[NSColor blackColor]];
 }
 
 @end

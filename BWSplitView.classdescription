@@ -1,11 +1,10 @@
 {
-	Actions = {
-		// Define action descriptions here, for example
-		// "myAction:" = id;
+	Actions = 
+	{
+		"toggleCollapse:" = id;
 	};
-	Outlets = {
-		// Define outlet descriptions here, for example
-		// myOutlet = NSView;
+	Outlets = 
+	{
 	};
     ClassName = BWSplitView; 
     SuperClass = NSSplitView; 
