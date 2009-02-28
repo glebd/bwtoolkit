@@ -92,12 +92,12 @@ static NSColor *backgroundColor;
 	return self;
 }
 
-+ (float)scrollerWidth
++ (CGFloat)scrollerWidth
 {
 	return slotVerticalFill.size.width + verticalPaddingLeft + verticalPaddingRight;
 }
 
-+ (float)scrollerWidthForControlSize:(NSControlSize)controlSize 
++ (CGFloat)scrollerWidthForControlSize:(NSControlSize)controlSize 
 {
 	return slotVerticalFill.size.width + verticalPaddingLeft + verticalPaddingRight;
 }
