@@ -1312,7 +1312,7 @@ static float scaleFactor = 1.0f;
 // This class doesn't have an appearance for wide vertical splitters, so we force all vertical splitters to thin.
 // We also post notifications that are used by the inspector to show & hide controls.
 
-- (void)setDividerStyle:(int)aStyle
+- (void)setDividerStyle:(NSSplitViewDividerStyle)aStyle
 {
 	BOOL styleChanged = NO;
 	
