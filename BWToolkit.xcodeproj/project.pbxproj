@@ -294,6 +294,13 @@
 		CAEB146B0F4A534300E57E67 /* BWToolkitFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEB146A0F4A534300E57E67 /* BWToolkitFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAEB14750F4A538100E57E67 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CAEB14740F4A538100E57E67 /* License.rtf */; };
 		CAEB14770F4A538A00E57E67 /* Release Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CAEB14760F4A538A00E57E67 /* Release Notes.rtf */; };
+		CAEE04EE0FD753DB001A1C3F /* BWHyperlinkButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEE04EC0FD753DB001A1C3F /* BWHyperlinkButton.h */; };
+		CAEE04EF0FD753DB001A1C3F /* BWHyperlinkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE04ED0FD753DB001A1C3F /* BWHyperlinkButton.m */; };
+		CAEE04F20FD7549A001A1C3F /* BWHyperlinkButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEE04F00FD7549A001A1C3F /* BWHyperlinkButtonCell.h */; };
+		CAEE04F30FD7549A001A1C3F /* BWHyperlinkButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE04F10FD7549A001A1C3F /* BWHyperlinkButtonCell.m */; };
+		CAEE05550FD76214001A1C3F /* BWHyperlinkButtonInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE05540FD76214001A1C3F /* BWHyperlinkButtonInspector.m */; };
+		CAEE05620FD764AB001A1C3F /* BWHyperlinkButtonInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAEE05610FD764AB001A1C3F /* BWHyperlinkButtonInspector.xib */; };
+		CAEE05660FD76542001A1C3F /* BWHyperlinkButtonIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE05650FD76542001A1C3F /* BWHyperlinkButtonIntegration.m */; };
 		CAF6B8450E049A6500CA1768 /* ButtonBarPullDownArrow.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CAF6B8440E049A6500CA1768 /* ButtonBarPullDownArrow.pdf */; };
 /* End PBXBuildFile section */
 
@@ -621,6 +628,16 @@
 		CAEB146A0F4A534300E57E67 /* BWToolkitFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWToolkitFramework.h; sourceTree = "<group>"; };
 		CAEB14740F4A538100E57E67 /* License.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
 		CAEB14760F4A538A00E57E67 /* Release Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Release Notes.rtf"; sourceTree = "<group>"; };
+		CAEE04EC0FD753DB001A1C3F /* BWHyperlinkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWHyperlinkButton.h; sourceTree = "<group>"; };
+		CAEE04ED0FD753DB001A1C3F /* BWHyperlinkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWHyperlinkButton.m; sourceTree = "<group>"; };
+		CAEE04F00FD7549A001A1C3F /* BWHyperlinkButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWHyperlinkButtonCell.h; sourceTree = "<group>"; };
+		CAEE04F10FD7549A001A1C3F /* BWHyperlinkButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWHyperlinkButtonCell.m; sourceTree = "<group>"; };
+		CAEE04F40FD7552F001A1C3F /* BWHyperlinkButton.classdescription */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BWHyperlinkButton.classdescription; sourceTree = "<group>"; };
+		CAEE04F50FD75541001A1C3F /* BWHyperlinkButtonCell.classdescription */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BWHyperlinkButtonCell.classdescription; sourceTree = "<group>"; };
+		CAEE05530FD76214001A1C3F /* BWHyperlinkButtonInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWHyperlinkButtonInspector.h; sourceTree = "<group>"; };
+		CAEE05540FD76214001A1C3F /* BWHyperlinkButtonInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWHyperlinkButtonInspector.m; sourceTree = "<group>"; };
+		CAEE05610FD764AB001A1C3F /* BWHyperlinkButtonInspector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BWHyperlinkButtonInspector.xib; sourceTree = "<group>"; };
+		CAEE05650FD76542001A1C3F /* BWHyperlinkButtonIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWHyperlinkButtonIntegration.m; sourceTree = "<group>"; };
 		CAF6B8440E049A6500CA1768 /* ButtonBarPullDownArrow.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ButtonBarPullDownArrow.pdf; sourceTree = "<group>"; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -756,6 +773,7 @@
 				CA9919890DFA272500FE0577 /* BWCustomViewIntegration.m */,
 				CA4A52140E1EECEB00BC7395 /* BWSheetControllerIntegration.m */,
 				CA685D8B0E6646000003D937 /* BWSplitViewIntegration.m */,
+				CAEE05650FD76542001A1C3F /* BWHyperlinkButtonIntegration.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -796,6 +814,8 @@
 				CA960A4A0E75F84700308367 /* BWTokenField.classdescription */,
 				CA960A4C0E75F85800308367 /* BWTokenFieldCell.classdescription */,
 				CAEA804F0ED0A7500062B378 /* BWToolbarItem.classdescription */,
+				CAEE04F40FD7552F001A1C3F /* BWHyperlinkButton.classdescription */,
+				CAEE04F50FD75541001A1C3F /* BWHyperlinkButtonCell.classdescription */,
 			);
 			name = "Class Descriptions";
 			sourceTree = "<group>";
@@ -819,6 +839,8 @@
 				CA6124140F060E8500A3B5AC /* BWSplitViewInspectorAutosizingButtonCell.m */,
 				CAEA80740ED0ACA90062B378 /* BWToolbarItemInspector.h */,
 				CAEA80750ED0ACA90062B378 /* BWToolbarItemInspector.m */,
+				CAEE05530FD76214001A1C3F /* BWHyperlinkButtonInspector.h */,
+				CAEE05540FD76214001A1C3F /* BWHyperlinkButtonInspector.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1100,6 +1122,7 @@
 				CA630AB80DC7F96400AD7F9E /* Transparent Controls */,
 				CA630AB70DC7F95D00AD7F9E /* Split View */,
 				CA630AB40DC7F94000AD7F9E /* Textured Slider */,
+				CAA2CC730F80B82E00E70572 /* Hyperlink Button */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1245,6 +1268,7 @@
 				CA325D4D0DCD2EEE001446BB /* BWAnchoredButtonBarInspector.xib */,
 				CA685D7C0E6639680003D937 /* BWSplitViewInspector.xib */,
 				CAEA805F0ED0A8250062B378 /* BWToolbarItemInspector.xib */,
+				CAEE05610FD764AB001A1C3F /* BWHyperlinkButtonInspector.xib */,
 			);
 			name = Inspectors;
 			sourceTree = "<group>";
@@ -1256,6 +1280,17 @@
 				CA6124220F06160800A3B5AC /* Anchored Button Bar */,
 			);
 			name = Graphics;
+			sourceTree = "<group>";
+		};
+		CAA2CC730F80B82E00E70572 /* Hyperlink Button */ = {
+			isa = PBXGroup;
+			children = (
+				CAEE04EC0FD753DB001A1C3F /* BWHyperlinkButton.h */,
+				CAEE04ED0FD753DB001A1C3F /* BWHyperlinkButton.m */,
+				CAEE04F00FD7549A001A1C3F /* BWHyperlinkButtonCell.h */,
+				CAEE04F10FD7549A001A1C3F /* BWHyperlinkButtonCell.m */,
+			);
+			name = "Hyperlink Button";
 			sourceTree = "<group>";
 		};
 		CACEBC780E17759C003E3CB2 /* Private Cocoa Headers */ = {
@@ -1335,6 +1370,8 @@
 				CA66C0F70EF79AC0005EE9A5 /* NSString+BWAdditions.h in Headers */,
 				CAEB146B0F4A534300E57E67 /* BWToolkitFramework.h in Headers */,
 				CAB82ED40F514F39006519E3 /* NSEvent+BWAdditions.h in Headers */,
+				CAEE04EE0FD753DB001A1C3F /* BWHyperlinkButton.h in Headers */,
+				CAEE04F20FD7549A001A1C3F /* BWHyperlinkButtonCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1551,6 +1588,7 @@
 				CA61247C0F061DA900A3B5AC /* Inspector-SplitViewArrowRedFill.tif in Resources */,
 				CA61247D0F061DA900A3B5AC /* Inspector-SplitViewArrowRedRight.tif in Resources */,
 				CA61247E0F061DA900A3B5AC /* Inspector-SplitViewArrowRedLeft.tif in Resources */,
+				CAEE05620FD764AB001A1C3F /* BWHyperlinkButtonInspector.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1607,6 +1645,8 @@
 				CAEA804E0ED0A73E0062B378 /* BWToolbarItem.m in Sources */,
 				CA66C0F60EF79AC0005EE9A5 /* NSString+BWAdditions.m in Sources */,
 				CAB82ED50F514F39006519E3 /* NSEvent+BWAdditions.m in Sources */,
+				CAEE04EF0FD753DB001A1C3F /* BWHyperlinkButton.m in Sources */,
+				CAEE04F30FD7549A001A1C3F /* BWHyperlinkButtonCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1644,6 +1684,8 @@
 				CAEA80780ED0AD470062B378 /* BWToolbarItemIntegration.m in Sources */,
 				CA6124150F060E8500A3B5AC /* BWSplitViewInspectorAutosizingButtonCell.m in Sources */,
 				CA6124D60F062E7500A3B5AC /* BWSplitViewInspectorAutosizingView.m in Sources */,
+				CAEE05550FD76214001A1C3F /* BWHyperlinkButtonInspector.m in Sources */,
+				CAEE05660FD76542001A1C3F /* BWHyperlinkButtonIntegration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
