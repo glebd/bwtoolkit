@@ -13,11 +13,6 @@
 
 @synthesize urlString;
 
-+ (Class)cellClass
-{
-	return [BWHyperlinkButtonCell class];
-}
-
 -(void)awakeFromNib
 {
 	[self setTarget:self];

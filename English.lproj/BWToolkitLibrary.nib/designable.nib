@@ -1543,6 +1543,7 @@
 					<string>477.IBPluginDependency</string>
 					<string>478.IBPluginDependency</string>
 					<string>481.IBPluginDependency</string>
+					<string>494.CustomClassName</string>
 					<string>494.IBPluginDependency</string>
 					<string>495.CustomClassName</string>
 					<string>495.IBPluginDependency</string>
@@ -1634,6 +1635,7 @@ b2JqZWN0IHRvIGRlcG9zaXQuA</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBSDKPlugin</string>
+					<string>BWTokenField</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>BWTokenFieldCell</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1740,6 +1742,14 @@ b2JqZWN0IHRvIGRlcG9zaXQuA</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">BWTexturedSliderCell.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">BWTokenField</string>
+					<string key="superclassName">NSTokenField</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">BWTokenField.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
