@@ -22,12 +22,12 @@
 	return inset;
 }
 
-- (int)ibBaselineCount
+- (NSInteger)ibBaselineCount
 {
 	return 1;
 }
 
-- (float)ibBaselineAtIndex:(int)index
+- (CGFloat)ibBaselineAtIndex:(NSInteger)index
 {
 	return 13;
 }

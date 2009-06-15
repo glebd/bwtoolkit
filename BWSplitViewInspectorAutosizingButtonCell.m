@@ -112,7 +112,7 @@ static float interiorInset = 7.0;
 			endPoint = NSMakePoint(arrowRect.origin.x + floorf(arrowWidth / 2) + 0.5, NSMaxY(arrowRect) - arrowHeight);
 		}
 
-		float array[2] = {3.0, 1.0};
+		CGFloat array[2] = {3.0, 1.0};
 		
 		// Draw dashed line
 		NSBezierPath *dashedLine = [NSBezierPath bezierPath];
