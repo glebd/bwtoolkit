@@ -9,6 +9,7 @@
 #import "BWCustomView.h"
 #import "NSColor+BWAdditions.h"
 #import "NSWindow+BWAdditions.h"
+#import "NSApplication+BWAdditions.h"
 #import "IBColor.h"
 
 @interface BWCustomView (BWCVPrivate)
@@ -34,15 +35,21 @@
 	else
 		borderColor = [self customViewDarkBorderColor];	
 		
-	// Note: these two colors are reversed in IBColor
+	// Note: These two colors are reversed in IBColor in 10.5
 	if (self.subviews.count == 0)
 	{
-		[[self containerCustomViewBackgroundColor] set];
+		if ([NSApplication isOnLeopard])
+			[[self containerCustomViewBackgroundColor] set];
+		else
+			[[self childlessCustomViewBackgroundColor] set];
 		NSRectFillUsingOperation(rect,NSCompositeSourceOver);
 	}
 	else
 	{
-		[[self childlessCustomViewBackgroundColor] set];
+		if ([NSApplication isOnLeopard])
+			[[self childlessCustomViewBackgroundColor] set];
+		else
+			[[self containerCustomViewBackgroundColor] set];
 		NSRectFillUsingOperation(rect,NSCompositeSourceOver);
 	}
 		

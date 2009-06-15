@@ -10,6 +10,7 @@
 #import "BWSplitViewInspectorAutosizingView.h"
 #import "NSColor+BWAdditions.h"
 #import "NSImage+BWAdditions.h"
+#import "NSApplication+BWAdditions.h"
 #import "IBColor.h"
 
 static NSColor *insetColor, *borderColor, *viewColor, *lineColor, *insetLineColor;
@@ -22,7 +23,12 @@ static float interiorInset = 7.0;
 {
 	insetColor = [IBColor customViewLightBorderColor];
 	borderColor = [IBColor customViewDarkBorderColor];
-	viewColor = [IBColor containerCustomViewBackgroundColor];
+	
+	// Note: These two colors are reversed in IBColor in 10.5
+	if ([NSApplication isOnLeopard])
+		viewColor = [IBColor containerCustomViewBackgroundColor];
+	else
+		viewColor = [IBColor childlessCustomViewBackgroundColor];
 	
 	lineColor = [[NSColor colorWithCalibratedRed:124.0/255.0 green:139.0/255.0 blue:159.0/255.0 alpha:1.0] retain];
 	insetLineColor = [[[NSColor whiteColor] colorWithAlphaComponent:0.19] retain];
