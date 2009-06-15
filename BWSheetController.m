@@ -11,6 +11,8 @@
 
 @implementation BWSheetController
 
+@synthesize parentWindow, sheet, delegate;
+
 - (void)awakeFromNib
 {
 	// Hack so the sheet doesn't appear at launch in Cocoa Simulator (or in the actual app if "Visible at Launch" is checked)
