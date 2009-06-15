@@ -76,8 +76,8 @@
 				buttonRect = NSMakeRect(0, y, self.bounds.size.width, self.bounds.size.height - y);
 		}
 		
-		NSButton *subviewButton = [[NSButton alloc] initWithFrame:buttonRect];
-		[subviewButton setCell:[[BWSplitViewInspectorAutosizingButtonCell alloc] initTextCell:@""]];
+		NSButton *subviewButton = [[[NSButton alloc] initWithFrame:buttonRect] autorelease];
+		[subviewButton setCell:[[[BWSplitViewInspectorAutosizingButtonCell alloc] initTextCell:@""] autorelease]];
 		[subviewButton setTarget:self];
 		[subviewButton setAction:@selector(updateValues:)];
 		[subviewButton setTag:i];

@@ -319,7 +319,7 @@ static NSToolbar *editableToolbar;
 - (NSString *)identifierAtIndex:(int)index
 {
 	NSToolbarItem *item;
-	NSString *newIdentifier;
+	NSString *newIdentifier = nil;
 	if ([[self editableToolbar] items].count > 1)
 	{
 		item = [[[self editableToolbar] items] objectAtIndex:index];
@@ -490,7 +490,7 @@ static NSToolbar *editableToolbar;
 		[helper setOldWindowTitle:[[self parentOfObject:self] title]];
 		
 		// Change the window title to the name of the active tab
-		NSToolbarItem *selectedItem;
+		NSToolbarItem *selectedItem = nil;
 		for (NSToolbarItem *item in [[self editableToolbar] items])
 		{
 			if ([[item itemIdentifier] isEqualToString:[[self editableToolbar] selectedItemIdentifier]])
