@@ -8,6 +8,7 @@
 
 #import "BWTransparentCheckboxCell.h"
 #import "BWTransparentTableView.h"
+#import "NSApplication+BWAdditions.h"
 
 static NSImage *checkboxOffN, *checkboxOffP, *checkboxOnN, *checkboxOnP;
 
@@ -94,7 +95,11 @@ static NSImage *checkboxOffN, *checkboxOffP, *checkboxOnN, *checkboxOnP;
 			NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
 			[attributes addEntriesFromDictionary:[[self attributedTitle] attributesAtIndex:0 effectiveRange:NULL]];
 			[attributes setObject:textColor forKey:NSForegroundColorAttributeName];
-			[attributes setObject:[NSFont boldSystemFontOfSize:11] forKey:NSFontAttributeName];
+			
+			if ([NSApplication isOnLeopard])
+				[attributes setObject:[NSFont boldSystemFontOfSize:11] forKey:NSFontAttributeName];
+			else
+				[attributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];
 			
 			NSShadow *shadow = [[[NSShadow alloc] init] autorelease];
 			[shadow setShadowOffset:NSMakeSize(0,-1)];

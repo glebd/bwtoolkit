@@ -7,6 +7,7 @@
 //
 
 #import "BWTransparentTextFieldCell.h"
+#import "NSApplication+BWAdditions.h"
 
 static NSShadow *textShadow;
 
@@ -27,7 +28,12 @@ static NSShadow *textShadow;
 	NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
 	[attributes addEntriesFromDictionary:[super _textAttributes]];
 	[attributes setObject:[NSColor whiteColor] forKey:NSForegroundColorAttributeName];
-	[attributes setObject:[NSFont boldSystemFontOfSize:11] forKey:NSFontAttributeName];
+	
+	if ([NSApplication isOnLeopard])
+		[attributes setObject:[NSFont boldSystemFontOfSize:11] forKey:NSFontAttributeName];
+	else
+		[attributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];
+		
 	[attributes setObject:textShadow forKey:NSShadowAttributeName];
 	
 	return attributes;
