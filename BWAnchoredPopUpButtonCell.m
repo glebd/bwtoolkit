@@ -187,17 +187,17 @@ static float scaleFactor = 1.0f;
 		
 		drawPoint.x = IMAGE_INSET;
 		
+		NSAffineTransform* transform = [NSAffineTransform transform];
+		[transform translateXBy:0.0 yBy:cellFrame.size.height];
+		[transform scaleXBy:1.0 yBy:-1.0];
+		[transform concat];
+		
 		if ([image isTemplate])
 		{
 			NSImage *glyphImage = [image tintedImageWithColor:imageColor];
 			NSImage *shadowImage = [image tintedImageWithColor:imageShadowColor];
 			NSPoint shadowPoint = drawPoint;
 			shadowPoint.y--;
-			
-			NSAffineTransform* transform = [NSAffineTransform transform];
-			[transform translateXBy:0.0 yBy:cellFrame.size.height];
-			[transform scaleXBy:1.0 yBy:-1.0];
-			[transform concat];
 			
 			[shadowImage drawAtPoint:shadowPoint fromRect:sourceRect operation:NSCompositeSourceOver fraction:1];		
 			
@@ -215,6 +215,12 @@ static float scaleFactor = 1.0f;
 				[image drawAtPoint:drawPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
 			else
 				[image drawAtPoint:drawPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:0.5];
+			
+			// Run the flip transform again so the arrow doesn't draw upside-down
+			NSAffineTransform* transform = [NSAffineTransform transform];
+			[transform translateXBy:0.0 yBy:cellFrame.size.height];
+			[transform scaleXBy:1.0 yBy:-1.0];
+			[transform concat];
 		}
 	}
 }

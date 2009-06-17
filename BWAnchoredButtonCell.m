@@ -182,17 +182,17 @@ static float scaleFactor = 1.0f;
 		drawPoint.x = roundf(drawPoint.x);
 		drawPoint.y = roundf(drawPoint.y);
 		
+		NSAffineTransform* xform = [NSAffineTransform transform];
+		[xform translateXBy:0.0 yBy:cellFrame.size.height];
+		[xform scaleXBy:1.0 yBy:-1.0];
+		[xform concat];
+		
 		if ([image isTemplate])
 		{
 			NSImage *glyphImage = [image tintedImageWithColor:imageColor];
 			NSImage *shadowImage = [image tintedImageWithColor:imageShadowColor];
 			NSPoint shadowPoint = drawPoint;
 			shadowPoint.y--;
-			
-			NSAffineTransform* xform = [NSAffineTransform transform];
-			[xform translateXBy:0.0 yBy:cellFrame.size.height];
-			[xform scaleXBy:1.0 yBy:-1.0];
-			[xform concat];
 			
 			[shadowImage drawAtPoint:shadowPoint fromRect:sourceRect operation:NSCompositeSourceOver fraction:1];		
 			
