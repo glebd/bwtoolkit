@@ -193,7 +193,7 @@
 	
 	NSNumber *minUnit = [NSNumber numberWithInt:index];
 	
-	NSMutableDictionary *tempMinUnits = [[splitView minUnits] mutableCopy];
+	NSMutableDictionary *tempMinUnits = [[[splitView minUnits] mutableCopy] autorelease];
 	[tempMinUnits setObject:minUnit forKey:[NSNumber numberWithInt:[self subviewPopupSelection]]];
 	[splitView setMinUnits:tempMinUnits];
 }
@@ -204,7 +204,7 @@
 
 	NSNumber *maxUnit = [NSNumber numberWithInt:index];
 	
-	NSMutableDictionary *tempMaxUnits = [[splitView maxUnits] mutableCopy];
+	NSMutableDictionary *tempMaxUnits = [[[splitView maxUnits] mutableCopy] autorelease];
 	[tempMaxUnits setObject:maxUnit forKey:[NSNumber numberWithInt:[self subviewPopupSelection]]];
 	[splitView setMaxUnits:tempMaxUnits];
 }
