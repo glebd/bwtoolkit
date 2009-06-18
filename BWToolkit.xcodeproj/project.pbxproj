@@ -29,6 +29,9 @@
 		C08787290A49DE9A00E9B151 /* BWToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0259C576FE90428111CA0C5A /* BWToolkit.m */; };
 		C0D069560A49DF9100C95564 /* InterfaceBuilderKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D069550A49DF9100C95564 /* InterfaceBuilderKit.framework */; };
 		CA0D2A260E2F034000E8680C /* NSWindow-NSTimeMachineSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0D2A250E2F034000E8680C /* NSWindow-NSTimeMachineSupport.h */; };
+		CA0DDBD00FDA586F006B3EA3 /* BWGradientWell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DDBCF0FDA586F006B3EA3 /* BWGradientWell.m */; };
+		CA0DDC210FDA5EDA006B3EA3 /* BWGradientWellColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DDC200FDA5EDA006B3EA3 /* BWGradientWellColorWell.m */; };
+		CA0DDC820FDA698B006B3EA3 /* GradientWellPattern.tif in Resources */ = {isa = PBXBuildFile; fileRef = CA0DDC810FDA698B006B3EA3 /* GradientWellPattern.tif */; };
 		CA10ABD50E272711009BA4D7 /* BWTransparentScrollViewIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10ABD40E272711009BA4D7 /* BWTransparentScrollViewIntegration.m */; };
 		CA10ABD80E272748009BA4D7 /* BWTransparentScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = CA10ABD60E272748009BA4D7 /* BWTransparentScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA10ABD90E272748009BA4D7 /* BWTransparentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10ABD70E272748009BA4D7 /* BWTransparentScrollView.m */; };
@@ -277,6 +280,10 @@
 		CA991BD40DFA8B3D00FE0577 /* TexturedSliderSpeakerLoud.png in Resources */ = {isa = PBXBuildFile; fileRef = CA991BD00DFA8B3D00FE0577 /* TexturedSliderSpeakerLoud.png */; };
 		CA9995D90E2DE8B20001808E /* TransparentPopUpPullDownRightN.tif in Resources */ = {isa = PBXBuildFile; fileRef = CA9995D80E2DE8B20001808E /* TransparentPopUpPullDownRightN.tif */; };
 		CA9995E80E2DE9C60001808E /* TransparentPopUpPullDownRightP.tif in Resources */ = {isa = PBXBuildFile; fileRef = CA9995E70E2DE9C60001808E /* TransparentPopUpPullDownRightP.tif */; };
+		CAAC333A0FE5DA5700C66575 /* NSApplication+BWAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CAAC33380FE5DA5700C66575 /* NSApplication+BWAdditions.h */; };
+		CAAC333B0FE5DA5700C66575 /* NSApplication+BWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAC33390FE5DA5700C66575 /* NSApplication+BWAdditions.m */; };
+		CAAC34280FE8DDC100C66575 /* Library-GradientBox.tif in Resources */ = {isa = PBXBuildFile; fileRef = CAAC34180FE8DAD900C66575 /* Library-GradientBox.tif */; };
+		CAAC34290FE8DDC600C66575 /* Library-StyledTextField.tif in Resources */ = {isa = PBXBuildFile; fileRef = CAAC34190FE8DAD900C66575 /* Library-StyledTextField.tif */; };
 		CAB82ED40F514F39006519E3 /* NSEvent+BWAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CAB82ED20F514F39006519E3 /* NSEvent+BWAdditions.h */; };
 		CAB82ED50F514F39006519E3 /* NSEvent+BWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB82ED30F514F39006519E3 /* NSEvent+BWAdditions.m */; };
 		CACEBC7B0E178524003E3CB2 /* NSCustomView.h in Headers */ = {isa = PBXBuildFile; fileRef = CACEBC7A0E178524003E3CB2 /* NSCustomView.h */; };
@@ -301,6 +308,18 @@
 		CAEE05550FD76214001A1C3F /* BWHyperlinkButtonInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE05540FD76214001A1C3F /* BWHyperlinkButtonInspector.m */; };
 		CAEE05620FD764AB001A1C3F /* BWHyperlinkButtonInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAEE05610FD764AB001A1C3F /* BWHyperlinkButtonInspector.xib */; };
 		CAEE05660FD76542001A1C3F /* BWHyperlinkButtonIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE05650FD76542001A1C3F /* BWHyperlinkButtonIntegration.m */; };
+		CAEE07750FD79453001A1C3F /* BWGradientBox.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEE07730FD79453001A1C3F /* BWGradientBox.h */; };
+		CAEE07760FD79453001A1C3F /* BWGradientBox.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07740FD79453001A1C3F /* BWGradientBox.m */; };
+		CAEE077C0FD79CE9001A1C3F /* BWStyledTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEE077A0FD79CE9001A1C3F /* BWStyledTextField.h */; };
+		CAEE077D0FD79CE9001A1C3F /* BWStyledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE077B0FD79CE9001A1C3F /* BWStyledTextField.m */; };
+		CAEE07860FD79D91001A1C3F /* BWStyledTextFieldInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07850FD79D91001A1C3F /* BWStyledTextFieldInspector.m */; };
+		CAEE07880FD79DD6001A1C3F /* BWStyledTextFieldIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07870FD79DD6001A1C3F /* BWStyledTextFieldIntegration.m */; };
+		CAEE078B0FD79E3B001A1C3F /* BWStyledTextFieldInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAEE078A0FD79E3B001A1C3F /* BWStyledTextFieldInspector.xib */; };
+		CAEE07C20FD7BB18001A1C3F /* BWStyledTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEE07C00FD7BB18001A1C3F /* BWStyledTextFieldCell.h */; };
+		CAEE07C30FD7BB18001A1C3F /* BWStyledTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07C10FD7BB18001A1C3F /* BWStyledTextFieldCell.m */; };
+		CAEE09FE0FD7D4E9001A1C3F /* BWGradientBoxInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE09FD0FD7D4E9001A1C3F /* BWGradientBoxInspector.m */; };
+		CAEE0A000FD7D544001A1C3F /* BWGradientBoxInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAEE09FF0FD7D544001A1C3F /* BWGradientBoxInspector.xib */; };
+		CAEE0A020FD7D557001A1C3F /* BWGradientBoxIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE0A010FD7D557001A1C3F /* BWGradientBoxIntegration.m */; };
 		CAF6B8450E049A6500CA1768 /* ButtonBarPullDownArrow.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CAF6B8440E049A6500CA1768 /* ButtonBarPullDownArrow.pdf */; };
 /* End PBXBuildFile section */
 
@@ -356,6 +375,11 @@
 		8D1AC97B0486D23100FE50C9 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C0D069550A49DF9100C95564 /* InterfaceBuilderKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InterfaceBuilderKit.framework; path = /Developer/Library/Frameworks/InterfaceBuilderKit.framework; sourceTree = "<absolute>"; };
 		CA0D2A250E2F034000E8680C /* NSWindow-NSTimeMachineSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow-NSTimeMachineSupport.h"; sourceTree = "<group>"; };
+		CA0DDBCE0FDA586F006B3EA3 /* BWGradientWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWGradientWell.h; sourceTree = "<group>"; };
+		CA0DDBCF0FDA586F006B3EA3 /* BWGradientWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWGradientWell.m; sourceTree = "<group>"; };
+		CA0DDC1F0FDA5EDA006B3EA3 /* BWGradientWellColorWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWGradientWellColorWell.h; sourceTree = "<group>"; };
+		CA0DDC200FDA5EDA006B3EA3 /* BWGradientWellColorWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWGradientWellColorWell.m; sourceTree = "<group>"; };
+		CA0DDC810FDA698B006B3EA3 /* GradientWellPattern.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = GradientWellPattern.tif; sourceTree = "<group>"; };
 		CA10ABD40E272711009BA4D7 /* BWTransparentScrollViewIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWTransparentScrollViewIntegration.m; sourceTree = "<group>"; };
 		CA10ABD60E272748009BA4D7 /* BWTransparentScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWTransparentScrollView.h; sourceTree = "<group>"; };
 		CA10ABD70E272748009BA4D7 /* BWTransparentScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWTransparentScrollView.m; sourceTree = "<group>"; };
@@ -610,6 +634,10 @@
 		CA991BD00DFA8B3D00FE0577 /* TexturedSliderSpeakerLoud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TexturedSliderSpeakerLoud.png; sourceTree = "<group>"; };
 		CA9995D80E2DE8B20001808E /* TransparentPopUpPullDownRightN.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TransparentPopUpPullDownRightN.tif; sourceTree = "<group>"; };
 		CA9995E70E2DE9C60001808E /* TransparentPopUpPullDownRightP.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = TransparentPopUpPullDownRightP.tif; sourceTree = "<group>"; };
+		CAAC33380FE5DA5700C66575 /* NSApplication+BWAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSApplication+BWAdditions.h"; sourceTree = "<group>"; };
+		CAAC33390FE5DA5700C66575 /* NSApplication+BWAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSApplication+BWAdditions.m"; sourceTree = "<group>"; };
+		CAAC34180FE8DAD900C66575 /* Library-GradientBox.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Library-GradientBox.tif"; sourceTree = "<group>"; };
+		CAAC34190FE8DAD900C66575 /* Library-StyledTextField.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Library-StyledTextField.tif"; sourceTree = "<group>"; };
 		CAB82ED20F514F39006519E3 /* NSEvent+BWAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEvent+BWAdditions.h"; sourceTree = "<group>"; };
 		CAB82ED30F514F39006519E3 /* NSEvent+BWAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEvent+BWAdditions.m"; sourceTree = "<group>"; };
 		CACEBC7A0E178524003E3CB2 /* NSCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCustomView.h; sourceTree = "<group>"; };
@@ -638,6 +666,23 @@
 		CAEE05540FD76214001A1C3F /* BWHyperlinkButtonInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWHyperlinkButtonInspector.m; sourceTree = "<group>"; };
 		CAEE05610FD764AB001A1C3F /* BWHyperlinkButtonInspector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BWHyperlinkButtonInspector.xib; sourceTree = "<group>"; };
 		CAEE05650FD76542001A1C3F /* BWHyperlinkButtonIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWHyperlinkButtonIntegration.m; sourceTree = "<group>"; };
+		CAEE07730FD79453001A1C3F /* BWGradientBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWGradientBox.h; sourceTree = "<group>"; };
+		CAEE07740FD79453001A1C3F /* BWGradientBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWGradientBox.m; sourceTree = "<group>"; };
+		CAEE07770FD79C65001A1C3F /* BWGradientBox.classdescription */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BWGradientBox.classdescription; sourceTree = "<group>"; };
+		CAEE07780FD79C96001A1C3F /* BWStyledTextField.classdescription */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BWStyledTextField.classdescription; sourceTree = "<group>"; };
+		CAEE077A0FD79CE9001A1C3F /* BWStyledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWStyledTextField.h; sourceTree = "<group>"; };
+		CAEE077B0FD79CE9001A1C3F /* BWStyledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWStyledTextField.m; sourceTree = "<group>"; };
+		CAEE07830FD79D6E001A1C3F /* BWStyledTextFieldCell.classdescription */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BWStyledTextFieldCell.classdescription; sourceTree = "<group>"; };
+		CAEE07840FD79D91001A1C3F /* BWStyledTextFieldInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWStyledTextFieldInspector.h; sourceTree = "<group>"; };
+		CAEE07850FD79D91001A1C3F /* BWStyledTextFieldInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWStyledTextFieldInspector.m; sourceTree = "<group>"; };
+		CAEE07870FD79DD6001A1C3F /* BWStyledTextFieldIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWStyledTextFieldIntegration.m; sourceTree = "<group>"; };
+		CAEE078A0FD79E3B001A1C3F /* BWStyledTextFieldInspector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BWStyledTextFieldInspector.xib; sourceTree = "<group>"; };
+		CAEE07C00FD7BB18001A1C3F /* BWStyledTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWStyledTextFieldCell.h; sourceTree = "<group>"; };
+		CAEE07C10FD7BB18001A1C3F /* BWStyledTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWStyledTextFieldCell.m; sourceTree = "<group>"; };
+		CAEE09FC0FD7D4E9001A1C3F /* BWGradientBoxInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWGradientBoxInspector.h; sourceTree = "<group>"; };
+		CAEE09FD0FD7D4E9001A1C3F /* BWGradientBoxInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWGradientBoxInspector.m; sourceTree = "<group>"; };
+		CAEE09FF0FD7D544001A1C3F /* BWGradientBoxInspector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BWGradientBoxInspector.xib; sourceTree = "<group>"; };
+		CAEE0A010FD7D557001A1C3F /* BWGradientBoxIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWGradientBoxIntegration.m; sourceTree = "<group>"; };
 		CAF6B8440E049A6500CA1768 /* ButtonBarPullDownArrow.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ButtonBarPullDownArrow.pdf; sourceTree = "<group>"; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -774,6 +819,8 @@
 				CA4A52140E1EECEB00BC7395 /* BWSheetControllerIntegration.m */,
 				CA685D8B0E6646000003D937 /* BWSplitViewIntegration.m */,
 				CAEE05650FD76542001A1C3F /* BWHyperlinkButtonIntegration.m */,
+				CAEE07870FD79DD6001A1C3F /* BWStyledTextFieldIntegration.m */,
+				CAEE0A010FD7D557001A1C3F /* BWGradientBoxIntegration.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -816,6 +863,9 @@
 				CAEA804F0ED0A7500062B378 /* BWToolbarItem.classdescription */,
 				CAEE04F40FD7552F001A1C3F /* BWHyperlinkButton.classdescription */,
 				CAEE04F50FD75541001A1C3F /* BWHyperlinkButtonCell.classdescription */,
+				CAEE07770FD79C65001A1C3F /* BWGradientBox.classdescription */,
+				CAEE07780FD79C96001A1C3F /* BWStyledTextField.classdescription */,
+				CAEE07830FD79D6E001A1C3F /* BWStyledTextFieldCell.classdescription */,
 			);
 			name = "Class Descriptions";
 			sourceTree = "<group>";
@@ -841,6 +891,14 @@
 				CAEA80750ED0ACA90062B378 /* BWToolbarItemInspector.m */,
 				CAEE05530FD76214001A1C3F /* BWHyperlinkButtonInspector.h */,
 				CAEE05540FD76214001A1C3F /* BWHyperlinkButtonInspector.m */,
+				CAEE07840FD79D91001A1C3F /* BWStyledTextFieldInspector.h */,
+				CAEE07850FD79D91001A1C3F /* BWStyledTextFieldInspector.m */,
+				CAEE09FC0FD7D4E9001A1C3F /* BWGradientBoxInspector.h */,
+				CAEE09FD0FD7D4E9001A1C3F /* BWGradientBoxInspector.m */,
+				CA0DDBCE0FDA586F006B3EA3 /* BWGradientWell.h */,
+				CA0DDBCF0FDA586F006B3EA3 /* BWGradientWell.m */,
+				CA0DDC1F0FDA5EDA006B3EA3 /* BWGradientWellColorWell.h */,
+				CA0DDC200FDA5EDA006B3EA3 /* BWGradientWellColorWell.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -871,8 +929,18 @@
 				CAB82ED30F514F39006519E3 /* NSEvent+BWAdditions.m */,
 				CA66C0F50EF79AC0005EE9A5 /* NSString+BWAdditions.h */,
 				CA66C0F40EF79AC0005EE9A5 /* NSString+BWAdditions.m */,
+				CAAC33380FE5DA5700C66575 /* NSApplication+BWAdditions.h */,
+				CAAC33390FE5DA5700C66575 /* NSApplication+BWAdditions.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		CA0DDC800FDA6981006B3EA3 /* Gradient Well */ = {
+			isa = PBXGroup;
+			children = (
+				CA0DDC810FDA698B006B3EA3 /* GradientWellPattern.tif */,
+			);
+			name = "Gradient Well";
 			sourceTree = "<group>";
 		};
 		CA325ABD0DCAB76C001446BB /* Button Bar */ = {
@@ -964,6 +1032,8 @@
 		CA630A530DC7F59800AD7F9E /* Library Thumbnails */ = {
 			isa = PBXGroup;
 			children = (
+				CAAC34180FE8DAD900C66575 /* Library-GradientBox.tif */,
+				CAAC34190FE8DAD900C66575 /* Library-StyledTextField.tif */,
 				CAD1E0180E1B7425005E4CBF /* Library-SelectableToolbar.tif */,
 				CA6860170E6A13B00003D937 /* Library-AddMiniBottomBar.tif */,
 				CA94506D0DE0D9F600F103BC /* Library-AddSmallBottomBar.tif */,
@@ -1112,6 +1182,8 @@
 			isa = PBXGroup;
 			children = (
 				CAEB146A0F4A534300E57E67 /* BWToolkitFramework.h */,
+				CAEE07790FD79CD9001A1C3F /* Styled Text Field */,
+				CAEE07720FD79440001A1C3F /* Gradient Box */,
 				CA960A4D0E75F87500308367 /* Token Field */,
 				CA4A50D80E1DC79000BC7395 /* Sheet Controller */,
 				CA325ABD0DCAB76C001446BB /* Button Bar */,
@@ -1269,6 +1341,8 @@
 				CA685D7C0E6639680003D937 /* BWSplitViewInspector.xib */,
 				CAEA805F0ED0A8250062B378 /* BWToolbarItemInspector.xib */,
 				CAEE05610FD764AB001A1C3F /* BWHyperlinkButtonInspector.xib */,
+				CAEE078A0FD79E3B001A1C3F /* BWStyledTextFieldInspector.xib */,
+				CAEE09FF0FD7D544001A1C3F /* BWGradientBoxInspector.xib */,
 			);
 			name = Inspectors;
 			sourceTree = "<group>";
@@ -1276,6 +1350,7 @@
 		CA9918650DF51BE600FE0577 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				CA0DDC800FDA6981006B3EA3 /* Gradient Well */,
 				CA6124230F06161A00A3B5AC /* Split View */,
 				CA6124220F06160800A3B5AC /* Anchored Button Bar */,
 			);
@@ -1302,6 +1377,26 @@
 				CACEBC7A0E178524003E3CB2 /* NSCustomView.h */,
 			);
 			name = "Private Cocoa Headers";
+			sourceTree = "<group>";
+		};
+		CAEE07720FD79440001A1C3F /* Gradient Box */ = {
+			isa = PBXGroup;
+			children = (
+				CAEE07730FD79453001A1C3F /* BWGradientBox.h */,
+				CAEE07740FD79453001A1C3F /* BWGradientBox.m */,
+			);
+			name = "Gradient Box";
+			sourceTree = "<group>";
+		};
+		CAEE07790FD79CD9001A1C3F /* Styled Text Field */ = {
+			isa = PBXGroup;
+			children = (
+				CAEE077A0FD79CE9001A1C3F /* BWStyledTextField.h */,
+				CAEE077B0FD79CE9001A1C3F /* BWStyledTextField.m */,
+				CAEE07C00FD7BB18001A1C3F /* BWStyledTextFieldCell.h */,
+				CAEE07C10FD7BB18001A1C3F /* BWStyledTextFieldCell.m */,
+			);
+			name = "Styled Text Field";
 			sourceTree = "<group>";
 		};
 		CAF6B8060E049A3100CA1768 /* Button Bar */ = {
@@ -1372,6 +1467,10 @@
 				CAB82ED40F514F39006519E3 /* NSEvent+BWAdditions.h in Headers */,
 				CAEE04EE0FD753DB001A1C3F /* BWHyperlinkButton.h in Headers */,
 				CAEE04F20FD7549A001A1C3F /* BWHyperlinkButtonCell.h in Headers */,
+				CAEE07750FD79453001A1C3F /* BWGradientBox.h in Headers */,
+				CAEE077C0FD79CE9001A1C3F /* BWStyledTextField.h in Headers */,
+				CAEE07C20FD7BB18001A1C3F /* BWStyledTextFieldCell.h in Headers */,
+				CAAC333A0FE5DA5700C66575 /* NSApplication+BWAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1589,6 +1688,11 @@
 				CA61247D0F061DA900A3B5AC /* Inspector-SplitViewArrowRedRight.tif in Resources */,
 				CA61247E0F061DA900A3B5AC /* Inspector-SplitViewArrowRedLeft.tif in Resources */,
 				CAEE05620FD764AB001A1C3F /* BWHyperlinkButtonInspector.xib in Resources */,
+				CAEE078B0FD79E3B001A1C3F /* BWStyledTextFieldInspector.xib in Resources */,
+				CAEE0A000FD7D544001A1C3F /* BWGradientBoxInspector.xib in Resources */,
+				CA0DDC820FDA698B006B3EA3 /* GradientWellPattern.tif in Resources */,
+				CAAC34280FE8DDC100C66575 /* Library-GradientBox.tif in Resources */,
+				CAAC34290FE8DDC600C66575 /* Library-StyledTextField.tif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1647,6 +1751,10 @@
 				CAB82ED50F514F39006519E3 /* NSEvent+BWAdditions.m in Sources */,
 				CAEE04EF0FD753DB001A1C3F /* BWHyperlinkButton.m in Sources */,
 				CAEE04F30FD7549A001A1C3F /* BWHyperlinkButtonCell.m in Sources */,
+				CAEE07760FD79453001A1C3F /* BWGradientBox.m in Sources */,
+				CAEE077D0FD79CE9001A1C3F /* BWStyledTextField.m in Sources */,
+				CAEE07C30FD7BB18001A1C3F /* BWStyledTextFieldCell.m in Sources */,
+				CAAC333B0FE5DA5700C66575 /* NSApplication+BWAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1686,6 +1794,12 @@
 				CA6124D60F062E7500A3B5AC /* BWSplitViewInspectorAutosizingView.m in Sources */,
 				CAEE05550FD76214001A1C3F /* BWHyperlinkButtonInspector.m in Sources */,
 				CAEE05660FD76542001A1C3F /* BWHyperlinkButtonIntegration.m in Sources */,
+				CAEE07860FD79D91001A1C3F /* BWStyledTextFieldInspector.m in Sources */,
+				CAEE07880FD79DD6001A1C3F /* BWStyledTextFieldIntegration.m in Sources */,
+				CAEE09FE0FD7D4E9001A1C3F /* BWGradientBoxInspector.m in Sources */,
+				CAEE0A020FD7D557001A1C3F /* BWGradientBoxIntegration.m in Sources */,
+				CA0DDBD00FDA586F006B3EA3 /* BWGradientWell.m in Sources */,
+				CA0DDC210FDA5EDA006B3EA3 /* BWGradientWellColorWell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1784,8 +1898,8 @@
 		C056398408A954F8003078D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "\"/Developer/Library/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1803,8 +1917,8 @@
 		C056398508A954F8003078D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "\"/Developer/Library/Frameworks\"";
@@ -1853,11 +1967,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				GCC_MODEL_TUNING = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Debug;
@@ -1866,12 +1982,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Release;
