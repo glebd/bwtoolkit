@@ -22,11 +22,13 @@ static float scaleFactor = 0.0f;
 @interface BWAnchoredButtonBar (BWABBPrivate)
 - (void)drawResizeHandleInRect:(NSRect)handleRect withColor:(NSColor *)color;
 - (void)drawLastButtonInsetInRect:(NSRect)rect;
+- (BOOL)isInLastSubview;
+- (NSSplitView *)splitView;
 @end
 
 @implementation BWAnchoredButtonBar
 
-@synthesize selectedIndex, isAtBottom, isResizable, splitViewDelegate;
+@synthesize selectedIndex, isAtBottom, isResizable, handleIsRightAligned, splitViewDelegate;
 
 + (void)initialize;
 {
@@ -68,6 +70,7 @@ static float scaleFactor = 0.0f;
 	{
 		[self setIsResizable:[decoder decodeBoolForKey:@"BWABBIsResizable"]];
 		[self setIsAtBottom:[decoder decodeBoolForKey:@"BWABBIsAtBottom"]];
+		[self setHandleIsRightAligned:[decoder decodeBoolForKey:@"BWABBHandleIsRightAligned"]];
 		[self setSelectedIndex:[decoder decodeIntForKey:@"BWABBSelectedIndex"]];
 	}
 	return self;
@@ -79,6 +82,7 @@ static float scaleFactor = 0.0f;
 	
 	[coder encodeBool:[self isResizable] forKey:@"BWABBIsResizable"];
 	[coder encodeBool:[self isAtBottom] forKey:@"BWABBIsAtBottom"];
+	[coder encodeBool:[self handleIsRightAligned] forKey:@"BWABBHandleIsRightAligned"];
 	[coder encodeInt:[self selectedIndex] forKey:@"BWABBSelectedIndex"];
 }
 
@@ -86,16 +90,8 @@ static float scaleFactor = 0.0f;
 {
 	scaleFactor = [[NSScreen mainScreen] userSpaceScaleFactor];
 	
-	// Iterate through superviews, see if we're in a split view, and set its delegate
-	NSSplitView *splitView = nil;
-	id currentView = self;
-	
-	while (![currentView isKindOfClass:[NSSplitView class]] && currentView != nil)
-	{
-		currentView = [currentView superview];
-		if ([currentView isKindOfClass:[NSSplitView class]])
-			splitView = currentView;
-	}
+	// See if we're in a split view, and set its delegate
+	NSSplitView *splitView = [self splitView];
 	
 	if (splitView != nil && [splitView isVertical] && [self isResizable])
 		[splitView setDelegate:self];
@@ -125,6 +121,10 @@ static float scaleFactor = 0.0f;
 	if (isResizable)
 	{
 		NSRect handleRect = NSMakeRect(NSMaxX(rect)-11,6,6,10);
+		
+		if ([self handleIsRightAligned])
+			handleRect.origin.x = 4;
+		
 		[self drawResizeHandleInRect:handleRect withColor:resizeHandleColor];
 		
 		NSRect insetRect = NSOffsetRect(handleRect,1,-1);
@@ -185,6 +185,36 @@ static float scaleFactor = 0.0f;
 	}
 }
 
+- (void)viewDidMoveToSuperview
+{
+	if ([self splitView] != nil)
+		self.handleIsRightAligned = [self isInLastSubview];
+}
+
+- (BOOL)isInLastSubview
+{
+	// This method could be made more robust. Right now it assumes that the button bar's direct parent is the split view.
+	if ([self splitView] != nil && [self superview] == [[[self splitView] subviews] lastObject])
+		return YES;
+	
+	return NO;
+}
+
+- (NSSplitView *)splitView
+{
+	NSSplitView *splitView = nil;
+	id currentView = self;
+	
+	while (![currentView isKindOfClass:[NSSplitView class]] && currentView != nil)
+	{
+		currentView = [currentView superview];
+		if ([currentView isKindOfClass:[NSSplitView class]])
+			splitView = currentView;
+	}
+	
+	return splitView;
+}
+
 - (void)setIsAtBottom:(BOOL)flag
 {
 	isAtBottom = flag;
@@ -241,6 +271,10 @@ static float scaleFactor = 0.0f;
 	NSRect paddedHandleRect;
 	paddedHandleRect.origin.y = [aSplitView frame].size.height - [self frame].origin.y - [self bounds].size.height;
 	paddedHandleRect.origin.x = NSMaxX([self bounds]) - 15;
+	
+	if (self.handleIsRightAligned)
+		paddedHandleRect.origin.x = [aSplitView frame].size.width - [self bounds].size.width;
+	
 	paddedHandleRect.size.width = 15;
 	paddedHandleRect.size.height = [self bounds].size.height;
 	
