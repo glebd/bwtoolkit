@@ -10,7 +10,7 @@
 
 @interface BWTransparentPopUpButtonCell : NSPopUpButtonCell 
 {
-	NSColor *interiorColor;
+
 }
 
 @end

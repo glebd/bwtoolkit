@@ -12,9 +12,12 @@
 static NSImage *buttonLeftN, *buttonFillN, *buttonRightN, *buttonLeftP, *buttonFillP, *buttonRightP;
 static NSColor *disabledColor, *enabledColor;
 
+@interface NSCell (BWTBCPrivate)
+- (NSDictionary *)_textAttributes;
+@end
+
 @interface BWTransparentButtonCell (BWTBCPrivate)
-- (void)drawTitleWithFrame:(NSRect)cellFrame;
-- (void)drawImageWithFrame:(NSRect)cellFrame;
+- (NSColor *)interiorColor;
 @end
 
 @implementation BWTransparentButtonCell
@@ -34,82 +37,58 @@ static NSColor *disabledColor, *enabledColor;
 	disabledColor = [[NSColor colorWithCalibratedWhite:0.6 alpha:1] retain];
 }
 
-- (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
+- (void)drawBezelWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
 	cellFrame.size.height = buttonFillN.size.height;
 	
 	if ([self isHighlighted])
 		NSDrawThreePartImage(cellFrame, buttonLeftP, buttonFillP, buttonRightP, NO, NSCompositeSourceOver, 1, YES);
 	else
-		NSDrawThreePartImage(cellFrame, buttonLeftN, buttonFillN, buttonRightN, NO, NSCompositeSourceOver, 1, YES);
+		NSDrawThreePartImage(cellFrame, buttonLeftN, buttonFillN, buttonRightN, NO, NSCompositeSourceOver, 1, YES);	
+}
+
+- (void)drawImage:(NSImage *)image withFrame:(NSRect)frame inView:(NSView *)controlView
+{	
+	frame.origin.y -= 2;
+	
+	if ([[image name] isEqualToString:@"NSActionTemplate"])
+		[image setSize:NSMakeSize(10,10)];
+	
+	NSImage *newImage = image;
+	
+	if ([image isTemplate])
+		newImage = [image tintedImageWithColor:[self interiorColor]];
+	
+	[super drawImage:newImage withFrame:frame inView:controlView];
+}
+
+- (NSRect)drawTitle:(NSAttributedString *)title withFrame:(NSRect)frame inView:(NSView *)controlView
+{
+	frame.origin.y -= 4;
+	
+	return [super drawTitle:title withFrame:frame inView:controlView];
+}
+
+- (NSDictionary *)_textAttributes
+{
+	NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
+	[attributes addEntriesFromDictionary:[super _textAttributes]];
+	[attributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];
+	[attributes setObject:[self interiorColor] forKey:NSForegroundColorAttributeName];
+	
+	return attributes;
+}
+
+- (NSColor *)interiorColor
+{
+	NSColor *interiorColor;
 	
 	if ([self isEnabled])
 		interiorColor = enabledColor;
 	else
 		interiorColor = disabledColor;
 	
-	if ([self image] == nil)
-		[self drawTitleWithFrame:cellFrame];
-	else
-		[self drawImageWithFrame:cellFrame];
-
-}
-
-- (void)drawTitleWithFrame:(NSRect)cellFrame
-{
-	if (![[self title] isEqualToString:@""])
-	{
-		NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
-		[attributes addEntriesFromDictionary:[[self attributedTitle] attributesAtIndex:0 effectiveRange:NULL]];
-		[attributes setObject:interiorColor forKey:NSForegroundColorAttributeName];
-		[attributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];
-		NSMutableAttributedString *string = [[[NSMutableAttributedString alloc] initWithString:[self title] attributes:attributes] autorelease];
-		[self setAttributedTitle:string];
-		
-		cellFrame.origin.y += 2;
-		[[self attributedTitle] drawInRect:cellFrame];
-	}
-}
-
-- (void)drawImageWithFrame:(NSRect)cellFrame
-{
-	NSImage *image = [self image];
-	
-	if (image != nil)
-	{
-		[image setScalesWhenResized:NO];
-		NSRect sourceRect = NSZeroRect;
-		
-		if ([[image name] isEqualToString:@"NSActionTemplate"])
-			[image setSize:NSMakeSize(10,10)];
-		
-		sourceRect.size = [image size];
-		
-		NSPoint backgroundCenter;
-		backgroundCenter.x = cellFrame.size.width / 2;
-		backgroundCenter.y = cellFrame.size.height / 2;
-		
-		NSPoint drawPoint = backgroundCenter;
-		drawPoint.x -= sourceRect.size.width / 2;
-		drawPoint.y -= sourceRect.size.height / 2 ;
-		
-		drawPoint.x = roundf(drawPoint.x);
-		drawPoint.y = roundf(drawPoint.y) + 1;
-		
-		NSImage *glyphImage = image;
-		
-		if ([image isTemplate])
-		{
-			glyphImage = [image tintedImageWithColor:interiorColor];
-			
-			NSAffineTransform* xform = [NSAffineTransform transform];
-			[xform translateXBy:0.0 yBy:cellFrame.size.height];
-			[xform scaleXBy:1.0 yBy:-1.0];
-			[xform concat];
-		}
-
-		[glyphImage drawAtPoint:drawPoint fromRect:sourceRect operation:NSCompositeSourceOver fraction:1];
-	}	
+	return interiorColor;
 }
 
 - (NSControlSize)controlSize

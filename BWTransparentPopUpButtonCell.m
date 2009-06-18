@@ -12,9 +12,12 @@
 static NSImage *popUpFillN, *popUpFillP, *popUpRightN, *popUpRightP, *popUpLeftN, *popUpLeftP, *pullDownRightN, *pullDownRightP;
 static NSColor *disabledColor, *enabledColor;
 
+@interface NSCell (BWTPUBCPrivate)
+- (NSDictionary *)_textAttributes;
+@end
+
 @interface BWTransparentPopUpButtonCell (BWTPUBCPrivate)
-- (void)drawTitleWithFrame:(NSRect)cellFrame;
-- (void)drawImageWithFrame:(NSRect)cellFrame;
+- (NSColor *)interiorColor;
 @end
 
 @implementation BWTransparentPopUpButtonCell
@@ -36,7 +39,7 @@ static NSColor *disabledColor, *enabledColor;
 	disabledColor = [[NSColor colorWithCalibratedWhite:0.6 alpha:1] retain];
 }
 
-- (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
+- (void)drawBezelWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
 	cellFrame.size.height = popUpFillN.size.height;
 	
@@ -54,71 +57,108 @@ static NSColor *disabledColor, *enabledColor;
 		else
 			NSDrawThreePartImage(cellFrame, popUpLeftN, popUpFillN, popUpRightN, NO, NSCompositeSourceOver, 1, YES);
 	}
-		
-	if ([self isEnabled])
-		interiorColor = enabledColor;
-	else
-		interiorColor = disabledColor;
-	
-	if ([self image] == nil)
-		[self drawTitleWithFrame:cellFrame];
-	else
-		[self drawImageWithFrame:cellFrame];
 }
 
-- (void)drawTitleWithFrame:(NSRect)cellFrame
-{
-	if (![[self title] isEqualToString:@""])
-	{
-		NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
-		[attributes addEntriesFromDictionary:[[self attributedTitle] attributesAtIndex:0 effectiveRange:NULL]];
-		[attributes setObject:interiorColor forKey:NSForegroundColorAttributeName];
-		
-		NSMutableAttributedString *string = [[[NSMutableAttributedString alloc] initWithString:[self title] attributes:attributes] autorelease];
-		
-		[string drawAtPoint:NSMakePoint(8,2)];
-	}	
-}
-
-- (void)drawImageWithFrame:(NSRect)cellFrame
-{
+- (void)drawImageWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
+{	
 	NSImage *image = [self image];
 	
 	if (image != nil)
 	{
 		[image setScalesWhenResized:NO];
-		NSRect sourceRect = NSZeroRect;
-		
+
 		if ([[image name] isEqualToString:@"NSActionTemplate"])
 			[image setSize:NSMakeSize(10,10)];
 		
-		sourceRect.size = [image size];
-		
-		NSPoint backgroundCenter;
-		backgroundCenter.x = cellFrame.size.width / 2;
-		backgroundCenter.y = cellFrame.size.height / 2;
-		
-		NSPoint drawPoint = backgroundCenter;
-		drawPoint.x -= sourceRect.size.width / 2;
-		drawPoint.y -= sourceRect.size.height / 2;
-		
-		drawPoint.x = 8;
-		drawPoint.y = roundf(drawPoint.y) + 1;
-		
-		NSImage *glyphImage = image;
+		NSImage *newImage = image;
 		
 		if ([image isTemplate])
-		{
-			glyphImage = [image tintedImageWithColor:interiorColor];
-			
-			NSAffineTransform* xform = [NSAffineTransform transform];
-			[xform translateXBy:0.0 yBy:cellFrame.size.height];
-			[xform scaleXBy:1.0 yBy:-1.0];
-			[xform concat];
-		}
+			newImage = [image tintedImageWithColor:[self interiorColor]];
+
+		NSAffineTransform* xform = [NSAffineTransform transform];
+		[xform translateXBy:0.0 yBy:cellFrame.size.height];
+		[xform scaleXBy:1.0 yBy:-1.0];
+		[xform concat];
 		
-		[glyphImage drawAtPoint:drawPoint fromRect:sourceRect operation:NSCompositeSourceOver fraction:1];
+		[newImage drawInRect:[self imageRectForBounds:cellFrame] fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
+		
+		NSAffineTransform* xform2 = [NSAffineTransform transform];
+		[xform2 translateXBy:0.0 yBy:cellFrame.size.height];
+		[xform2 scaleXBy:1.0 yBy:-1.0];
+		[xform2 concat];
 	}	
+}
+
+- (NSRect)imageRectForBounds:(NSRect)bounds;
+{
+	NSRect rect = [super imageRectForBounds:bounds];
+	
+	rect.origin.y += 3;
+	
+	if ([self imagePosition] == NSImageOnly || [self imagePosition] == NSImageOverlaps || [self imagePosition] == NSImageAbove || [self imagePosition] == NSImageBelow)
+	{
+		rect.origin.x += 4;
+	}
+	else if ([self imagePosition] == NSImageRight)
+	{
+		rect.origin.x += 3;
+	}
+	else if ([self imagePosition] == NSImageLeft || [self imagePosition] == NSNoImage)
+	{
+		rect.origin.x -= 1;
+	}
+	
+	return rect;
+}
+
+- (NSRect)titleRectForBounds:(NSRect)cellFrame
+{
+	NSRect titleRect = [super titleRectForBounds:cellFrame];
+	
+	titleRect.origin.y -= 1;
+	titleRect.origin.x -= 2;
+	titleRect.size.width += 6;
+	
+	if ([self image] != nil)
+	{
+		if ([self imagePosition] == NSImageOnly || [self imagePosition] == NSImageOverlaps || [self imagePosition] == NSImageAbove || [self imagePosition] == NSImageBelow)
+		{
+			
+		}
+		else if ([self imagePosition] == NSImageRight)
+		{
+			if ([self alignment] == NSRightTextAlignment)
+				titleRect.origin.x -= 3;
+		}
+		else if ([self imagePosition] == NSImageLeft || [self imagePosition] == NSNoImage)
+		{
+			titleRect.origin.x += 2;
+		}
+	}
+		
+	return titleRect;
+}
+
+- (NSDictionary *)_textAttributes
+{
+	NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
+	[attributes addEntriesFromDictionary:[super _textAttributes]];
+	[attributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];
+	[attributes setObject:[self interiorColor] forKey:NSForegroundColorAttributeName];
+	
+	return attributes;
+}
+
+- (NSColor *)interiorColor
+{
+	NSColor *interiorColor;
+	
+	if ([self isEnabled])
+		interiorColor = enabledColor;
+	else
+		interiorColor = disabledColor;
+	
+	return interiorColor;
 }
 
 - (NSControlSize)controlSize
