@@ -119,6 +119,9 @@
 
 - (void)applyGradient
 {	
+	if ([[self controlView] window] == nil)
+		return;
+	
 	if (self.hasGradient)
 	{	
 		float textHeight = [[self font] ascender] - [[self font] descender];
