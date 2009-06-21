@@ -50,7 +50,7 @@
 			self.solidColor = [NSColor greenColor];
 		
 		if (self.hasGradient)
-			[self applyGradient];
+			[self performSelector:@selector(applyGradient) withObject:nil afterDelay:0];
 	}
 	return self;
 }
