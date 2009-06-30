@@ -57,7 +57,7 @@ static NSColor *disabledColor, *enabledColor;
 	NSImage *newImage = image;
 	
 	if ([image isTemplate])
-		newImage = [image tintedImageWithColor:[self interiorColor]];
+		newImage = [image bwTintedImageWithColor:[self interiorColor]];
 	
 	[super drawImage:newImage withFrame:frame inView:controlView];
 }

@@ -30,7 +30,7 @@
 	NSColor *insetColor = [self customViewLightBorderColor];
 	NSColor *borderColor;
 	
-	if ([[self window] isTextured])
+	if ([[self window] bwIsTextured])
 		borderColor = [self customViewDarkTexturedBorderColor];
 	else
 		borderColor = [self customViewDarkBorderColor];	
@@ -38,7 +38,7 @@
 	// Note: These two colors are reversed in IBColor in 10.5
 	if (self.subviews.count == 0)
 	{
-		if ([NSApplication isOnLeopard])
+		if ([NSApplication bwIsOnLeopard])
 			[[self containerCustomViewBackgroundColor] set];
 		else
 			[[self childlessCustomViewBackgroundColor] set];
@@ -46,7 +46,7 @@
 	}
 	else
 	{
-		if ([NSApplication isOnLeopard])
+		if ([NSApplication bwIsOnLeopard])
 			[[self childlessCustomViewBackgroundColor] set];
 		else
 			[[self containerCustomViewBackgroundColor] set];
@@ -60,66 +60,66 @@
 		
 		if ([subviews objectAtIndex:0] == self)
 		{
-			[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
-			[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
+			[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
+			[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
 			
 			if ([(NSSplitView *)[self superview] isVertical])
 			{
-				[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
-				[insetColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];	
-				[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
+				[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
+				[insetColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];	
+				[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
 			}
 			else
 			{
-				[insetColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
-				[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
-				[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
+				[insetColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
+				[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
+				[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
 			}
 
-			[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
-			[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];				
+			[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
+			[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];				
 		}
 		else if ([subviews lastObject] == self)
 		{
-			[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
-			[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
+			[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
+			[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
 			
 			if ([(NSSplitView *)[self superview] isVertical])
 			{
-				[insetColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
-				[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
-				[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
-				[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];		
+				[insetColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
+				[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
+				[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
+				[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];		
 			}
 			else
 			{
-				[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
-				[insetColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
-				[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
-				[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
+				[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
+				[insetColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
+				[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
+				[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
 			}
 			
-			[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
+			[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
 		}
 		else
 		{	
 			if ([(NSSplitView *)[self superview] isVertical])
 			{
-				[insetColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
-				[insetColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
-				[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
-				[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
-				[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
-				[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];				
+				[insetColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
+				[insetColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
+				[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
+				[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
+				[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
+				[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];				
 			}
 			else
 			{
-				[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
-				[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
-				[insetColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
-				[insetColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
-				[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
-				[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];				
+				[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
+				[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
+				[insetColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
+				[insetColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
+				[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
+				[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];				
 			}
 		}
 	}
@@ -127,15 +127,15 @@
 	{
 		isOnItsOwn = YES;
 		
-		[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
-		[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
-		[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
-		[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
+		[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
+		[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
+		[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
+		[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
 		
-		[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
-		[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
-		[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
-		[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
+		[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:NO];
+		[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:NO flip:YES];
+		[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
+		[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
 	}
 	
 	if (rect.size.height > 16)

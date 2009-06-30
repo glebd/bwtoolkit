@@ -154,8 +154,8 @@ static float scaleFactor = 1.0f;
 	[gradient drawInRect:gradRect angle:90];
 	
 	// Draw top and bottom borders
-	[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:aRect inView:self horizontal:YES flip:NO];
-	[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:aRect inView:self horizontal:YES flip:YES];
+	[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:aRect inView:self horizontal:YES flip:NO];
+	[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:aRect inView:self horizontal:YES flip:YES];
 	
 	[self drawDimpleInRect:aRect];
 }
@@ -287,7 +287,7 @@ static float scaleFactor = 1.0f;
 
 - (float)animationDuration
 {
-	if ([NSEvent shiftKeyIsDown])
+	if ([NSEvent bwShiftKeyIsDown])
 		return 2.0;
 	
 	return 0.25;

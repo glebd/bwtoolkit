@@ -96,7 +96,7 @@ static float scaleFactor = 0.0f;
 	if (splitView != nil && [splitView isVertical] && [self isResizable])
 		[splitView setDelegate:self];
 		
-	[self bringToFront];
+	[self bwBringToFront];
 }
 
 - (void)drawRect:(NSRect)rect 
@@ -113,9 +113,9 @@ static float scaleFactor = 0.0f;
 	
 	// Draw top line
 	if (isAtBottom)
-		[topLineColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
+		[topLineColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
 	else
-		[borderedTopLineColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
+		[borderedTopLineColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:YES];
 	
 	// Draw resize handle
 	if (isResizable)
@@ -136,17 +136,17 @@ static float scaleFactor = 0.0f;
 	// Draw bottom line and sides if it's in non-bottom mode
 	if (!isAtBottom)
 	{
-		[bottomLineColor drawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
-		[bottomLineColor drawPixelThickLineAtPosition:0 withInset:1 inRect:rect inView:self horizontal:NO flip:NO];
-		[bottomLineColor drawPixelThickLineAtPosition:0 withInset:1 inRect:rect inView:self horizontal:NO flip:YES];
+		[bottomLineColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:rect inView:self horizontal:YES flip:NO];
+		[bottomLineColor bwDrawPixelThickLineAtPosition:0 withInset:1 inRect:rect inView:self horizontal:NO flip:NO];
+		[bottomLineColor bwDrawPixelThickLineAtPosition:0 withInset:1 inRect:rect inView:self horizontal:NO flip:YES];
 	}
 }
 
 - (void)drawResizeHandleInRect:(NSRect)handleRect withColor:(NSColor *)color
 {
-	[color drawPixelThickLineAtPosition:0 withInset:0 inRect:handleRect inView:self horizontal:NO flip:NO];
-	[color drawPixelThickLineAtPosition:3 withInset:0 inRect:handleRect inView:self horizontal:NO flip:NO];
-	[color drawPixelThickLineAtPosition:6 withInset:0 inRect:handleRect inView:self horizontal:NO flip:NO];
+	[color bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:handleRect inView:self horizontal:NO flip:NO];
+	[color bwDrawPixelThickLineAtPosition:3 withInset:0 inRect:handleRect inView:self horizontal:NO flip:NO];
+	[color bwDrawPixelThickLineAtPosition:6 withInset:0 inRect:handleRect inView:self horizontal:NO flip:NO];
 }
 
 - (void)drawLastButtonInsetInRect:(NSRect)rect
@@ -181,7 +181,7 @@ static float scaleFactor = 0.0f;
 	if (rightMostView != nil && ([[rightMostView className] isEqualToString:@"BWAnchoredButton"] || [[rightMostView className] isEqualToString:@"BWAnchoredPopUpButton"]))
 	{
 		NSRect newRect = NSOffsetRect(rect,0,-1);
-		[sideInsetColor drawPixelThickLineAtPosition:NSMaxX([rightMostView frame]) withInset:0 inRect:newRect inView:self horizontal:NO flip:NO];
+		[sideInsetColor bwDrawPixelThickLineAtPosition:NSMaxX([rightMostView frame]) withInset:0 inRect:newRect inView:self horizontal:NO flip:NO];
 	}
 }
 

@@ -10,6 +10,6 @@
 
 @interface NSString (BWAdditions)
 
-+ (NSString *)randomUUID;
++ (NSString *)bwRandomUUID;
 
 @end

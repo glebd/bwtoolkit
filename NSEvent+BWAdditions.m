@@ -10,7 +10,7 @@
 
 @implementation NSEvent (BWAdditions)
 
-+ (BOOL)shiftKeyIsDown
++ (BOOL)bwShiftKeyIsDown
 {
 	if ([[NSApp currentEvent] modifierFlags] & NSShiftKeyMask)
 		return YES;
@@ -18,7 +18,7 @@
 	return NO;
 }
 
-+ (BOOL)commandKeyIsDown
++ (BOOL)bwCommandKeyIsDown
 {
 	if ([[NSApp currentEvent] modifierFlags] & NSCommandKeyMask)
 		return YES;
@@ -26,7 +26,7 @@
 	return NO;
 }
 
-+ (BOOL)optionKeyIsDown
++ (BOOL)bwOptionKeyIsDown
 {
 	if ([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask)
 		return YES;
@@ -34,7 +34,7 @@
 	return NO;
 }
 
-+ (BOOL)controlKeyIsDown
++ (BOOL)bwControlKeyIsDown
 {
 	if ([[NSApp currentEvent] modifierFlags] & NSControlKeyMask)
 		return YES;
@@ -42,7 +42,7 @@
 	return NO;
 }
 
-+ (BOOL)capsLockKeyIsDown
++ (BOOL)bwCapsLockKeyIsDown
 {
 	if ([[NSApp currentEvent] modifierFlags] & NSAlphaShiftKeyMask)
 		return YES;

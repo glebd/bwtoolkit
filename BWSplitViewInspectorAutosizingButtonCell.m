@@ -25,7 +25,7 @@ static float interiorInset = 7.0;
 	borderColor = [IBColor customViewDarkBorderColor];
 	
 	// Note: These two colors are reversed in IBColor in 10.5
-	if ([NSApplication isOnLeopard])
+	if ([NSApplication bwIsOnLeopard])
 		viewColor = [IBColor containerCustomViewBackgroundColor];
 	else
 		viewColor = [IBColor childlessCustomViewBackgroundColor];
@@ -46,15 +46,15 @@ static float interiorInset = 7.0;
 	[viewColor set];
 	NSRectFillUsingOperation(frame,NSCompositeSourceOver);
 
-	[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:frame inView:controlView horizontal:NO flip:NO];
-	[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:frame inView:controlView horizontal:NO flip:YES];
-	[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:frame inView:controlView horizontal:YES flip:YES];
-	[insetColor drawPixelThickLineAtPosition:1 withInset:0 inRect:frame inView:controlView horizontal:YES flip:NO];
+	[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:frame inView:controlView horizontal:NO flip:NO];
+	[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:frame inView:controlView horizontal:NO flip:YES];
+	[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:frame inView:controlView horizontal:YES flip:YES];
+	[insetColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:frame inView:controlView horizontal:YES flip:NO];
 	
-	[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:frame inView:controlView horizontal:NO flip:NO];
-	[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:frame inView:controlView horizontal:NO flip:YES];
-	[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:frame inView:controlView horizontal:YES flip:YES];
-	[borderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:frame inView:controlView horizontal:YES flip:NO];
+	[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:frame inView:controlView horizontal:NO flip:NO];
+	[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:frame inView:controlView horizontal:NO flip:YES];
+	[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:frame inView:controlView horizontal:YES flip:YES];
+	[borderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:frame inView:controlView horizontal:YES flip:NO];
 }
 
 - (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
@@ -75,11 +75,11 @@ static float interiorInset = 7.0;
 	}
 	else
 	{
-		blueArrowStartCap = [blueArrowStart rotateImage90DegreesClockwise:NO];
-		blueArrowEndCap = [blueArrowEnd rotateImage90DegreesClockwise:NO];
-		redArrowStartCap = [redArrowEnd rotateImage90DegreesClockwise:NO];
-		redArrowFillSlice = [redArrowFill rotateImage90DegreesClockwise:NO];
-		redArrowEndCap = [redArrowStart rotateImage90DegreesClockwise:NO];
+		blueArrowStartCap = [blueArrowStart bwRotateImage90DegreesClockwise:NO];
+		blueArrowEndCap = [blueArrowEnd bwRotateImage90DegreesClockwise:NO];
+		redArrowStartCap = [redArrowEnd bwRotateImage90DegreesClockwise:NO];
+		redArrowFillSlice = [redArrowFill bwRotateImage90DegreesClockwise:NO];
+		redArrowEndCap = [redArrowStart bwRotateImage90DegreesClockwise:NO];
 	}
 	
 	float arrowHeight = [blueArrowStartCap size].height;

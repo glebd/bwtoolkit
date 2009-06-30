@@ -75,29 +75,29 @@ static float scaleFactor = 1.0f;
 	
 	[fillGradient drawInRect:cellFrame angle:90];
 	
-	[bottomBorderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:YES];
-	[sideInsetColor drawPixelThickLineAtPosition:1 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:NO];
-	[sideInsetColor drawPixelThickLineAtPosition:1 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:YES];
+	[bottomBorderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:YES];
+	[sideInsetColor bwDrawPixelThickLineAtPosition:1 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:NO];
+	[sideInsetColor bwDrawPixelThickLineAtPosition:1 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:YES];
 	
 	if (inBorderedBar)
 	{
-		[borderedTopBorderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:NO];
-		[borderedSideBorderColor drawPixelThickLineAtPosition:0 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:NO];
-		[borderedSideBorderColor drawPixelThickLineAtPosition:0 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:YES];
+		[borderedTopBorderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:NO];
+		[borderedSideBorderColor bwDrawPixelThickLineAtPosition:0 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:NO];
+		[borderedSideBorderColor bwDrawPixelThickLineAtPosition:0 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:YES];
 	}
 	else
 	{
-		[topBorderColor drawPixelThickLineAtPosition:0 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:NO];
-		[sideBorderColor drawPixelThickLineAtPosition:0 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:NO];
-		[sideBorderColor drawPixelThickLineAtPosition:0 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:YES];
+		[topBorderColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:NO];
+		[sideBorderColor bwDrawPixelThickLineAtPosition:0 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:NO];
+		[sideBorderColor bwDrawPixelThickLineAtPosition:0 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:YES];
 	}
 
 	if (inBorderedBar && [[self controlView] respondsToSelector:@selector(isAtLeftEdgeOfBar)])
 	{
 		if ([(BWAnchoredButton *)[self controlView] isAtLeftEdgeOfBar])
-			[bottomBorderColor drawPixelThickLineAtPosition:0 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:NO];
+			[bottomBorderColor bwDrawPixelThickLineAtPosition:0 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:NO];
 		if ([(BWAnchoredButton *)[self controlView] isAtRightEdgeOfBar])
-			[bottomBorderColor drawPixelThickLineAtPosition:0 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:YES];
+			[bottomBorderColor bwDrawPixelThickLineAtPosition:0 withInset:1 inRect:cellFrame inView:[self controlView] horizontal:NO flip:YES];
 	}
 	
 	if ([self image] == nil)
@@ -189,8 +189,8 @@ static float scaleFactor = 1.0f;
 		
 		if ([image isTemplate])
 		{
-			NSImage *glyphImage = [image tintedImageWithColor:imageColor];
-			NSImage *shadowImage = [image tintedImageWithColor:imageShadowColor];
+			NSImage *glyphImage = [image bwTintedImageWithColor:imageColor];
+			NSImage *shadowImage = [image bwTintedImageWithColor:imageShadowColor];
 			NSPoint shadowPoint = drawPoint;
 			shadowPoint.y--;
 			

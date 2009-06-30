@@ -48,7 +48,7 @@
 	}
 	
 	if (identifierString == nil || [identifierString isEqualToString:@""])
-		[self _setItemIdentifier:[[NSString randomUUID] retain]];
+		[self _setItemIdentifier:[[NSString bwRandomUUID] retain]];
 	else
 		[self _setItemIdentifier:identifierString];
 }

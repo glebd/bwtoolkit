@@ -49,13 +49,13 @@ static NSGradient *fillGradient;
 {
 	[fillGradient drawInRect:NSInsetRect(cellFrame, 0, 2) angle:90];
 	
-	[topInsetColor drawPixelThickLineAtPosition:0 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:NO];	
-	[topBorderColor drawPixelThickLineAtPosition:1 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:NO];
-	[borderColor drawPixelThickLineAtPosition:1 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:YES];
-	[bottomInsetColor drawPixelThickLineAtPosition:0 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:YES];
+	[topInsetColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:NO];	
+	[topBorderColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:NO];
+	[borderColor bwDrawPixelThickLineAtPosition:1 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:YES];
+	[bottomInsetColor bwDrawPixelThickLineAtPosition:0 withInset:0 inRect:cellFrame inView:[self controlView] horizontal:YES flip:YES];
 	
-	[borderColor drawPixelThickLineAtPosition:0 withInset:2 inRect:cellFrame inView:[self controlView] horizontal:NO flip:YES];
-	[borderColor drawPixelThickLineAtPosition:0 withInset:2 inRect:cellFrame inView:[self controlView] horizontal:NO flip:NO];
+	[borderColor bwDrawPixelThickLineAtPosition:0 withInset:2 inRect:cellFrame inView:[self controlView] horizontal:NO flip:YES];
+	[borderColor bwDrawPixelThickLineAtPosition:0 withInset:2 inRect:cellFrame inView:[self controlView] horizontal:NO flip:NO];
 
 	if ([self image] == nil)
 	{

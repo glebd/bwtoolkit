@@ -29,7 +29,7 @@
 
 - (void)addBottomBar
 {
-	if ([[self window] isTextured] == NO)
+	if ([[self window] bwIsTextured] == NO)
 	{
 		[[self window] setContentBorderThickness:40 forEdge:NSMinYEdge];
 		

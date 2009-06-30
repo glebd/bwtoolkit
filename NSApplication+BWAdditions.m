@@ -10,7 +10,7 @@
 
 @implementation NSApplication (BWAdditions)
 
-+ (BOOL)isOnLeopard 
++ (BOOL)bwIsOnLeopard 
 {
 	SInt32 minorVersion, majorVersion;
 	Gestalt(gestaltSystemVersionMajor, &majorVersion);

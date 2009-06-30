@@ -21,7 +21,7 @@ NSComparisonResult compareViews(id firstView, id secondView, id context)
 
 @implementation NSView (BWAdditions)
 
-- (void)bringToFront
+- (void)bwBringToFront
 {
 	[[self superview] sortSubviewsUsingFunction:(NSComparisonResult (*)(id, id, void *))compareViews context:self];
 }

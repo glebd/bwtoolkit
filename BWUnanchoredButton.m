@@ -26,7 +26,7 @@
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
-	[self bringToFront];
+	[self bwBringToFront];
 	[super mouseDown:theEvent];
 }
 

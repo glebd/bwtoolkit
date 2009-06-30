@@ -29,7 +29,7 @@ static NSShadow *textShadow;
 	[attributes addEntriesFromDictionary:[super _textAttributes]];
 	[attributes setObject:[NSColor whiteColor] forKey:NSForegroundColorAttributeName];
 	
-	if ([NSApplication isOnLeopard])
+	if ([NSApplication bwIsOnLeopard])
 		[attributes setObject:[NSFont boldSystemFontOfSize:11] forKey:NSFontAttributeName];
 	else
 		[attributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];

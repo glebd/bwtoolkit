@@ -587,7 +587,7 @@ static NSToolbar *editableToolbar;
 	if ([[helper contentViewsByIdentifier] objectForKey:newIdentifier] == nil) // If we haven't stored the content view in our dictionary. i.e. this is a new tab
 	{
 		// Resize the window
-		[[[self editableToolbar] _window] resizeToSize:[helper initialIBWindowSize] animate:shouldAnimate];	
+		[[[self editableToolbar] _window] bwResizeToSize:[helper initialIBWindowSize] animate:shouldAnimate];	
 		
 		// Record the new tab content view and window size
 		if (inIB)
@@ -605,7 +605,7 @@ static NSToolbar *editableToolbar;
 	{
 		// Resize the window
 		NSSize windowSize = [[[helper windowSizesByIdentifier] objectForKey:newIdentifier] sizeValue];
-		[[[self editableToolbar] _window] resizeToSize:windowSize animate:shouldAnimate];
+		[[[self editableToolbar] _window] bwResizeToSize:windowSize animate:shouldAnimate];
 
 		NSArray *newSubviews = [[[[[helper contentViewsByIdentifier] objectForKey:newIdentifier] subviews] copy] autorelease];
 		

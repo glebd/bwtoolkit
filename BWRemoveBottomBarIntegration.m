@@ -34,7 +34,7 @@
 
 - (void)removeBottomBar
 {
-	if ([[self window] isTextured] == NO)
+	if ([[self window] bwIsTextured] == NO)
 	{
 		[[self window] setContentBorderThickness:0 forEdge:NSMinYEdge];
 		

@@ -10,7 +10,7 @@
 
 @implementation NSString (BWAdditions)
 
-+ (NSString *)randomUUID
++ (NSString *)bwRandomUUID
 {
 	CFUUIDRef uuidObj = CFUUIDCreate(nil);
 	NSString *newUUID = (NSString*)CFMakeCollectable(CFUUIDCreateString(nil, uuidObj));

@@ -10,7 +10,7 @@
 
 @implementation NSWindow (BWAdditions)
 
-- (void)resizeToSize:(NSSize)newSize animate:(BOOL)animateFlag
+- (void)bwResizeToSize:(NSSize)newSize animate:(BOOL)animateFlag
 {
 	NSRect windowFrame;
 	windowFrame.origin.x = [self frame].origin.x;
@@ -33,7 +33,7 @@
 		[self setFrame:windowFrame display:YES animate:animateFlag];
 }
 
-- (BOOL)isTextured
+- (BOOL)bwIsTextured
 {
 	return (([self styleMask] & NSTexturedBackgroundWindowMask) != 0);
 }

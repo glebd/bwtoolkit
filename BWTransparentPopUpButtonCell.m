@@ -73,7 +73,7 @@ static NSColor *disabledColor, *enabledColor;
 		NSImage *newImage = image;
 		
 		if ([image isTemplate])
-			newImage = [image tintedImageWithColor:[self interiorColor]];
+			newImage = [image bwTintedImageWithColor:[self interiorColor]];
 
 		NSAffineTransform* xform = [NSAffineTransform transform];
 		[xform translateXBy:0.0 yBy:cellFrame.size.height];
