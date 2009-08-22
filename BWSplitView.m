@@ -265,6 +265,9 @@ static float scaleFactor = 1.0f;
 
 - (BOOL)hasCollapsibleSubview;
 {
+	if ([self respondsToSelector:@selector(ibDidAddToDesignableDocument:)])
+		return NO;
+	
 	return [self collapsiblePopupSelection] != 0;
 }
 
