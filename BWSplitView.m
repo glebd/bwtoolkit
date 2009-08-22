@@ -398,6 +398,8 @@ static float scaleFactor = 1.0f;
 	if ([self hasCollapsibleDivider] == NO)
 		collapsibleDividerThickness = 0;
 	
+	// Collapsing by dragging the divider sets the view to be hidden, so unhide it
+	[[self collapsibleSubview] setHidden:NO];
 	
 	if ([self isVertical])
 	{
@@ -541,6 +543,11 @@ static float scaleFactor = 1.0f;
 		if (([self collapsiblePopupSelection] == 1 && subviewIndex == 0 && dividerIndex == 0) ||
 			([self collapsiblePopupSelection] == 2 && subviewIndex == [[self subviews] count] - 1 && dividerIndex == [[splitView subviews] count] - 2))
 		{
+			if ([self isVertical])
+				uncollapsedSize = [self collapsibleSubview].frame.size.width;
+			else
+				uncollapsedSize = [self collapsibleSubview].frame.size.height;
+			
 			[self setCollapsibleSubviewCollapsed:YES];
 			
 			// Cause the collapse ourselves by calling the resize method
@@ -662,6 +669,12 @@ static float scaleFactor = 1.0f;
 
 - (void)splitViewDidResizeSubviews:(NSNotification *)aNotification
 {
+	CGFloat collapsibleViewSize = [self isVertical] ?  [self collapsibleSubview].frame.size.width : [self collapsibleSubview].frame.size.height;
+	if (!isAnimating && collapsibleViewSize > 0) 
+	{
+		uncollapsedSize = collapsibleViewSize;
+	}
+
 	if (collapsibleSubviewCollapsed && ([self isVertical] ? [[self collapsibleSubview] frame].size.width > 0 : [[self collapsibleSubview] frame].size.height > 0))
 	{
 		[self setCollapsibleSubviewCollapsed:NO];
