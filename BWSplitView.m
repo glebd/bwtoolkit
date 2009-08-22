@@ -347,6 +347,11 @@ static float scaleFactor = 1.0f;
 	}
 }
 
+- (void)restoreAutoresizesSubviews:(NSNumber *)flag
+{
+	[[self collapsibleSubview] setAutoresizesSubviews:[flag boolValue]];
+}
+
 - (IBAction)toggleCollapse:(id)sender
 {
 	if ([self respondsToSelector:@selector(ibDidAddToDesignableDocument:)])
@@ -394,6 +399,11 @@ static float scaleFactor = 1.0f;
 	if (resizableSubview == nil)
 		return;
 	
+	// Record whether the collapsible subview is set to autoresize subviews so we can restore it after the animation
+	BOOL autoresizesSubviews = [[self collapsibleSubview] autoresizesSubviews];
+	
+	// Turn off autoresizesSubviews on the collapsible subview
+	[[self collapsibleSubview] setAutoresizesSubviews:NO];
 	
 	// Get the thickness of the collapsible divider. If the divider cannot collapse, we set it to 0 so it doesn't affect our calculations.
 	float collapsibleDividerThickness = [self dividerThickness];
@@ -485,6 +495,7 @@ static float scaleFactor = 1.0f;
 	
 	isAnimating = YES;
 	[self performSelector:@selector(animationEnded) withObject:nil afterDelay:[self animationDuration]];
+	[self performSelector:@selector(restoreAutoresizesSubviews:) withObject:[NSNumber numberWithBool:autoresizesSubviews] afterDelay:[self animationDuration]];
 	
 	[self performSelector:@selector(resizeAndAdjustSubviews) withObject:nil afterDelay:[self animationDuration]];
 }
