@@ -486,6 +486,22 @@ static float scaleFactor = 1.0f;
 	[self performSelector:@selector(resizeAndAdjustSubviews) withObject:nil afterDelay:[self animationDuration]];
 }
 
+#pragma mark Mouse Tracking Methods
+
+- (void)mouseDown:(NSEvent *)theEvent
+{
+	// Set the uncollapsed size whenever the split view is clicked or a drag has began. This lets us uncollapse to the size of the subview before the drag-collapse.
+	if ([self hasCollapsibleSubview])
+	{
+		CGFloat collapsibleViewSize = [self isVertical] ?  [self collapsibleSubview].frame.size.width : [self collapsibleSubview].frame.size.height;
+	
+		if (!isAnimating && collapsibleViewSize > 0)
+			uncollapsedSize = collapsibleViewSize;
+	}
+
+	[super mouseDown:theEvent];
+}
+
 #pragma mark NSSplitView Delegate Methods
 
 - (BOOL)splitView:(NSSplitView *)splitView shouldHideDividerAtIndex:(NSInteger)dividerIndex
@@ -669,12 +685,6 @@ static float scaleFactor = 1.0f;
 
 - (void)splitViewDidResizeSubviews:(NSNotification *)aNotification
 {
-	CGFloat collapsibleViewSize = [self isVertical] ?  [self collapsibleSubview].frame.size.width : [self collapsibleSubview].frame.size.height;
-	if (!isAnimating && collapsibleViewSize > 0) 
-	{
-		uncollapsedSize = collapsibleViewSize;
-	}
-
 	if (collapsibleSubviewCollapsed && ([self isVertical] ? [[self collapsibleSubview] frame].size.width > 0 : [[self collapsibleSubview] frame].size.height > 0))
 	{
 		[self setCollapsibleSubviewCollapsed:NO];
