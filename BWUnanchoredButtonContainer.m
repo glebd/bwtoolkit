@@ -12,4 +12,12 @@
 
 @implementation BWUnanchoredButtonContainer
 
+- (void)awakeFromNib
+{
+	for (NSView *subview in [self subviews])
+	{
+		[subview setFrameSize:NSMakeSize(subview.frame.size.width, 22)];
+	}
+}
+
 @end

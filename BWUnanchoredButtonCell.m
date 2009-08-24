@@ -14,11 +14,6 @@ static NSColor *fillStop1, *fillStop2, *fillStop3, *fillStop4;
 static NSColor *borderColor, *topBorderColor, *bottomInsetColor, *topInsetColor, *pressedColor;
 static NSGradient *fillGradient;
 
-@interface BWAnchoredButtonCell (BWUBCPrivate)
-- (void)drawTitleInFrame:(NSRect)cellFrame;
-- (void)drawImageInFrame:(NSRect)cellFrame;
-@end
-
 @implementation BWUnanchoredButtonCell
 
 + (void)initialize;
@@ -44,8 +39,7 @@ static NSGradient *fillGradient;
 	pressedColor		= [[NSColor colorWithCalibratedWhite:(0.0f / 255.0f) alpha:0.3] retain];
 }
 
-
-- (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
+- (void)drawBezelWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
 	[fillGradient drawInRect:NSInsetRect(cellFrame, 0, 2) angle:90];
 	
@@ -56,22 +50,11 @@ static NSGradient *fillGradient;
 	
 	[borderColor bwDrawPixelThickLineAtPosition:0 withInset:2 inRect:cellFrame inView:[self controlView] horizontal:NO flip:YES];
 	[borderColor bwDrawPixelThickLineAtPosition:0 withInset:2 inRect:cellFrame inView:[self controlView] horizontal:NO flip:NO];
-
-	if ([self image] == nil)
-	{
-		NSRect titleRect = cellFrame;
-		titleRect.size.height -= 4;
-		[super drawTitleInFrame:titleRect];
-	}
-	else
-		[super drawImageInFrame:cellFrame];
-	
-	if ([self isHighlighted])
-	{
-		[pressedColor set];
-		NSRectFillUsingOperation(NSInsetRect(cellFrame,0,1), NSCompositeSourceOver);
-	}
 }
 
+- (NSRect)highlightRectForBounds:(NSRect)bounds
+{
+	return NSInsetRect(bounds, 0, 1);
+}
 
 @end
