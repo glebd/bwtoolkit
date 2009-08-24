@@ -717,6 +717,15 @@ static float scaleFactor = 1.0f;
 	}
 	
 	[self setNeedsDisplay:YES];
+	
+	if ([secondaryDelegate respondsToSelector:@selector(splitViewDidResizeSubviews:)])
+		[secondaryDelegate splitViewDidResizeSubviews:aNotification];
+}
+
+- (void)splitViewWillResizeSubviews:(NSNotification *)aNotification
+{
+	if ([secondaryDelegate respondsToSelector:@selector(splitViewWillResizeSubviews:)])
+		[secondaryDelegate splitViewWillResizeSubviews:aNotification];
 }
 
 #pragma mark - Resize Subviews Delegate Method and Helper Methods
