@@ -207,6 +207,20 @@ static float imageInset = 25;
  	[self sendAction:[self action] to:[self target]];
 }
 
+- (BOOL)becomeFirstResponder
+{
+	[[self cell] setShowsFirstResponder:YES];
+	
+	return [super becomeFirstResponder];
+}
+
+- (BOOL)resignFirstResponder
+{
+	[[self cell] setShowsFirstResponder:NO];
+	
+	return [super resignFirstResponder];
+}
+
 - (void)dealloc
 {
 	[minButton release];
