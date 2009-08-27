@@ -75,17 +75,15 @@ static NSColor *disabledColor, *enabledColor;
 		if ([image isTemplate])
 			newImage = [image bwTintedImageWithColor:[self interiorColor]];
 
-		NSAffineTransform* xform = [NSAffineTransform transform];
-		[xform translateXBy:0.0 yBy:cellFrame.size.height];
-		[xform scaleXBy:1.0 yBy:-1.0];
-		[xform concat];
+		NSAffineTransform* transform = [NSAffineTransform transform];
+		[transform translateXBy:0.0 yBy:cellFrame.size.height];
+		[transform scaleXBy:1.0 yBy:-1.0];
+		[transform concat];
 		
 		[newImage drawInRect:[self imageRectForBounds:cellFrame] fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
 		
-		NSAffineTransform* xform2 = [NSAffineTransform transform];
-		[xform2 translateXBy:0.0 yBy:cellFrame.size.height];
-		[xform2 scaleXBy:1.0 yBy:-1.0];
-		[xform2 concat];
+		[transform invert];
+		[transform concat];
 	}	
 }
 
@@ -151,14 +149,7 @@ static NSColor *disabledColor, *enabledColor;
 
 - (NSColor *)interiorColor
 {
-	NSColor *interiorColor;
-	
-	if ([self isEnabled])
-		interiorColor = enabledColor;
-	else
-		interiorColor = disabledColor;
-	
-	return interiorColor;
+	return [self isEnabled] ? enabledColor : disabledColor;
 }
 
 - (NSControlSize)controlSize
