@@ -18,11 +18,12 @@
 
 @interface BWStyledTextFieldCell ()
 @property (retain) NSMutableDictionary *previousAttributes;
+@property (nonatomic, retain) NSShadow *shadow;
 @end
 
 @implementation BWStyledTextFieldCell
 
-@synthesize shadowIsBelow, shadowColor, hasShadow, previousAttributes, startingColor, endingColor, hasGradient, solidColor;
+@synthesize shadowIsBelow, shadowColor, hasShadow, shadow, previousAttributes, startingColor, endingColor, hasGradient, solidColor;
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
@@ -69,26 +70,28 @@
 	[coder encodeObject:[self solidColor] forKey:@"BWSTFCSolidColor"];
 } 
 
+- (void)dealloc
+{
+	[shadow release];
+	[previousAttributes release];
+	[solidColor release];
+	[endingColor release];
+	[startingColor release];
+	[shadowColor release];
+	
+	[super dealloc];
+}
+
+#pragma mark Text attributes
+
 - (NSDictionary *)_textAttributes
 {
 	NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
 	[attributes addEntriesFromDictionary:[super _textAttributes]];
 	
 	// Shadow code
-	if (hasShadow)
-	{
-		NSShadow *shadow = [[NSShadow alloc] init];
-		[shadow setShadowColor:shadowColor];
-		
-		if (shadowIsBelow)
-			[shadow setShadowOffset:NSMakeSize(0,-1)];
-		else
-			[shadow setShadowOffset:NSMakeSize(0,1)];
-		
-		[attributes setObject:shadow forKey:NSShadowAttributeName];
-		
-		//[shadow release]; //This causes a sometimes reproducible crash at design-time. Patches welcome.
-	}
+	if (hasShadow && [self shadow] != nil)
+		[attributes setObject:[self shadow] forKey:NSShadowAttributeName];
 	
 	// Gradient code
 	if ([previousAttributes objectForKey:@"NSFont"] != nil && [[previousAttributes objectForKey:@"NSFont"] isEqualTo:[attributes objectForKey:@"NSFont"]] == NO)
@@ -100,13 +103,22 @@
 	return attributes;
 }
 
-- (void)dealloc
+#pragma mark Shadow-specific code
+
+- (void)changeShadow
 {
-	[shadowColor release];
-	[super dealloc];
+	NSShadow *tempShadow = [[[NSShadow alloc] init] autorelease];
+	[tempShadow setShadowColor:shadowColor];
+		
+	if (shadowIsBelow)
+		[tempShadow setShadowOffset:NSMakeSize(0,-1)];
+	else
+		[tempShadow setShadowOffset:NSMakeSize(0,1)];
+
+	[self setShadow:tempShadow];
 }
 
-#pragma mark Gradient-specific Code
+#pragma mark Gradient-specific code
 
 - (void)awakeFromNib
 {
@@ -159,6 +171,8 @@
 	[[NSGraphicsContext currentContext] restoreGraphicsState];
 }
 
+#pragma mark Accessors
+
 - (void)setStartingColor:(NSColor *)color
 {
 	if (startingColor != color) 
@@ -200,6 +214,24 @@
 		[self applyGradient];
 	else
 		[self setTextColor:self.solidColor];
+}
+
+- (void)setShadowIsBelow:(BOOL)flag
+{
+	shadowIsBelow = flag;
+	
+	[self changeShadow];
+}
+
+- (void)setShadowColor:(NSColor *)color
+{
+	if (shadowColor != color) 
+	{
+        [shadowColor release];
+        shadowColor = [color retain];
+		
+		[self changeShadow];
+    }
 }
 
 @end
