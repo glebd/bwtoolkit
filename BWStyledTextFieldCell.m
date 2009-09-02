@@ -72,6 +72,13 @@
 
 - (void)dealloc
 {
+	shadow = nil;
+	previousAttributes = nil;
+	solidColor = nil;
+	endingColor = nil;
+	startingColor = nil;
+	shadowColor = nil;
+	
 	[shadow release];
 	[previousAttributes release];
 	[solidColor release];
