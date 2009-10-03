@@ -70,15 +70,25 @@
 	[coder encodeObject:[self solidColor] forKey:@"BWSTFCSolidColor"];
 } 
 
+- (id)copyWithZone:(NSZone *)zone
+{
+  BWStyledTextFieldCell *cell = (BWStyledTextFieldCell *)[super copyWithZone:zone];
+
+  if (cell)
+  {
+    cell->previousAttributes = [previousAttributes mutableCopy];
+    cell->shadow = [shadow retain];
+    cell->shadowColor = [shadowColor retain];
+    cell->startingColor = [startingColor retain];
+    cell->endingColor = [endingColor retain];
+    cell->solidColor = [solidColor retain];
+  }
+
+  return cell;
+}
+
 - (void)dealloc
 {
-	shadow = nil;
-	previousAttributes = nil;
-	solidColor = nil;
-	endingColor = nil;
-	startingColor = nil;
-	shadowColor = nil;
-	
 	[shadow release];
 	[previousAttributes release];
 	[solidColor release];
