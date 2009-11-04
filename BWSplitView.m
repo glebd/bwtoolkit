@@ -7,6 +7,7 @@
 //
 
 #import "BWSplitView.h"
+#import "BWAnchoredButtonBar.h"
 #import "NSColor+BWAdditions.h"
 #import "NSEvent+BWAdditions.h"
 
@@ -520,7 +521,8 @@ static float scaleFactor = 1.0f;
 
 - (BOOL)splitView:(NSSplitView *)splitView shouldHideDividerAtIndex:(NSInteger)dividerIndex
 {
-	if ([secondaryDelegate respondsToSelector:@selector(splitView:shouldHideDividerAtIndex:)])
+	if ([secondaryDelegate respondsToSelector:@selector(splitView:shouldHideDividerAtIndex:)] &&
+		[secondaryDelegate isKindOfClass:[BWAnchoredButtonBar class]] == NO)
 		return [secondaryDelegate splitView:splitView shouldHideDividerAtIndex:dividerIndex];
 	
 	if ([self respondsToSelector:@selector(ibDidAddToDesignableDocument:)] == NO)
@@ -545,7 +547,8 @@ static float scaleFactor = 1.0f;
 
 - (BOOL)splitView:(NSSplitView *)sender canCollapseSubview:(NSView *)subview
 {
-	if ([secondaryDelegate respondsToSelector:@selector(splitView:canCollapseSubview:)])
+	if ([secondaryDelegate respondsToSelector:@selector(splitView:canCollapseSubview:)] &&
+		[secondaryDelegate isKindOfClass:[BWAnchoredButtonBar class]] == NO)
 		return [secondaryDelegate splitView:sender canCollapseSubview:subview];
 	
 	int subviewIndex = [[self subviews] indexOfObject:subview];
@@ -563,7 +566,8 @@ static float scaleFactor = 1.0f;
 
 - (BOOL)splitView:(NSSplitView *)splitView shouldCollapseSubview:(NSView *)subview forDoubleClickOnDividerAtIndex:(NSInteger)dividerIndex
 {
-	if ([secondaryDelegate respondsToSelector:@selector(splitView:shouldCollapseSubview:forDoubleClickOnDividerAtIndex:)])
+	if ([secondaryDelegate respondsToSelector:@selector(splitView:shouldCollapseSubview:forDoubleClickOnDividerAtIndex:)] &&
+		[secondaryDelegate isKindOfClass:[BWAnchoredButtonBar class]] == NO)
 		return [secondaryDelegate splitView:splitView shouldCollapseSubview:subview forDoubleClickOnDividerAtIndex:dividerIndex];
 	
 	int subviewIndex = [[self subviews] indexOfObject:subview];
@@ -594,7 +598,8 @@ static float scaleFactor = 1.0f;
 
 - (CGFloat)splitView:(NSSplitView *)sender constrainMaxCoordinate:(CGFloat)proposedMax ofSubviewAt:(NSInteger)offset
 {
-	if ([secondaryDelegate respondsToSelector:@selector(splitView:constrainMaxCoordinate:ofSubviewAt:)])
+	if ([secondaryDelegate respondsToSelector:@selector(splitView:constrainMaxCoordinate:ofSubviewAt:)] &&
+		[secondaryDelegate isKindOfClass:[BWAnchoredButtonBar class]] == NO)
 		return [secondaryDelegate splitView:sender constrainMaxCoordinate:proposedMax ofSubviewAt:offset];
 	
 	// Max coordinate depends on max of subview offset, and the min of subview offset + 1
@@ -636,7 +641,8 @@ static float scaleFactor = 1.0f;
 
 - (CGFloat)splitView:(NSSplitView *)sender constrainMinCoordinate:(CGFloat)proposedMin ofSubviewAt:(NSInteger)offset
 {
-	if ([secondaryDelegate respondsToSelector:@selector(splitView:constrainMinCoordinate:ofSubviewAt:)])
+	if ([secondaryDelegate respondsToSelector:@selector(splitView:constrainMinCoordinate:ofSubviewAt:)] &&
+		[secondaryDelegate isKindOfClass:[BWAnchoredButtonBar class]] == NO)
 		return [secondaryDelegate splitView:sender constrainMinCoordinate:proposedMin ofSubviewAt:offset];
 	
 	// Min coordinate depends on min of subview offset and the max of subview offset + 1
@@ -683,7 +689,8 @@ static float scaleFactor = 1.0f;
 	if ([self respondsToSelector:@selector(ibDidAddToDesignableDocument:)])
 		return proposedPosition;	
 	
-	if ([secondaryDelegate respondsToSelector:@selector(splitView:constrainSplitPosition:ofSubviewAt:)])
+	if ([secondaryDelegate respondsToSelector:@selector(splitView:constrainSplitPosition:ofSubviewAt:)] &&
+		[secondaryDelegate isKindOfClass:[BWAnchoredButtonBar class]] == NO)
 		return [secondaryDelegate splitView:sender constrainSplitPosition:proposedPosition ofSubviewAt:offset];
 	
 	return proposedPosition;
@@ -1334,8 +1341,8 @@ static float scaleFactor = 1.0f;
 }
 
 - (void)splitView:(NSSplitView *)sender resizeSubviewsWithOldSize:(NSSize)oldSize
-{
-	if ([secondaryDelegate isKindOfClass:NSClassFromString(@"BWAnchoredButtonBar")])
+{	
+	if ([secondaryDelegate isKindOfClass:[BWAnchoredButtonBar class]])
 	{
 		[self resizeAndAdjustSubviews];
 	}
