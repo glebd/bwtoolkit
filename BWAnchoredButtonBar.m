@@ -10,6 +10,7 @@
 #import "NSColor+BWAdditions.h"
 #import "NSView+BWAdditions.h"
 #import "BWAnchoredButton.h"
+#import "BWSplitView.h"
 
 static NSColor *topLineColor, *bottomLineColor;
 static NSColor *topColor, *middleTopColor, *middleBottomColor, *bottomColor;
@@ -24,6 +25,7 @@ static float scaleFactor = 0.0f;
 - (void)drawLastButtonInsetInRect:(NSRect)rect;
 - (BOOL)isInLastSubview;
 - (NSSplitView *)splitView;
+- (NSInteger)dividerIndexNearestToHandle;
 @end
 
 @implementation BWAnchoredButtonBar
@@ -94,7 +96,37 @@ static float scaleFactor = 0.0f;
 	NSSplitView *splitView = [self splitView];
 	
 	if (splitView != nil && [splitView isVertical] && [self isResizable])
-		[splitView setDelegate:self];
+	{
+		if ([splitView delegate] != nil && ([[splitView delegate] isKindOfClass:[BWAnchoredButtonBar class]] ||
+											[splitView isKindOfClass:[BWSplitView class]] && [[(BWSplitView *)splitView secondaryDelegate] isKindOfClass:[BWAnchoredButtonBar class]]))
+		{
+			// There's already an Anchored Button Bar set as the delegate so we need to set ourself as the split view delegate on
+			// the button bar. But since there can be multiple button bars, we need to set ourself as the delegate on the last
+			// button bar of the delegate chain.
+			
+			BWAnchoredButtonBar *currentDelegate = [splitView isKindOfClass:[BWSplitView class]] ? [(BWSplitView *)splitView secondaryDelegate] : [splitView delegate];
+			BWAnchoredButtonBar *lastDelegate = currentDelegate;
+			
+			while (currentDelegate != nil)
+			{
+				if ([currentDelegate splitViewDelegate] != nil && [[currentDelegate splitViewDelegate] isKindOfClass:[BWAnchoredButtonBar class]])
+				{
+					currentDelegate = [currentDelegate splitViewDelegate];
+					lastDelegate = currentDelegate;
+				}
+				else
+				{
+					currentDelegate = nil;
+				}				
+			}
+			
+			[lastDelegate setSplitViewDelegate:self];
+		}
+		else
+		{
+			[splitView setDelegate:self];
+		}
+	}
 		
 	[self bwBringToFront];
 }
@@ -200,6 +232,14 @@ static float scaleFactor = 0.0f;
 	return NO;
 }
 
+- (NSInteger)dividerIndexNearestToHandle
+{
+	if ([self isInLastSubview])
+		return self.splitView.subviews.count - 2;
+		
+	return [[[self splitView] subviews] indexOfObject:[self superview]];
+}
+
 - (NSSplitView *)splitView
 {
 	NSSplitView *splitView = nil;
@@ -260,25 +300,44 @@ static float scaleFactor = 0.0f;
 	return wasBorderedBar;
 }
 
+- (void)dealloc
+{
+	NSSplitView *splitView = [self splitView];
+	
+	if ([splitView delegate] == self)
+		[splitView setDelegate:nil];
+	
+	[super dealloc];
+}
+
 #pragma mark NSSplitView Delegate Methods
 
 // Add the resize handle rect to the split view hot zone
 - (NSRect)splitView:(NSSplitView *)aSplitView additionalEffectiveRectOfDividerAtIndex:(NSInteger)dividerIndex
-{
-	if ([splitViewDelegate respondsToSelector:@selector(splitView:additionalEffectiveRectOfDividerAtIndex:)])
-		return [splitViewDelegate splitView:aSplitView additionalEffectiveRectOfDividerAtIndex:dividerIndex];
+{	
+	if (dividerIndex == [self dividerIndexNearestToHandle])
+	{
+		NSRect paddedHandleRect;
+		paddedHandleRect.origin.y = [aSplitView frame].size.height - [self frame].origin.y - [self bounds].size.height;
+
+		// Note: Assumes button bar is nested directly in a split view subview
+		if (self.handleIsRightAligned)
+			paddedHandleRect.origin.x = NSMinX([[self superview] frame]);
+		else
+			paddedHandleRect.origin.x = NSMaxX([[self superview] frame]) - 15;
 	
-	NSRect paddedHandleRect;
-	paddedHandleRect.origin.y = [aSplitView frame].size.height - [self frame].origin.y - [self bounds].size.height;
-	paddedHandleRect.origin.x = NSMaxX([self bounds]) - 15;
+		paddedHandleRect.size.width = 15;
+		paddedHandleRect.size.height = [self bounds].size.height;
 	
-	if (self.handleIsRightAligned)
-		paddedHandleRect.origin.x = [aSplitView frame].size.width - [self bounds].size.width;
+		return paddedHandleRect;
+	}
+	else
+	{
+		if ([splitViewDelegate respondsToSelector:@selector(splitView:additionalEffectiveRectOfDividerAtIndex:)])
+			return [splitViewDelegate splitView:aSplitView additionalEffectiveRectOfDividerAtIndex:dividerIndex];
+	}
 	
-	paddedHandleRect.size.width = 15;
-	paddedHandleRect.size.height = [self bounds].size.height;
-	
-	return paddedHandleRect;
+	return NSZeroRect;
 }
 
 // Remaining delegate methods. They test for an implementation by the splitViewDelegate (otherwise perform default behavior)

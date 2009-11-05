@@ -54,7 +54,7 @@ static float scaleFactor = 1.0f;
 
 @synthesize color, colorIsEnabled, checkboxIsEnabled, minValues, maxValues, minUnits, maxUnits, collapsiblePopupSelection, dividerCanCollapse, collapsibleSubviewCollapsed;
 @synthesize resizableSubviewPreferredProportion, nonresizableSubviewPreferredSize, stateForLastPreferredCalculations;
-@synthesize toggleCollapseButton;
+@synthesize toggleCollapseButton, secondaryDelegate;
 
 + (void)initialize;
 {
