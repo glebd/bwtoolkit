@@ -13,10 +13,13 @@
 	IBOutlet NSMatrix *matrix;
 	IBOutlet NSImageView *selectionView;
 	IBOutlet NSView *contentView;
+	
+	BOOL isAnimating;
 }
 
 - (IBAction)selectMode1:(id)sender;
 - (IBAction)selectMode2:(id)sender;
 - (IBAction)selectMode3:(id)sender;
+- (void)selectMode:(int)modeIndex withAnimation:(BOOL)shouldAnimate;
 
 @end
