@@ -11,6 +11,17 @@
 #import "NSApplication+BWAdditions.h"
 
 static NSImage *checkboxOffN, *checkboxOffP, *checkboxOnN, *checkboxOnP;
+static NSColor *enabledColor, *disabledColor;
+static NSShadow *contentShadow;
+
+@interface NSCell (BWTCCPrivate)
+- (NSDictionary *)_textAttributes;
+@end
+
+@interface BWTransparentCheckboxCell (BWTCCPrivate)
+- (NSColor *)interiorColor;
+- (BOOL)isInTableView;
+@end
 
 @implementation BWTransparentCheckboxCell
 
@@ -27,32 +38,89 @@ static NSImage *checkboxOffN, *checkboxOffP, *checkboxOnN, *checkboxOnP;
 	[checkboxOffP setFlipped:YES];
 	[checkboxOnN setFlipped:YES];
 	[checkboxOnP setFlipped:YES];
+	
+	enabledColor = [[NSColor whiteColor] retain];
+	disabledColor = [[NSColor colorWithCalibratedWhite:0.6 alpha:1] retain];
+	
+	contentShadow = [[NSShadow alloc] init];
+	[contentShadow setShadowOffset:NSMakeSize(0,-1)];
+}
+
+- (NSDictionary *)_textAttributes
+{
+	NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
+	[attributes addEntriesFromDictionary:[super _textAttributes]];
+	[attributes setObject:[self interiorColor] forKey:NSForegroundColorAttributeName];
+	
+	if ([self isInTableView])
+	{
+		[attributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];
+	}
+	else
+	{	
+		[attributes setObject:[NSFont boldSystemFontOfSize:11] forKey:NSFontAttributeName];
+		[attributes setObject:contentShadow forKey:NSShadowAttributeName];
+	}
+	
+	return attributes;
+}
+
+- (BOOL)isInTableView
+{
+	return [[self controlView] isMemberOfClass:[BWTransparentTableView class]];
 }
 
 - (NSRect)drawTitle:(NSAttributedString *)title withFrame:(NSRect)frame inView:(NSView *)controlView
+{	
+	if ([self isInTableView])
+		return [super drawTitle:title withFrame:frame inView:controlView];
+	
+	CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
+	CGContextSaveGState(context);
+	CGContextSetShouldSmoothFonts(context, NO);
+
+	NSRect rect = [super drawTitle:title withFrame:frame inView:controlView];
+	
+	CGContextRestoreGState(context);
+	
+	return rect;
+}
+
+- (NSColor *)interiorColor
 {
+	NSColor *interiorColor;
+	
 	if ([[self controlView] isMemberOfClass:[BWTransparentTableView class]])
 	{
-		frame.origin.x += 4;
-		return [super drawTitle:title withFrame:frame inView:controlView];
+		// Make the text white if the row is selected
+		if ([self backgroundStyle] != 1)
+			interiorColor = [NSColor colorWithCalibratedWhite:(198.0f / 255.0f) alpha:1];
+		else
+			interiorColor = [NSColor whiteColor];
+	}
+	else 
+	{
+		interiorColor = [self isEnabled] ? enabledColor : disabledColor;
 	}
 	
-	return [super drawTitle:title withFrame:frame inView:controlView];
+	return interiorColor;
+}
+
+- (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
+{
+	if ([self isInTableView])
+		cellFrame.origin.x += 4;
+	
+	[super drawInteriorWithFrame:cellFrame inView:controlView];
 }
 
 - (void)drawImage:(NSImage*)image withFrame:(NSRect)frame inView:(NSView*)controlView
-{
-	if ([[self controlView] isMemberOfClass:[BWTransparentTableView class]])
-		frame.origin.x += 4;
-	
+{	
 	CGFloat y = NSMaxY(frame) - (frame.size.height - checkboxOffN.size.height) / 2.0 - 15;
 	CGFloat x = frame.origin.x + 1;
 	NSPoint point = NSMakePoint(x, roundf(y));
 	
-	CGFloat alpha = 1.0;
-	
-	if (![self isEnabled])
-		alpha = 0.6;
+	CGFloat alpha = [self isEnabled] ? 1.0 : 0.6;
 	
 	if ([self isHighlighted] && [self intValue])
 		[checkboxOnP drawAtPoint:point fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:alpha];
@@ -62,53 +130,6 @@ static NSImage *checkboxOffN, *checkboxOffP, *checkboxOnN, *checkboxOnP;
 		[checkboxOffN drawAtPoint:point fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:alpha];
 	else if ([self isHighlighted] && ![self intValue])
 		[checkboxOffP drawAtPoint:point fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:alpha];
-
-	if (![[self title] isEqualToString:@""])
-	{
-		// Style the text differently if the cell is in a table view
-		if ([[self controlView] isMemberOfClass:[BWTransparentTableView class]])
-		{
-			NSColor *textColor;
-			
-			// Make the text white if the row is selected
-			if ([self backgroundStyle] != 1)
-				textColor = [NSColor colorWithCalibratedWhite:(198.0f / 255.0f) alpha:1];
-			else
-				textColor = [NSColor whiteColor];
-			
-			NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
-			[attributes addEntriesFromDictionary:[[self attributedTitle] attributesAtIndex:0 effectiveRange:NULL]];
-			[attributes setObject:textColor forKey:NSForegroundColorAttributeName];
-			[attributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];
-			
-			NSMutableAttributedString *string = [[[NSMutableAttributedString alloc] initWithString:[self title] attributes:attributes] autorelease];
-			[self setAttributedTitle:string];			
-		}
-		else
-		{
-			NSColor *textColor;
-			if ([self isEnabled])
-				textColor = [NSColor whiteColor];
-			else
-				textColor = [NSColor colorWithCalibratedWhite:0.6 alpha:1];
-			
-			NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
-			[attributes addEntriesFromDictionary:[[self attributedTitle] attributesAtIndex:0 effectiveRange:NULL]];
-			[attributes setObject:textColor forKey:NSForegroundColorAttributeName];
-			
-			if ([NSApplication bwIsOnLeopard])
-				[attributes setObject:[NSFont boldSystemFontOfSize:11] forKey:NSFontAttributeName];
-			else
-				[attributes setObject:[NSFont systemFontOfSize:11] forKey:NSFontAttributeName];
-			
-			NSShadow *shadow = [[[NSShadow alloc] init] autorelease];
-			[shadow setShadowOffset:NSMakeSize(0,-1)];
-			[attributes setObject:shadow forKey:NSShadowAttributeName];
-			
-			NSMutableAttributedString *string = [[[NSMutableAttributedString alloc] initWithString:[self title] attributes:attributes] autorelease];
-			[self setAttributedTitle:string];
-		}
-	}
 }
 
 - (NSControlSize)controlSize
