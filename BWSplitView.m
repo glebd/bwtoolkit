@@ -1340,38 +1340,12 @@ static float scaleFactor = 1.0f;
 	}
 }
 
-#pragma mark IB Inspector Support Notifications
-
-// This class doesn't have an appearance for wide vertical splitters, so we force all vertical splitters to thin.
-// We also post notifications that are used by the inspector to show & hide controls.
-
 - (void)setDividerStyle:(NSSplitViewDividerStyle)aStyle
 {
-	BOOL styleChanged = NO;
-	
-	if (aStyle != [self dividerStyle])
-		styleChanged = YES;
-	
 	[super setDividerStyle:aStyle];
 	
 	// There can be sizing issues during design-time if we don't call this
 	[self adjustSubviews];
-	
-	if (styleChanged)
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"BWSplitViewDividerThicknessChanged" object:self];
-}
-
-- (void)setVertical:(BOOL)flag
-{
-	BOOL orientationChanged = NO;
-	
-	if (flag != [self isVertical])
-		orientationChanged = YES;
-		
-	[super setVertical:flag];
-	
-	if (orientationChanged)
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"BWSplitViewOrientationChanged" object:self];		
 }
 
 #pragma mark IB Inspector Support Methods

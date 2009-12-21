@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">10A380</string>
-		<string key="IBDocument.InterfaceBuilderVersion">731</string>
-		<string key="IBDocument.AppKitVersion">1025.2</string>
-		<string key="IBDocument.HIToolboxVersion">427.00</string>
+		<string key="IBDocument.SystemVersion">10C540</string>
+		<string key="IBDocument.InterfaceBuilderVersion">740</string>
+		<string key="IBDocument.AppKitVersion">1038.25</string>
+		<string key="IBDocument.HIToolboxVersion">458.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">731</string>
+			<string key="NS.object.0">740</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -781,23 +781,6 @@
 					<int key="connectionID">220</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">selectedIndex: selection.collapsiblePopupSelection</string>
-						<reference key="source" ref="1021968833"/>
-						<reference key="destination" ref="764505916"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="1021968833"/>
-							<reference key="NSDestination" ref="764505916"/>
-							<string key="NSLabel">selectedIndex: selection.collapsiblePopupSelection</string>
-							<string key="NSBinding">selectedIndex</string>
-							<string key="NSKeyPath">selection.collapsiblePopupSelection</string>
-							<reference key="NSPreviousConnector" ref="763085578"/>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">222</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">maxField</string>
 						<reference key="source" ref="762632889"/>
@@ -876,6 +859,23 @@
 						</object>
 					</object>
 					<int key="connectionID">231</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">selectedIndex: inspectedObjectsController.selection.collapsiblePopupSelection</string>
+						<reference key="source" ref="1021968833"/>
+						<reference key="destination" ref="762632889"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1021968833"/>
+							<reference key="NSDestination" ref="762632889"/>
+							<string key="NSLabel">selectedIndex: inspectedObjectsController.selection.collapsiblePopupSelection</string>
+							<string key="NSBinding">selectedIndex</string>
+							<string key="NSKeyPath">inspectedObjectsController.selection.collapsiblePopupSelection</string>
+							<reference key="NSPreviousConnector" ref="763085578"/>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">233</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1480,7 +1480,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">231</int>
+			<int key="maxID">233</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2062,10 +2062,6 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
-			<integer value="1050" key="NS.object.0"/>
-		</object>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
 			<integer value="1050" key="NS.object.0"/>
 		</object>

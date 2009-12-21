@@ -15,7 +15,7 @@
 - (void)ibPopulateKeyPaths:(NSMutableDictionary *)keyPaths {
     [super ibPopulateKeyPaths:keyPaths];
 
-    [[keyPaths objectForKey:IBAttributeKeyPaths] addObjectsFromArray:[NSArray arrayWithObjects:@"color",@"colorIsEnabled",@"dividerCanCollapse",nil]];
+    [[keyPaths objectForKey:IBAttributeKeyPaths] addObjectsFromArray:[NSArray arrayWithObjects:@"color",@"colorIsEnabled",@"dividerCanCollapse",@"collapsiblePopupSelection",@"minValues",@"maxValues",@"minUnits",@"maxUnits",nil]];
 }
 
 - (void)ibPopulateAttributeInspectorClasses:(NSMutableArray *)classes {

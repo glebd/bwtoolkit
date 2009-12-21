@@ -16,14 +16,14 @@
 	IBOutlet NSButton *dividerCheckbox;
 	IBOutlet BWSplitViewInspectorAutosizingView *autosizingView;
 	
-	int subviewPopupSelection, collapsiblePopupSelection, minUnitPopupSelection, maxUnitPopupSelection;
+	int subviewPopupSelection, minUnitPopupSelection, maxUnitPopupSelection;
 	NSMutableArray *subviewPopupContent, *collapsiblePopupContent;
 	
 	BWSplitView *splitView;
 	BOOL dividerCheckboxCollapsed;
 }
 
-@property int subviewPopupSelection, collapsiblePopupSelection, minUnitPopupSelection, maxUnitPopupSelection;
+@property int subviewPopupSelection, minUnitPopupSelection, maxUnitPopupSelection;
 @property (copy) NSMutableArray *subviewPopupContent, *collapsiblePopupContent;
 @property (retain) BWSplitView *splitView;
 @property BOOL dividerCheckboxCollapsed;
