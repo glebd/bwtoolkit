@@ -312,7 +312,7 @@ static float scaleFactor = 1.0f;
 {
 	if ([self hasCollapsibleSubview])
 	{
-		NSMutableDictionary *tempMinValues = [[self minValues] mutableCopy];
+		NSMutableDictionary *tempMinValues = [[[self minValues] mutableCopy] autorelease];
 		[tempMinValues setObject:minSize forKey:[NSNumber numberWithInt:[[self subviews] indexOfObject:[self collapsibleSubview]]]];
 		[self setMinValues:tempMinValues];
 	}
@@ -322,7 +322,7 @@ static float scaleFactor = 1.0f;
 {
 	if ([self hasCollapsibleSubview])
 	{
-		NSMutableDictionary *tempMinValues = [[self minValues] mutableCopy];
+		NSMutableDictionary *tempMinValues = [[[self minValues] mutableCopy] autorelease];
 		[tempMinValues removeObjectForKey:[NSNumber numberWithInt:[[self subviews] indexOfObject:[self collapsibleSubview]]]];
 		[self setMinValues:tempMinValues];
 	}
@@ -907,8 +907,8 @@ static float scaleFactor = 1.0f;
 	if (![self hasCollapsibleSubview])
 		return;
 	
-	NSMutableDictionary *preferredProportions = [[self resizableSubviewPreferredProportion] mutableCopy];
-	NSMutableDictionary *preferredSizes = [[self nonresizableSubviewPreferredSize] mutableCopy];
+	NSMutableDictionary *preferredProportions = [[[self resizableSubviewPreferredProportion] mutableCopy] autorelease];
+	NSMutableDictionary *preferredSizes = [[[self nonresizableSubviewPreferredSize] mutableCopy] autorelease];
 	
 	NSNumber *key = [NSNumber numberWithInt:[self collapsibleSubviewIndex]];
 	NSView *subview = [self collapsibleSubview];
@@ -1070,7 +1070,7 @@ static float scaleFactor = 1.0f;
 	// TODO: Could add a special case for resizableSubviewsTotalAvailableSize <= 0 : just set all resizable subviews to minimum size 
 	
 	// Make array of all the resizable subviews indexes
-	NSMutableArray *resizableSubviewIndexes = [[resizableSubviewPreferredProportion allKeys] mutableCopy];
+	NSMutableArray *resizableSubviewIndexes = [[[resizableSubviewPreferredProportion allKeys] mutableCopy] autorelease];
 	[resizableSubviewIndexes sortUsingDescriptors:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES] autorelease]]];
 	
 	// Loop until none of the resizable subviews' constraints are violated
@@ -1176,7 +1176,7 @@ static float scaleFactor = 1.0f;
 		if (RESIZE_DEBUG_LOGS) NSLog(@"newSubviewSizes after nonresizable proportional resizing: %@", newSubviewSizes);
 		
 		// Make array of all the non-resizable subviews indexes
-		NSMutableArray *nonresizableSubviewIndexes = [[nonresizableSubviewPreferredSize allKeys] mutableCopy];
+		NSMutableArray *nonresizableSubviewIndexes = [[[nonresizableSubviewPreferredSize allKeys] mutableCopy] autorelease];
 		[nonresizableSubviewIndexes sortUsingDescriptors:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES] autorelease]]];
 		
 		// Loop until none of the non-resizable subviews' constraints are violated
