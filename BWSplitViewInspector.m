@@ -8,6 +8,7 @@
 
 #import "BWSplitViewInspector.h"
 #import "NSView+BWAdditions.h"
+#import "NSEvent+BWAdditions.h"
 
 @interface BWSplitViewInspector (BWSVIPrivate)
 - (void)updateSizeInputFields;
@@ -60,14 +61,6 @@
 	}
 }
 
-- (void)setDividerCheckboxWantsLayer:(NSString *)flag
-{
-	if ([flag isEqualToString:@"YES"])
-		[dividerCheckbox setWantsLayer:YES];
-	else
-		[dividerCheckbox setWantsLayer:NO];
-}
-
 - (BOOL)toggleDividerCheckboxVisibilityWithAnimation:(BOOL)shouldAnimate
 {
 	// Conditions that must be met for a visibility switch to take place. If any of them fail, we return early.
@@ -78,7 +71,7 @@
 	else
 		return NO;
 	
-	float duration = 0.1, alpha;
+	float alpha, duration = [NSEvent bwShiftKeyIsDown] ? 0.1 * 10 : 0.1;
 	NSRect targetFrame = NSZeroRect;
 	
 	if (dividerCheckboxCollapsed)
@@ -92,26 +85,18 @@
 		alpha = 0.0;
 	}
 		
-	[self performSelector:@selector(setDividerCheckboxWantsLayer:) withObject:@"YES" afterDelay:0];
-	
 	if (shouldAnimate)
 	{
 		[NSAnimationContext beginGrouping];
 		[[NSAnimationContext currentContext] setDuration:duration];
-		[[dividerCheckbox animator] setAlphaValue:alpha];
-		[[[self view] animator] setFrame:targetFrame];
+		[[dividerCheckbox bwAnimator] setAlphaValue:alpha];
+		[[[self view] bwAnimator] setFrame:targetFrame];
 		[NSAnimationContext endGrouping];
-		
-		if (dividerCheckboxCollapsed)
-			[self performSelector:@selector(setDividerCheckboxWantsLayer:) withObject:@"NO" afterDelay:duration];
 	}
 	else
 	{
 		[dividerCheckbox setAlphaValue:alpha];
 		[[self view] setFrame:targetFrame];
-		
-		if (dividerCheckboxCollapsed)
-			[self performSelector:@selector(setDividerCheckboxWantsLayer:) withObject:@"NO" afterDelay:0];
 	}
 	
 	dividerCheckboxCollapsed = !dividerCheckboxCollapsed;
