@@ -19,11 +19,28 @@ NSComparisonResult compareViews(id firstView, id secondView, id context)
 	}
 }
 
+@interface NSView (BWPrivateAdditions)
+- (void)bwTurnOffLayer;
+@end
+
 @implementation NSView (BWAdditions)
 
 - (void)bwBringToFront
 {
 	[[self superview] sortSubviewsUsingFunction:(NSComparisonResult (*)(id, id, void *))compareViews context:self];
+}
+
+- (id)bwAnimator
+{
+	float duration = [[NSAnimationContext currentContext] duration];
+	[self performSelector:@selector(bwTurnOffLayer) withObject:nil afterDelay:duration];
+	
+	return [self animator];
+}
+
+- (void)bwTurnOffLayer
+{
+	[self setWantsLayer:NO];
 }
 
 @end

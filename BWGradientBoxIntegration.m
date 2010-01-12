@@ -16,7 +16,7 @@
 {
     [super ibPopulateKeyPaths:keyPaths];
     [[keyPaths objectForKey:IBAttributeKeyPaths] addObjectsFromArray:[NSArray arrayWithObjects:@"topBorderColor", @"bottomBorderColor", @"fillStartingColor", @"fillEndingColor",
-																	  @"fillColor", @"topInsetAlpha", @"bottomInsetAlpha", @"hasTopBorder", @"hasBottomBorder", @"hasGradient", nil]];
+																	  @"fillColor", @"topInsetAlpha", @"bottomInsetAlpha", @"hasTopBorder", @"hasBottomBorder", @"hasGradient", @"hasFillColor", nil]];
 }
 
 - (void)ibPopulateAttributeInspectorClasses:(NSMutableArray *)classes 

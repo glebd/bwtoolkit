@@ -13,7 +13,7 @@
 
 @synthesize fillStartingColor, fillEndingColor, fillColor, topBorderColor, bottomBorderColor;
 @synthesize topInsetAlpha, bottomInsetAlpha;
-@synthesize hasTopBorder, hasBottomBorder, hasGradient;
+@synthesize hasTopBorder, hasBottomBorder, hasGradient, hasFillColor;
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
@@ -28,7 +28,8 @@
 		[self setHasTopBorder:[decoder decodeBoolForKey:@"BWGBHasTopBorder"]];
 		[self setHasBottomBorder:[decoder decodeBoolForKey:@"BWGBHasBottomBorder"]];
 		[self setHasGradient:[decoder decodeBoolForKey:@"BWGBHasGradient"]];
-		
+		[self setHasFillColor:[decoder decodeBoolForKey:@"BWGBHasFillColor"]];
+
 		[self setTopInsetAlpha:[decoder decodeFloatForKey:@"BWGBTopInsetAlpha"]];
 		[self setBottomInsetAlpha:[decoder decodeFloatForKey:@"BWGBBottomInsetAlpha"]];
 		
@@ -63,7 +64,8 @@
 	[coder encodeBool:[self hasTopBorder] forKey:@"BWGBHasTopBorder"];
 	[coder encodeBool:[self hasBottomBorder] forKey:@"BWGBHasBottomBorder"];
 	[coder encodeBool:[self hasGradient] forKey:@"BWGBHasGradient"];
-
+	[coder encodeBool:[self hasFillColor] forKey:@"BWGBHasFillColor"];
+	
 	[coder encodeFloat:[self topInsetAlpha] forKey:@"BWGBTopInsetAlpha"];
 	[coder encodeFloat:[self bottomInsetAlpha] forKey:@"BWGBBottomInsetAlpha"];
 } 
@@ -78,8 +80,11 @@
 	}
 	else
 	{
-		[fillColor set];
-		NSRectFillUsingOperation(self.bounds, NSCompositeSourceOver);
+		if (hasFillColor)
+		{
+			[fillColor set];
+			NSRectFillUsingOperation(self.bounds, NSCompositeSourceOver);	
+		}
 	}
 	
 	if (hasTopBorder)
