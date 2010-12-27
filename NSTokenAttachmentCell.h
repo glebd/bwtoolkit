@@ -4,6 +4,8 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2007 by Steve Nygard.
  */
 
+#ifndef APPSTORE
+
 #import <Cocoa/Cocoa.h>
 
 @interface NSTokenAttachmentCell : NSTextAttachmentCell
@@ -49,4 +51,6 @@
 - (BOOL)trackMouse:(id)fp8 inRect:(NSRect)fp12 ofView:(id)fp28 atCharacterIndex:(unsigned int)fp32 untilMouseUp:(BOOL)fp36;
 
 @end
+
+#endif
 

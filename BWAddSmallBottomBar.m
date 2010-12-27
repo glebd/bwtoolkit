@@ -16,7 +16,7 @@
     if ((self = [super initWithCoder:decoder]) != nil)
 	{
 		if ([self respondsToSelector:@selector(ibDidAddToDesignableDocument:)])
-			[self performSelector:@selector(addBottomBar) withObject:nil afterDelay:0];			
+			[self performSelector:@selector(addBottomBar) withObject:nil afterDelay:0];
 	}
 	return self;
 }
@@ -29,10 +29,12 @@
 - (void)drawRect:(NSRect)aRect
 {
 	if ([self respondsToSelector:@selector(ibDidAddToDesignableDocument:)] && [[self window] contentBorderThicknessForEdge:NSMinYEdge] == 0)
-		[self performSelector:@selector(addBottomBar) withObject:nil afterDelay:0];	
-	
+		[self performSelector:@selector(addBottomBar) withObject:nil afterDelay:0];
+
+#ifndef APPSTORE
 	if ([[self window] isSheet] && [[self window] respondsToSelector:@selector(setMovable:)])
 		[[self window] setMovable:NO];
+#endif
 }
 
 - (NSRect)bounds

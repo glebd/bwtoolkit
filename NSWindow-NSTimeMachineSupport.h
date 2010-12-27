@@ -4,6 +4,8 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2007 by Steve Nygard.
  */
 
+#ifndef APPSTORE
+
 #import <AppKit/NSWindow.h>
 
 @interface NSWindow (NSTimeMachineSupport)
@@ -13,3 +15,4 @@
 - (BOOL)isMovable;
 @end
 
+#endif
