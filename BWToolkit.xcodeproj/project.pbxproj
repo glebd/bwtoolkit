@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -23,61 +23,11 @@
 
 /* Begin PBXBuildFile section */
 		13F8B89007B43554008AE28D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
-		546DEAF3067F632A0098DCC4 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DF68FD067E5B5A0090B5B0 /* BWToolkitFramework.framework */; };
 		8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
 		8D1AC9800486D23B00FE50C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D1AC97F0486D23B00FE50C9 /* InfoPlist.strings */; };
 		C08787290A49DE9A00E9B151 /* BWToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0259C576FE90428111CA0C5A /* BWToolkit.m */; };
 		C0D069560A49DF9100C95564 /* InterfaceBuilderKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D069550A49DF9100C95564 /* InterfaceBuilderKit.framework */; };
-		C7D4AC6C12C939E8000FD3F9 /* BWToolbarShowColorsItem.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630AE00DC7FB6300AD7F9E /* BWToolbarShowColorsItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC6D12C939E8000FD3F9 /* BWToolbarShowFontsItem.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630AE20DC7FB6300AD7F9E /* BWToolbarShowFontsItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC6E12C939E8000FD3F9 /* BWAddRegularBottomBar.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630AEC0DC7FF0800AD7F9E /* BWAddRegularBottomBar.h */; };
-		C7D4AC6F12C939E8000FD3F9 /* BWRemoveBottomBar.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630AEE0DC7FF0800AD7F9E /* BWRemoveBottomBar.h */; };
-		C7D4AC7012C939E8000FD3F9 /* BWInsetTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630AF40DC8002200AD7F9E /* BWInsetTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7112C939E8000FD3F9 /* BWTransparentButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630AF80DC8004A00AD7F9E /* BWTransparentButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7212C939E8000FD3F9 /* BWTransparentButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630AFA0DC8004A00AD7F9E /* BWTransparentButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7312C939E8000FD3F9 /* BWTransparentCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630AFC0DC8004A00AD7F9E /* BWTransparentCheckbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7412C939E8000FD3F9 /* BWTransparentCheckboxCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630AFE0DC8004A00AD7F9E /* BWTransparentCheckboxCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7512C939E8000FD3F9 /* BWTransparentPopUpButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630B000DC8004A00AD7F9E /* BWTransparentPopUpButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7612C939E8000FD3F9 /* BWTransparentPopUpButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630B020DC8004A00AD7F9E /* BWTransparentPopUpButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7712C939E8000FD3F9 /* BWTransparentSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630B040DC8004A00AD7F9E /* BWTransparentSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7812C939E8000FD3F9 /* BWTransparentSliderCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630B060DC8004A00AD7F9E /* BWTransparentSliderCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7912C939E8000FD3F9 /* BWSplitView.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630B1C0DC82DD600AD7F9E /* BWSplitView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7A12C939E8000FD3F9 /* BWTexturedSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630B220DC82E2100AD7F9E /* BWTexturedSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7B12C939E8000FD3F9 /* BWTexturedSliderCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630B240DC82E2100AD7F9E /* BWTexturedSliderCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7C12C939E8000FD3F9 /* BWAddSmallBottomBar.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630CF80DC843DD00AD7F9E /* BWAddSmallBottomBar.h */; };
-		C7D4AC7D12C939E8000FD3F9 /* BWAnchoredButtonBar.h in Headers */ = {isa = PBXBuildFile; fileRef = CA325B4D0DCAE25A001446BB /* BWAnchoredButtonBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7E12C939E8000FD3F9 /* BWSelectableToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = CA630AE80DC7FC3400AD7F9E /* BWSelectableToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC7F12C939E8000FD3F9 /* BWAnchoredButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CA325F020DCD91EF001446BB /* BWAnchoredButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC8012C939E8000FD3F9 /* BWAnchoredButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA325F060DCD9268001446BB /* BWAnchoredButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC8112C939E8000FD3F9 /* NSColor+BWAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CA875AD80DD165A500764511 /* NSColor+BWAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC8212C939E8000FD3F9 /* NSImage+BWAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CA875CC50DD7EA3900764511 /* NSImage+BWAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC8312C939E8000FD3F9 /* BWSelectableToolbarHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CA34552E0DDCD6C900A7C0A9 /* BWSelectableToolbarHelper.h */; };
-		C7D4AC8412C939E8000FD3F9 /* NSWindow+BWAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CA944DD80DDF800D00F103BC /* NSWindow+BWAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC8512C939E8000FD3F9 /* NSView+BWAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CA944F060DE00CC000F103BC /* NSView+BWAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC8612C939E8000FD3F9 /* BWTransparentTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = CA9451890DE15A6C00F103BC /* BWTransparentTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC8712C939E8000FD3F9 /* BWTransparentTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA9451E60DE1690500F103BC /* BWTransparentTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC8812C939E8000FD3F9 /* BWAnchoredPopUpButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CA9453DB0DE293BC00F103BC /* BWAnchoredPopUpButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC8912C939E8000FD3F9 /* BWAnchoredPopUpButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA9453DF0DE293C800F103BC /* BWAnchoredPopUpButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC8A12C939E8000FD3F9 /* BWCustomView.h in Headers */ = {isa = PBXBuildFile; fileRef = CA9919640DF9F81600FE0577 /* BWCustomView.h */; };
-		C7D4AC8B12C939E8000FD3F9 /* BWUnanchoredButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CA4071370E0B985300B56AB7 /* BWUnanchoredButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC8C12C939E8000FD3F9 /* BWUnanchoredButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA40713B0E0B986000B56AB7 /* BWUnanchoredButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC8D12C939E8000FD3F9 /* BWUnanchoredButtonContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = CA4071CB0E0ED32300B56AB7 /* BWUnanchoredButtonContainer.h */; };
-		C7D4AC8F12C939E8000FD3F9 /* BWSheetController.h in Headers */ = {isa = PBXBuildFile; fileRef = CA4A50D90E1DC7AB00BC7395 /* BWSheetController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC9012C939E8000FD3F9 /* BWTransparentScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = CA10ABD60E272748009BA4D7 /* BWTransparentScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC9212C939E8000FD3F9 /* BWAddMiniBottomBar.h in Headers */ = {isa = PBXBuildFile; fileRef = CA685EFD0E68C6CB0003D937 /* BWAddMiniBottomBar.h */; };
-		C7D4AC9312C939E8000FD3F9 /* BWAddSheetBottomBar.h in Headers */ = {isa = PBXBuildFile; fileRef = CA685F1F0E68C8290003D937 /* BWAddSheetBottomBar.h */; };
-		C7D4AC9912C939E8000FD3F9 /* BWTransparentScroller.h in Headers */ = {isa = PBXBuildFile; fileRef = CA405A6E0EBF2E400010580A /* BWTransparentScroller.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC9A12C939E8000FD3F9 /* BWTransparentTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CA3A18870ECA9E86000C3A43 /* BWTransparentTextFieldCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC9B12C939E8000FD3F9 /* BWToolbarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEA804B0ED0A73E0062B378 /* BWToolbarItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC9C12C939E8000FD3F9 /* NSString+BWAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CA66C0F50EF79AC0005EE9A5 /* NSString+BWAdditions.h */; };
-		C7D4AC9D12C939E8000FD3F9 /* BWToolkitFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEB146A0F4A534300E57E67 /* BWToolkitFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4AC9E12C939E8000FD3F9 /* NSEvent+BWAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CAB82ED20F514F39006519E3 /* NSEvent+BWAdditions.h */; };
-		C7D4AC9F12C939E8000FD3F9 /* BWHyperlinkButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEE04EC0FD753DB001A1C3F /* BWHyperlinkButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4ACA012C939E8000FD3F9 /* BWHyperlinkButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEE04F00FD7549A001A1C3F /* BWHyperlinkButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4ACA112C939E8000FD3F9 /* BWGradientBox.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEE07730FD79453001A1C3F /* BWGradientBox.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4ACA212C939E8000FD3F9 /* BWStyledTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEE077A0FD79CE9001A1C3F /* BWStyledTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4ACA312C939E8000FD3F9 /* BWStyledTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CAEE07C00FD7BB18001A1C3F /* BWStyledTextFieldCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C7D4ACA412C939E8000FD3F9 /* NSApplication+BWAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CAAC33380FE5DA5700C66575 /* NSApplication+BWAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7534CD41325BC4A002EF382 /* BWTK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7534CD31325BC4A002EF382 /* BWTK.framework */; };
 		C7D4ACA612C939E8000FD3F9 /* TexturedSliderTrackRight.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CA630A680DC7F6FC00AD7F9E /* TexturedSliderTrackRight.tiff */; };
 		C7D4ACA712C939E8000FD3F9 /* TexturedSliderTrackFill.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CA630A690DC7F6FC00AD7F9E /* TexturedSliderTrackFill.tiff */; };
 		C7D4ACA812C939E8000FD3F9 /* TexturedSliderTrackLeft.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CA630A6A0DC7F6FC00AD7F9E /* TexturedSliderTrackLeft.tiff */; };
@@ -182,7 +132,6 @@
 		C7D4AD0F12C939E8000FD3F9 /* BWStyledTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07C10FD7BB18001A1C3F /* BWStyledTextFieldCell.m */; };
 		C7D4AD1012C939E8000FD3F9 /* NSApplication+BWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAC33390FE5DA5700C66575 /* NSApplication+BWAdditions.m */; };
 		C7D4AD1212C939E8000FD3F9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
-		C7D4AD8E12C942C1000FD3F9 /* NSCustomView.h in Headers */ = {isa = PBXBuildFile; fileRef = CACEBC7A0E178524003E3CB2 /* NSCustomView.h */; };
 		CA0D2A260E2F034000E8680C /* NSWindow-NSTimeMachineSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0D2A250E2F034000E8680C /* NSWindow-NSTimeMachineSupport.h */; };
 		CA0DDBD00FDA586F006B3EA3 /* BWGradientWell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DDBCF0FDA586F006B3EA3 /* BWGradientWell.m */; };
 		CA0DDC210FDA5EDA006B3EA3 /* BWGradientWellColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DDC200FDA5EDA006B3EA3 /* BWGradientWellColorWell.m */; };
@@ -250,7 +199,6 @@
 		CA4A53B20E2033E800BC7395 /* BWTransparentTableViewIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4A53B10E2033E800BC7395 /* BWTransparentTableViewIntegration.m */; };
 		CA4A54780E2190A000BC7395 /* Library-TransparentTableView.tif in Resources */ = {isa = PBXBuildFile; fileRef = CA4A54760E2190A000BC7395 /* Library-TransparentTableView.tif */; };
 		CA4A54790E2190A000BC7395 /* Library-TransparentCheckboxCell.tif in Resources */ = {isa = PBXBuildFile; fileRef = CA4A54770E2190A000BC7395 /* Library-TransparentCheckboxCell.tif */; };
-		CA5101040E7851010014AEF1 /* BWToolkitFramework.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 53DF68FD067E5B5A0090B5B0 /* BWToolkitFramework.framework */; };
 		CA6124080F05F88500A3B5AC /* Inspector-SplitViewBackground.tiff in Resources */ = {isa = PBXBuildFile; fileRef = CA6124070F05F88500A3B5AC /* Inspector-SplitViewBackground.tiff */; };
 		CA6124150F060E8500A3B5AC /* BWSplitViewInspectorAutosizingButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6124140F060E8500A3B5AC /* BWSplitViewInspectorAutosizingButtonCell.m */; };
 		CA61245B0F06177500A3B5AC /* Inspector-SplitViewArrowBlueLeft.tif in Resources */ = {isa = PBXBuildFile; fileRef = CA6124570F06177500A3B5AC /* Inspector-SplitViewArrowBlueLeft.tif */; };
@@ -509,7 +457,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CA5101040E7851010014AEF1 /* BWToolkitFramework.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,14 +470,15 @@
 		13F8B88907B434F6008AE28D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		13F8B88A07B434F6008AE28D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32DBCF980370C29C00C91783 /* BWToolkit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWToolkit_Prefix.pch; sourceTree = "<group>"; };
-		53DF68FD067E5B5A0090B5B0 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BWToolkitFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		53DF68FE067E5B5A0090B5B0 /* BWToolkitFramework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BWToolkitFramework-Info.plist"; sourceTree = "<group>"; };
+		53DF68FD067E5B5A0090B5B0 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BWToolkitFramework.framework; path = /Users/glebd/git/Decloner/vendor/bwtoolkit/build/Release/BWToolkitFramework.framework; sourceTree = "<absolute>"; };
+		53DF68FE067E5B5A0090B5B0 /* BWToolkit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BWToolkit-Info.plist"; sourceTree = "<group>"; };
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1AC9740486D14A00FE50C9 /* BWToolkit.ibplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BWToolkit.ibplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1AC97B0486D23100FE50C9 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C0D069550A49DF9100C95564 /* InterfaceBuilderKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InterfaceBuilderKit.framework; path = /Developer/Library/Frameworks/InterfaceBuilderKit.framework; sourceTree = "<absolute>"; };
-		C7D4AD1612C939E8000FD3F9 /* BWToolkitFrameworkMAS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BWToolkitFrameworkMAS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7D4AD1712C939E8000FD3F9 /* BWToolkitFrameworkMAS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BWToolkitFrameworkMAS-Info.plist"; sourceTree = "<group>"; };
+		C7534CD31325BC4A002EF382 /* BWTK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWTK.framework; path = DerivedData/BWToolkit/Build/Products/Release/BWTK.framework; sourceTree = "<group>"; };
+		C7534CD51325BC4A002EF382 /* BWToolkit.ibplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BWToolkit.ibplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7D4AD1612C939E8000FD3F9 /* BWToolkitFrameworkMAS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BWToolkitFrameworkMAS.framework; path = /Users/glebd/git/Decloner/vendor/bwtoolkit/build/Release/BWToolkitFrameworkMAS.framework; sourceTree = "<absolute>"; };
+		C7D4AD1712C939E8000FD3F9 /* BWToolkitMAS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BWToolkitMAS-Info.plist"; sourceTree = "<group>"; };
 		CA0D2A250E2F034000E8680C /* NSWindow-NSTimeMachineSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow-NSTimeMachineSupport.h"; sourceTree = "<group>"; };
 		CA0DDBCE0FDA586F006B3EA3 /* BWGradientWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWGradientWell.h; sourceTree = "<group>"; };
 		CA0DDBCF0FDA586F006B3EA3 /* BWGradientWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWGradientWell.m; sourceTree = "<group>"; };
@@ -857,8 +805,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7534CD41325BC4A002EF382 /* BWTK.framework in Frameworks */,
 				8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */,
-				546DEAF3067F632A0098DCC4 /* BWToolkitFramework.framework in Frameworks */,
 				C0D069560A49DF9100C95564 /* InterfaceBuilderKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -880,8 +828,8 @@
 				32DBCF9E0370C38000C91783 /* Plugin */,
 				54D33B2C06778E4400C9C163 /* Framework */,
 				0259C582FE90428111CA0C5A /* Resources */,
-				1ED78706FE9D4A0611CA0C5A /* Products */,
 				2E58F364FFB232C311CA0CBA /* Frameworks */,
+				C7534CD61325BC4A002EF382 /* Products */,
 			);
 			name = BWToolkit;
 			sourceTree = "<group>";
@@ -892,9 +840,9 @@
 				CAEB14760F4A538A00E57E67 /* Release Notes.rtf */,
 				CAEB14740F4A538100E57E67 /* License.rtf */,
 				8D1AC9730486D14A00FE50C9 /* Info.plist */,
-				53DF68FE067E5B5A0090B5B0 /* BWToolkitFramework-Info.plist */,
+				53DF68FE067E5B5A0090B5B0 /* BWToolkit-Info.plist */,
 				8D1AC97F0486D23B00FE50C9 /* InfoPlist.strings */,
-				C7D4AD1712C939E8000FD3F9 /* BWToolkitFrameworkMAS-Info.plist */,
+				C7D4AD1712C939E8000FD3F9 /* BWToolkitMAS-Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -913,6 +861,7 @@
 		13F8B6FD07B43410008AE28D /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7534CD31325BC4A002EF382 /* BWTK.framework */,
 				DD92D38A0106425D02CA0E72 /* Cocoa.framework */,
 				C0D069550A49DF9100C95564 /* InterfaceBuilderKit.framework */,
 			);
@@ -927,16 +876,6 @@
 				13F8B88A07B434F6008AE28D /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		1ED78706FE9D4A0611CA0C5A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8D1AC9740486D14A00FE50C9 /* BWToolkit.ibplugin */,
-				53DF68FD067E5B5A0090B5B0 /* BWToolkitFramework.framework */,
-				C7D4AD1612C939E8000FD3F9 /* BWToolkitFrameworkMAS.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2E58F364FFB232C311CA0CBA /* Frameworks */ = {
@@ -1100,6 +1039,14 @@
 				CAAC33390FE5DA5700C66575 /* NSApplication+BWAdditions.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		C7534CD61325BC4A002EF382 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7534CD51325BC4A002EF382 /* BWToolkit.ibplugin */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		CA0DDC800FDA6981006B3EA3 /* Gradient Well */ = {
@@ -1645,66 +1592,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7D4AD8E12C942C1000FD3F9 /* NSCustomView.h in Headers */,
-				C7D4AC6C12C939E8000FD3F9 /* BWToolbarShowColorsItem.h in Headers */,
-				C7D4AC6D12C939E8000FD3F9 /* BWToolbarShowFontsItem.h in Headers */,
-				C7D4AC6E12C939E8000FD3F9 /* BWAddRegularBottomBar.h in Headers */,
-				C7D4AC6F12C939E8000FD3F9 /* BWRemoveBottomBar.h in Headers */,
-				C7D4AC7012C939E8000FD3F9 /* BWInsetTextField.h in Headers */,
-				C7D4AC7112C939E8000FD3F9 /* BWTransparentButton.h in Headers */,
-				C7D4AC7212C939E8000FD3F9 /* BWTransparentButtonCell.h in Headers */,
-				C7D4AC7312C939E8000FD3F9 /* BWTransparentCheckbox.h in Headers */,
-				C7D4AC7412C939E8000FD3F9 /* BWTransparentCheckboxCell.h in Headers */,
-				C7D4AC7512C939E8000FD3F9 /* BWTransparentPopUpButton.h in Headers */,
-				C7D4AC7612C939E8000FD3F9 /* BWTransparentPopUpButtonCell.h in Headers */,
-				C7D4AC7712C939E8000FD3F9 /* BWTransparentSlider.h in Headers */,
-				C7D4AC7812C939E8000FD3F9 /* BWTransparentSliderCell.h in Headers */,
-				C7D4AC7912C939E8000FD3F9 /* BWSplitView.h in Headers */,
-				C7D4AC7A12C939E8000FD3F9 /* BWTexturedSlider.h in Headers */,
-				C7D4AC7B12C939E8000FD3F9 /* BWTexturedSliderCell.h in Headers */,
-				C7D4AC7C12C939E8000FD3F9 /* BWAddSmallBottomBar.h in Headers */,
-				C7D4AC7D12C939E8000FD3F9 /* BWAnchoredButtonBar.h in Headers */,
-				C7D4AC7E12C939E8000FD3F9 /* BWSelectableToolbar.h in Headers */,
-				C7D4AC7F12C939E8000FD3F9 /* BWAnchoredButton.h in Headers */,
-				C7D4AC8012C939E8000FD3F9 /* BWAnchoredButtonCell.h in Headers */,
-				C7D4AC8112C939E8000FD3F9 /* NSColor+BWAdditions.h in Headers */,
-				C7D4AC8212C939E8000FD3F9 /* NSImage+BWAdditions.h in Headers */,
-				C7D4AC8312C939E8000FD3F9 /* BWSelectableToolbarHelper.h in Headers */,
-				C7D4AC8412C939E8000FD3F9 /* NSWindow+BWAdditions.h in Headers */,
-				C7D4AC8512C939E8000FD3F9 /* NSView+BWAdditions.h in Headers */,
-				C7D4AC8612C939E8000FD3F9 /* BWTransparentTableView.h in Headers */,
-				C7D4AC8712C939E8000FD3F9 /* BWTransparentTableViewCell.h in Headers */,
-				C7D4AC8812C939E8000FD3F9 /* BWAnchoredPopUpButton.h in Headers */,
-				C7D4AC8912C939E8000FD3F9 /* BWAnchoredPopUpButtonCell.h in Headers */,
-				C7D4AC8A12C939E8000FD3F9 /* BWCustomView.h in Headers */,
-				C7D4AC8B12C939E8000FD3F9 /* BWUnanchoredButton.h in Headers */,
-				C7D4AC8C12C939E8000FD3F9 /* BWUnanchoredButtonCell.h in Headers */,
-				C7D4AC8D12C939E8000FD3F9 /* BWUnanchoredButtonContainer.h in Headers */,
-				C7D4AC8F12C939E8000FD3F9 /* BWSheetController.h in Headers */,
-				C7D4AC9012C939E8000FD3F9 /* BWTransparentScrollView.h in Headers */,
-				C7D4AC9212C939E8000FD3F9 /* BWAddMiniBottomBar.h in Headers */,
-				C7D4AC9312C939E8000FD3F9 /* BWAddSheetBottomBar.h in Headers */,
-				C7D4AC9912C939E8000FD3F9 /* BWTransparentScroller.h in Headers */,
-				C7D4AC9A12C939E8000FD3F9 /* BWTransparentTextFieldCell.h in Headers */,
-				C7D4AC9B12C939E8000FD3F9 /* BWToolbarItem.h in Headers */,
-				C7D4AC9C12C939E8000FD3F9 /* NSString+BWAdditions.h in Headers */,
-				C7D4AC9D12C939E8000FD3F9 /* BWToolkitFramework.h in Headers */,
-				C7D4AC9E12C939E8000FD3F9 /* NSEvent+BWAdditions.h in Headers */,
-				C7D4AC9F12C939E8000FD3F9 /* BWHyperlinkButton.h in Headers */,
-				C7D4ACA012C939E8000FD3F9 /* BWHyperlinkButtonCell.h in Headers */,
-				C7D4ACA112C939E8000FD3F9 /* BWGradientBox.h in Headers */,
-				C7D4ACA212C939E8000FD3F9 /* BWStyledTextField.h in Headers */,
-				C7D4ACA312C939E8000FD3F9 /* BWStyledTextFieldCell.h in Headers */,
-				C7D4ACA412C939E8000FD3F9 /* NSApplication+BWAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		53DF68FC067E5B5A0090B5B0 /* BWToolkitFramework */ = {
+		53DF68FC067E5B5A0090B5B0 /* BWTK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C056397F08A954F8003078D8 /* Build configuration list for PBXNativeTarget "BWToolkitFramework" */;
+			buildConfigurationList = C056397F08A954F8003078D8 /* Build configuration list for PBXNativeTarget "BWTK" */;
 			buildPhases = (
 				53DF68F8067E5B5A0090B5B0 /* Headers */,
 				53DF68F9067E5B5A0090B5B0 /* Resources */,
@@ -1715,7 +1611,7 @@
 			);
 			dependencies = (
 			);
-			name = BWToolkitFramework;
+			name = BWTK;
 			productName = BWToolkitFramework;
 			productReference = 53DF68FD067E5B5A0090B5B0 /* BWToolkitFramework.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1737,12 +1633,12 @@
 			name = BWToolkit;
 			productInstallPath = "$(HOME)/Developer/Palettes";
 			productName = BWToolkit;
-			productReference = 8D1AC9740486D14A00FE50C9 /* BWToolkit.ibplugin */;
+			productReference = C7534CD51325BC4A002EF382 /* BWToolkit.ibplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
-		C7D4AC6A12C939E8000FD3F9 /* BWToolkitFrameworkMAS */ = {
+		C7D4AC6A12C939E8000FD3F9 /* BWTKMAS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7D4AD1312C939E8000FD3F9 /* Build configuration list for PBXNativeTarget "BWToolkitFrameworkMAS" */;
+			buildConfigurationList = C7D4AD1312C939E8000FD3F9 /* Build configuration list for PBXNativeTarget "BWTKMAS" */;
 			buildPhases = (
 				C7D4AC6B12C939E8000FD3F9 /* Headers */,
 				C7D4ACA512C939E8000FD3F9 /* Resources */,
@@ -1753,7 +1649,7 @@
 			);
 			dependencies = (
 			);
-			name = BWToolkitFrameworkMAS;
+			name = BWTKMAS;
 			productName = BWToolkitFramework;
 			productReference = C7D4AD1612C939E8000FD3F9 /* BWToolkitFrameworkMAS.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1764,7 +1660,7 @@
 		0259C573FE90428111CA0C5A /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = C056398B08A954F8003078D8 /* Build configuration list for PBXProject "BWToolkit" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -1774,13 +1670,14 @@
 				German,
 			);
 			mainGroup = 0259C574FE90428111CA0C5A /* BWToolkit */;
+			productRefGroup = C7534CD61325BC4A002EF382 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				53DF6901067E5B8E0090B5B0 /* All */,
 				8D1AC9600486D14A00FE50C9 /* BWToolkit */,
-				53DF68FC067E5B5A0090B5B0 /* BWToolkitFramework */,
-				C7D4AC6A12C939E8000FD3F9 /* BWToolkitFrameworkMAS */,
+				53DF68FC067E5B5A0090B5B0 /* BWTK */,
+				C7D4AC6A12C939E8000FD3F9 /* BWTKMAS */,
 			);
 		};
 /* End PBXProject section */
@@ -2181,12 +2078,12 @@
 		};
 		53DF6905067E5B930090B5B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 53DF68FC067E5B5A0090B5B0 /* BWToolkitFramework */;
+			target = 53DF68FC067E5B5A0090B5B0 /* BWTK */;
 			targetProxy = 53DF6904067E5B930090B5B0 /* PBXContainerItemProxy */;
 		};
 		546DEAF0067F62F70098DCC4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 53DF68FC067E5B5A0090B5B0 /* BWToolkitFramework */;
+			target = 53DF68FC067E5B5A0090B5B0 /* BWTK */;
 			targetProxy = 546DEAEF067F62F70098DCC4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2232,10 +2129,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "BWToolkitFramework-Info.plist";
+				INFOPLIST_FILE = "BWToolkit-Info.plist";
 				INSTALL_PATH = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				PRODUCT_NAME = BWToolkitFramework;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = BWTK;
 				SKIP_INSTALL = NO;
 			};
 			name = Debug;
@@ -2255,11 +2152,11 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "BWToolkitFramework-Info.plist";
+				INFOPLIST_FILE = "BWToolkit-Info.plist";
 				INSTALL_MODE_FLAG = "go-w,a+rX";
 				INSTALL_PATH = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				PRODUCT_NAME = BWToolkitFramework;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = BWTK;
 				SKIP_INSTALL = NO;
 			};
 			name = Release;
@@ -2268,13 +2165,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "\"/Developer/Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Developer/Library/Frameworks\"",
+					"\"$(SRCROOT)/DerivedData/BWToolkit/Build/Products/Release\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BWToolkit_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = BWToolkit;
 				WRAPPER_EXTENSION = ibplugin;
@@ -2285,10 +2186,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "\"/Developer/Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Developer/Library/Frameworks\"",
+					"\"$(SRCROOT)/DerivedData/BWToolkit/Build/Products/Release\"",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BWToolkit_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = BWToolkit;
 				WRAPPER_EXTENSION = ibplugin;
@@ -2332,10 +2237,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				"ARCHS[sdk=macosx10.6]" = "$(ARCHS_STANDARD_32_64_BIT)";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = "";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
@@ -2348,10 +2253,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				"ARCHS[sdk=macosx10.6]" = "$(ARCHS_STANDARD_32_64_BIT)";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = "";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
@@ -2381,10 +2286,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				GCC_PREPROCESSOR_DEFINITIONS = APPSTORE;
-				INFOPLIST_FILE = "BWToolkitFrameworkMAS-Info.plist";
+				INFOPLIST_FILE = "BWToolkitMAS-Info.plist";
 				INSTALL_PATH = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				PRODUCT_NAME = BWToolkitFrameworkMAS;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = BWTKMAS;
 				SKIP_INSTALL = NO;
 			};
 			name = Debug;
@@ -2405,11 +2310,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				GCC_PREPROCESSOR_DEFINITIONS = APPSTORE;
-				INFOPLIST_FILE = "BWToolkitFrameworkMAS-Info.plist";
+				INFOPLIST_FILE = "BWToolkitMAS-Info.plist";
 				INSTALL_MODE_FLAG = "go-w,a+rX";
 				INSTALL_PATH = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				PRODUCT_NAME = BWToolkitFrameworkMAS;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = BWTKMAS;
 				SKIP_INSTALL = NO;
 			};
 			name = Release;
@@ -2417,7 +2322,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C056397F08A954F8003078D8 /* Build configuration list for PBXNativeTarget "BWToolkitFramework" */ = {
+		C056397F08A954F8003078D8 /* Build configuration list for PBXNativeTarget "BWTK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C056398008A954F8003078D8 /* Debug */,
@@ -2453,7 +2358,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7D4AD1312C939E8000FD3F9 /* Build configuration list for PBXNativeTarget "BWToolkitFrameworkMAS" */ = {
+		C7D4AD1312C939E8000FD3F9 /* Build configuration list for PBXNativeTarget "BWTKMAS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C7D4AD1412C939E8000FD3F9 /* Debug */,

@@ -5,9 +5,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>BWToolkitFrameworkMAS</string>
+	<string>BWTKMAS</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.brandonwalkin.BWToolkitFramework</string>
+	<string>com.brandonwalkin.BWToolkitFrameworkMAS</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
