@@ -18,5 +18,7 @@
 	<string>1.2.5</string>
 	<key>NSPrincipalClass</key>
 	<string>BWToolkit</string>
+	<key>CFBundleName</key>
+	<string>BWTK</string>
 </dict>
 </plist>

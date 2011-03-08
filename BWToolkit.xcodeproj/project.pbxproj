@@ -132,6 +132,9 @@
 		C7D4AD0F12C939E8000FD3F9 /* BWStyledTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07C10FD7BB18001A1C3F /* BWStyledTextFieldCell.m */; };
 		C7D4AD1012C939E8000FD3F9 /* NSApplication+BWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAC33390FE5DA5700C66575 /* NSApplication+BWAdditions.m */; };
 		C7D4AD1212C939E8000FD3F9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
+		C7DE52F21325CECF009F7FA7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D1AC9730486D14A00FE50C9 /* Info.plist */; };
+		C7DE52F31325CED4009F7FA7 /* BWToolkit-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53DF68FE067E5B5A0090B5B0 /* BWToolkit-Info.plist */; };
+		C7DE52F41325CED7009F7FA7 /* BWToolkitMAS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7D4AD1712C939E8000FD3F9 /* BWToolkitMAS-Info.plist */; };
 		CA0D2A260E2F034000E8680C /* NSWindow-NSTimeMachineSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0D2A250E2F034000E8680C /* NSWindow-NSTimeMachineSupport.h */; };
 		CA0DDBD00FDA586F006B3EA3 /* BWGradientWell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DDBCF0FDA586F006B3EA3 /* BWGradientWell.m */; };
 		CA0DDC210FDA5EDA006B3EA3 /* BWGradientWellColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DDC200FDA5EDA006B3EA3 /* BWGradientWellColorWell.m */; };
@@ -470,15 +473,15 @@
 		13F8B88907B434F6008AE28D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		13F8B88A07B434F6008AE28D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32DBCF980370C29C00C91783 /* BWToolkit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWToolkit_Prefix.pch; sourceTree = "<group>"; };
-		53DF68FD067E5B5A0090B5B0 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BWToolkitFramework.framework; path = /Users/glebd/git/Decloner/vendor/bwtoolkit/build/Release/BWToolkitFramework.framework; sourceTree = "<absolute>"; };
 		53DF68FE067E5B5A0090B5B0 /* BWToolkit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BWToolkit-Info.plist"; sourceTree = "<group>"; };
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1AC97B0486D23100FE50C9 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C0D069550A49DF9100C95564 /* InterfaceBuilderKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InterfaceBuilderKit.framework; path = /Developer/Library/Frameworks/InterfaceBuilderKit.framework; sourceTree = "<absolute>"; };
 		C7534CD31325BC4A002EF382 /* BWTK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWTK.framework; path = DerivedData/BWToolkit/Build/Products/Release/BWTK.framework; sourceTree = "<group>"; };
 		C7534CD51325BC4A002EF382 /* BWToolkit.ibplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BWToolkit.ibplugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7D4AD1612C939E8000FD3F9 /* BWToolkitFrameworkMAS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BWToolkitFrameworkMAS.framework; path = /Users/glebd/git/Decloner/vendor/bwtoolkit/build/Release/BWToolkitFrameworkMAS.framework; sourceTree = "<absolute>"; };
 		C7D4AD1712C939E8000FD3F9 /* BWToolkitMAS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BWToolkitMAS-Info.plist"; sourceTree = "<group>"; };
+		C7DE52F01325C29F009F7FA7 /* BWTK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BWTK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7DE52F11325C29F009F7FA7 /* BWTKMAS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BWTKMAS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA0D2A250E2F034000E8680C /* NSWindow-NSTimeMachineSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow-NSTimeMachineSupport.h"; sourceTree = "<group>"; };
 		CA0DDBCE0FDA586F006B3EA3 /* BWGradientWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWGradientWell.h; sourceTree = "<group>"; };
 		CA0DDBCF0FDA586F006B3EA3 /* BWGradientWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWGradientWell.m; sourceTree = "<group>"; };
@@ -1045,6 +1048,8 @@
 			isa = PBXGroup;
 			children = (
 				C7534CD51325BC4A002EF382 /* BWToolkit.ibplugin */,
+				C7DE52F01325C29F009F7FA7 /* BWTK.framework */,
+				C7DE52F11325C29F009F7FA7 /* BWTKMAS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1613,7 +1618,7 @@
 			);
 			name = BWTK;
 			productName = BWToolkitFramework;
-			productReference = 53DF68FD067E5B5A0090B5B0 /* BWToolkitFramework.framework */;
+			productReference = C7DE52F01325C29F009F7FA7 /* BWTK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8D1AC9600486D14A00FE50C9 /* BWToolkit */ = {
@@ -1651,7 +1656,7 @@
 			);
 			name = BWTKMAS;
 			productName = BWToolkitFramework;
-			productReference = C7D4AD1612C939E8000FD3F9 /* BWToolkitFrameworkMAS.framework */;
+			productReference = C7DE52F11325C29F009F7FA7 /* BWTKMAS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1741,6 +1746,7 @@
 				CA405AEB0EBF2FE30010580A /* TransparentScrollerKnobTop.tif in Resources */,
 				CAEB14750F4A538100E57E67 /* License.rtf in Resources */,
 				CAEB14770F4A538A00E57E67 /* Release Notes.rtf in Resources */,
+				C7DE52F31325CED4009F7FA7 /* BWToolkit-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1841,6 +1847,7 @@
 				CA0DDC820FDA698B006B3EA3 /* GradientWellPattern.tif in Resources */,
 				CAAC34280FE8DDC100C66575 /* Library-GradientBox.tif in Resources */,
 				CAAC34290FE8DDC600C66575 /* Library-StyledTextField.tif in Resources */,
+				C7DE52F21325CECF009F7FA7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1902,6 +1909,7 @@
 				C7D4ACD912C939E8000FD3F9 /* TransparentScrollerKnobTop.tif in Resources */,
 				C7D4ACDA12C939E8000FD3F9 /* License.rtf in Resources */,
 				C7D4ACDB12C939E8000FD3F9 /* Release Notes.rtf in Resources */,
+				C7DE52F41325CED7009F7FA7 /* BWToolkitMAS-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

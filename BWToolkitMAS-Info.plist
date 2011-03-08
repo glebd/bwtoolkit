@@ -10,6 +10,8 @@
 	<string>com.brandonwalkin.BWToolkitFrameworkMAS</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>BWTKMAS</string>
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleSignature</key>
