@@ -27,7 +27,7 @@ NSComparisonResult compareViews(id firstView, id secondView, id context)
 
 - (void)bwBringToFront
 {
-	[[self superview] sortSubviewsUsingFunction:(NSComparisonResult (*)(id, id, void *))compareViews context:self];
+	[[self superview] sortSubviewsUsingFunction:(NSComparisonResult (*)(id, id, void *))compareViews context:(__bridge void *)(self)];
 }
 
 - (id)bwAnimator

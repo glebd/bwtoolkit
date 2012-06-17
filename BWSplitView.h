@@ -12,7 +12,6 @@
 {
 	NSColor *color;
 	BOOL colorIsEnabled, checkboxIsEnabled, dividerCanCollapse, collapsibleSubviewCollapsed;
-	id secondaryDelegate;
 	NSMutableDictionary *minValues, *maxValues, *minUnits, *maxUnits;
 	NSMutableDictionary *resizableSubviewPreferredProportion, *nonresizableSubviewPreferredSize;
 	NSArray *stateForLastPreferredCalculations;
@@ -24,11 +23,11 @@
 	BOOL isAnimating;
 }
 
-@property (retain) NSMutableDictionary *minValues, *maxValues, *minUnits, *maxUnits;
-@property (retain) NSMutableDictionary *resizableSubviewPreferredProportion, *nonresizableSubviewPreferredSize;
-@property (retain) NSArray *stateForLastPreferredCalculations;
-@property (retain) NSButton *toggleCollapseButton;
-@property (assign) id secondaryDelegate;
+@property (strong) NSMutableDictionary *minValues, *maxValues, *minUnits, *maxUnits;
+@property (strong) NSMutableDictionary *resizableSubviewPreferredProportion, *nonresizableSubviewPreferredSize;
+@property (strong) NSArray *stateForLastPreferredCalculations;
+@property (strong) NSButton *toggleCollapseButton;
+@property (weak) id secondaryDelegate;
 @property BOOL collapsibleSubviewCollapsed;
 @property int collapsiblePopupSelection;
 @property BOOL dividerCanCollapse;

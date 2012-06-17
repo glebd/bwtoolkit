@@ -12,7 +12,6 @@
 {
 	BOOL isResizable, isAtBottom, handleIsRightAligned;
 	int selectedIndex;
-	id splitViewDelegate;
 }
 
 @property BOOL isResizable, isAtBottom, handleIsRightAligned;
@@ -20,7 +19,7 @@
 
 // The mode of this bar with a resize handle makes use of some NSSplitView delegate methods. Use the splitViewDelegate for any custom delegate implementations
 // you'd like to provide.
-@property (assign) id splitViewDelegate;
+@property (weak) id splitViewDelegate;
 
 + (BOOL)wasBorderedBar;
 

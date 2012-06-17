@@ -18,6 +18,6 @@
 }
 
 @property BOOL shadowIsBelow, hasShadow, hasGradient;
-@property (nonatomic, retain) NSColor *shadowColor, *startingColor, *endingColor, *solidColor;
+@property (nonatomic, strong) NSColor *shadowColor, *startingColor, *endingColor, *solidColor;
 
 @end

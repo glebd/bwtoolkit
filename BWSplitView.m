@@ -58,9 +58,9 @@ static float scaleFactor = 1.0f;
 
 + (void)initialize;
 {
-    borderColor        = [[NSColor colorWithCalibratedWhite:(165.0f / 255.0f) alpha:1] retain];
-    gradientStartColor = [[NSColor colorWithCalibratedWhite:(253.0f / 255.0f) alpha:1] retain];
-    gradientEndColor   = [[NSColor colorWithCalibratedWhite:(222.0f / 255.0f) alpha:1] retain];
+    borderColor        = [NSColor colorWithCalibratedWhite:(165.0f / 255.0f) alpha:1];
+    gradientStartColor = [NSColor colorWithCalibratedWhite:(253.0f / 255.0f) alpha:1];
+    gradientEndColor   = [NSColor colorWithCalibratedWhite:(222.0f / 255.0f) alpha:1];
 
     gradient           = [[NSGradient alloc] initWithStartingColor:gradientStartColor endingColor:gradientEndColor];
 
@@ -312,7 +312,7 @@ static float scaleFactor = 1.0f;
 {
 	if ([self hasCollapsibleSubview])
 	{
-		NSMutableDictionary *tempMinValues = [[[self minValues] mutableCopy] autorelease];
+		NSMutableDictionary *tempMinValues = [[self minValues] mutableCopy];
 		[tempMinValues setObject:minSize forKey:[NSNumber numberWithInt:[[self subviews] indexOfObject:[self collapsibleSubview]]]];
 		[self setMinValues:tempMinValues];
 	}
@@ -322,7 +322,7 @@ static float scaleFactor = 1.0f;
 {
 	if ([self hasCollapsibleSubview])
 	{
-		NSMutableDictionary *tempMinValues = [[[self minValues] mutableCopy] autorelease];
+		NSMutableDictionary *tempMinValues = [[self minValues] mutableCopy];
 		[tempMinValues removeObjectForKey:[NSNumber numberWithInt:[[self subviews] indexOfObject:[self collapsibleSubview]]]];
 		[self setMinValues:tempMinValues];
 	}
@@ -349,7 +349,7 @@ static float scaleFactor = 1.0f;
 	// We'll later remove the min size temporarily while animating and then restore it.
 	BOOL hasMinSize = NO;
 	NSNumber *minSize = [minValues objectForKey:[NSNumber numberWithInt:[[self subviews] indexOfObject:[self collapsibleSubview]]]];
-	minSize = [[minSize copy] autorelease];
+	minSize = [minSize copy];
 	
 	if (minSize != nil || [minSize intValue] != 0)
 		hasMinSize = YES;
@@ -907,8 +907,8 @@ static float scaleFactor = 1.0f;
 	if (![self hasCollapsibleSubview])
 		return;
 	
-	NSMutableDictionary *preferredProportions = [[[self resizableSubviewPreferredProportion] mutableCopy] autorelease];
-	NSMutableDictionary *preferredSizes = [[[self nonresizableSubviewPreferredSize] mutableCopy] autorelease];
+	NSMutableDictionary *preferredProportions = [[self resizableSubviewPreferredProportion] mutableCopy];
+	NSMutableDictionary *preferredSizes = [[self nonresizableSubviewPreferredSize] mutableCopy];
 	
 	NSNumber *key = [NSNumber numberWithInt:[self collapsibleSubviewIndex]];
 	NSView *subview = [self collapsibleSubview];
@@ -1070,8 +1070,8 @@ static float scaleFactor = 1.0f;
 	// TODO: Could add a special case for resizableSubviewsTotalAvailableSize <= 0 : just set all resizable subviews to minimum size 
 	
 	// Make array of all the resizable subviews indexes
-	NSMutableArray *resizableSubviewIndexes = [[[resizableSubviewPreferredProportion allKeys] mutableCopy] autorelease];
-	[resizableSubviewIndexes sortUsingDescriptors:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES] autorelease]]];
+	NSMutableArray *resizableSubviewIndexes = [[resizableSubviewPreferredProportion allKeys] mutableCopy];
+	[resizableSubviewIndexes sortUsingDescriptors:[NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES]]];
 	
 	// Loop until none of the resizable subviews' constraints are violated
 	CGFloat proportionTotal = 1;
@@ -1176,8 +1176,8 @@ static float scaleFactor = 1.0f;
 		if (RESIZE_DEBUG_LOGS) NSLog(@"newSubviewSizes after nonresizable proportional resizing: %@", newSubviewSizes);
 		
 		// Make array of all the non-resizable subviews indexes
-		NSMutableArray *nonresizableSubviewIndexes = [[[nonresizableSubviewPreferredSize allKeys] mutableCopy] autorelease];
-		[nonresizableSubviewIndexes sortUsingDescriptors:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES] autorelease]]];
+		NSMutableArray *nonresizableSubviewIndexes = [[nonresizableSubviewPreferredSize allKeys] mutableCopy];
+		[nonresizableSubviewIndexes sortUsingDescriptors:[NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES]]];
 		
 		// Loop until none of the non-resizable subviews' constraints are violated
 		CGFloat proportionTotal = 1;
@@ -1369,7 +1369,6 @@ static float scaleFactor = 1.0f;
 {
 	if (color != aColor)
 	{
-		[color release];
 		color = [aColor copy];
 	}
 	
@@ -1379,9 +1378,9 @@ static float scaleFactor = 1.0f;
 - (NSColor *)color
 {
 	if (color == nil)
-		color = [[NSColor blackColor] retain];
+		color = [NSColor blackColor];
 	
-    return [[color retain] autorelease]; 
+    return color; 
 }
 
 - (NSMutableDictionary *)minValues
@@ -1389,7 +1388,7 @@ static float scaleFactor = 1.0f;
 	if (minValues == nil)
 		minValues = [NSMutableDictionary new];
 	
-    return [[minValues retain] autorelease]; 
+    return minValues; 
 }
 
 - (NSMutableDictionary *)maxValues
@@ -1397,7 +1396,7 @@ static float scaleFactor = 1.0f;
 	if (maxValues == nil)
 		maxValues = [NSMutableDictionary new];
 	
-    return [[maxValues retain] autorelease]; 
+    return maxValues; 
 }
 
 - (NSMutableDictionary *)minUnits
@@ -1405,7 +1404,7 @@ static float scaleFactor = 1.0f;
 	if (minUnits == nil)
 		minUnits = [NSMutableDictionary new];
 	
-    return [[minUnits retain] autorelease]; 
+    return minUnits; 
 }
 
 - (NSMutableDictionary *)maxUnits
@@ -1413,22 +1412,8 @@ static float scaleFactor = 1.0f;
 	if (maxUnits == nil)
 		maxUnits = [NSMutableDictionary new];
 	
-    return [[maxUnits retain] autorelease]; 
+    return maxUnits; 
 }
 
-- (void)dealloc
-{
-	[color release];
-	[minValues release];
-	[maxValues release];
-	[minUnits release];
-	[maxUnits release];
-	[resizableSubviewPreferredProportion release];
-	[nonresizableSubviewPreferredSize release];
-	[toggleCollapseButton release];
-	[stateForLastPreferredCalculations release];
-		
-	[super dealloc];
-}
 
 @end

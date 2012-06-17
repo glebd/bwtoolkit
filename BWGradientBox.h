@@ -17,7 +17,7 @@
 	BOOL hasTopBorder, hasBottomBorder, hasGradient, hasFillColor;
 }
 
-@property (nonatomic, retain) NSColor *fillStartingColor, *fillEndingColor, *fillColor, *topBorderColor, *bottomBorderColor;
+@property (nonatomic, strong) NSColor *fillStartingColor, *fillEndingColor, *fillColor, *topBorderColor, *bottomBorderColor;
 @property float topInsetAlpha, bottomInsetAlpha;
 @property BOOL hasTopBorder, hasBottomBorder, hasGradient, hasFillColor;
 

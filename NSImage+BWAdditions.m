@@ -26,7 +26,7 @@
 	
 	[copiedImage unlockFocus];  
 	
-	return [copiedImage autorelease];
+	return copiedImage;
 }
 
 // Rotate an image 90 degrees clockwise or counterclockwise
@@ -46,7 +46,7 @@
     existingSize.height = [[existingImage bestRepresentationForDevice:nil] pixelsHigh];
 	
     NSSize newSize = NSMakeSize(existingSize.height, existingSize.width);
-    NSImage *rotatedImage = [[[NSImage alloc] initWithSize:newSize] autorelease];
+    NSImage *rotatedImage = [[NSImage alloc] initWithSize:newSize];
 	
     [rotatedImage lockFocus];
 	
