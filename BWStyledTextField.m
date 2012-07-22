@@ -38,7 +38,7 @@
 
 - (NSColor *)shadowColor
 {
-	return [[self cell] shadowColor];
+	return (NSColor *)[[self cell] shadowColor];
 }
 
 - (void)setShadowColor:(NSColor *)color
