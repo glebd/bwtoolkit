@@ -17,7 +17,7 @@
 	NSMutableDictionary *previousAttributes;
 }
 
-@property BOOL shadowIsBelow, hasShadow, hasGradient;
+@property (nonatomic) BOOL shadowIsBelow, hasShadow, hasGradient;
 @property (nonatomic, strong) NSColor *shadowColor, *startingColor, *endingColor, *solidColor;
 
 @end

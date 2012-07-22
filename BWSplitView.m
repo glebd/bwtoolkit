@@ -47,7 +47,7 @@ static float scaleFactor = 1.0f;
 @end
 
 @interface BWSplitView ()
-@property BOOL checkboxIsEnabled;
+@property (nonatomic) BOOL checkboxIsEnabled;
 @end
 
 @implementation BWSplitView
