@@ -19,7 +19,7 @@
 
 // The mode of this bar with a resize handle makes use of some NSSplitView delegate methods. Use the splitViewDelegate for any custom delegate implementations
 // you'd like to provide.
-@property (weak) id splitViewDelegate;
+@property (assign) id splitViewDelegate;
 
 + (BOOL)wasBorderedBar;
 
