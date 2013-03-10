@@ -34,14 +34,14 @@ static float scaleFactor = 0.0f;
 
 + (void)initialize;
 {
-	topLineColor		 = [[NSColor colorWithCalibratedWhite:(202.0f / 255.0f) alpha:1] retain];
-	bottomLineColor		 = [[NSColor colorWithCalibratedWhite:(170.0f / 255.0f) alpha:1] retain];
-    topColor			 = [[NSColor colorWithCalibratedWhite:(253.0f / 255.0f) alpha:1] retain];
-    middleTopColor		 = [[NSColor colorWithCalibratedWhite:(242.0f / 255.0f) alpha:1] retain];
-    middleBottomColor	 = [[NSColor colorWithCalibratedWhite:(230.0f / 255.0f) alpha:1] retain];
-	bottomColor			 = [[NSColor colorWithCalibratedWhite:(230.0f / 255.0f) alpha:1] retain];
-	sideInsetColor		 = [[NSColor colorWithCalibratedWhite:(255.0f / 255.0f) alpha:0.5] retain];
-	borderedTopLineColor = [[NSColor colorWithCalibratedWhite:(190.0f / 255.0f) alpha:1] retain];
+	topLineColor		 = [NSColor colorWithCalibratedWhite:(202.0f / 255.0f) alpha:1];
+	bottomLineColor		 = [NSColor colorWithCalibratedWhite:(170.0f / 255.0f) alpha:1];
+    topColor			 = [NSColor colorWithCalibratedWhite:(253.0f / 255.0f) alpha:1];
+    middleTopColor		 = [NSColor colorWithCalibratedWhite:(242.0f / 255.0f) alpha:1];
+    middleBottomColor	 = [NSColor colorWithCalibratedWhite:(230.0f / 255.0f) alpha:1];
+	bottomColor			 = [NSColor colorWithCalibratedWhite:(230.0f / 255.0f) alpha:1];
+	sideInsetColor		 = [NSColor colorWithCalibratedWhite:(255.0f / 255.0f) alpha:0.5];
+	borderedTopLineColor = [NSColor colorWithCalibratedWhite:(190.0f / 255.0f) alpha:1];
     
 	gradient			 = [[NSGradient alloc] initWithColorsAndLocations:
 						   topColor, (CGFloat)0.0,
@@ -50,8 +50,8 @@ static float scaleFactor = 0.0f;
 						   bottomColor, (CGFloat)1.0,
 						   nil];
 	
-	resizeHandleColor	 = [[NSColor colorWithCalibratedWhite:(0.0f / 255.0f) alpha:0.598] retain];
-	resizeInsetColor	 = [[NSColor colorWithCalibratedWhite:(255.0f / 255.0f) alpha:0.55] retain];
+	resizeHandleColor	 = [NSColor colorWithCalibratedWhite:(0.0f / 255.0f) alpha:0.598];
+	resizeInsetColor	 = [NSColor colorWithCalibratedWhite:(255.0f / 255.0f) alpha:0.55];
 }
 
 - (id)initWithFrame:(NSRect)frame 
@@ -98,7 +98,7 @@ static float scaleFactor = 0.0f;
 	if (splitView != nil && [splitView isVertical] && [self isResizable])
 	{
 		if ([splitView delegate] != nil && ([[splitView delegate] isKindOfClass:[BWAnchoredButtonBar class]] ||
-											[splitView isKindOfClass:[BWSplitView class]] && [[(BWSplitView *)splitView secondaryDelegate] isKindOfClass:[BWAnchoredButtonBar class]]))
+											([splitView isKindOfClass:[BWSplitView class]] && [[(BWSplitView *)splitView secondaryDelegate] isKindOfClass:[BWAnchoredButtonBar class]])))
 		{
 			// There's already an Anchored Button Bar set as the delegate so we need to set ourself as the split view delegate on
 			// the button bar. But since there can be multiple button bars, we need to set ourself as the delegate on the last
@@ -307,7 +307,6 @@ static float scaleFactor = 0.0f;
 	if ([splitView delegate] == self)
 		[splitView setDelegate:nil];
 	
-	[super dealloc];
 }
 
 #pragma mark NSSplitView Delegate Methods

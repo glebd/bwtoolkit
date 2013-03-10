@@ -17,8 +17,8 @@
 @end
 
 @interface BWStyledTextFieldCell ()
-@property (retain) NSMutableDictionary *previousAttributes;
-@property (nonatomic, retain) NSShadow *shadow;
+@property (strong) NSMutableDictionary *previousAttributes;
+@property (nonatomic, strong) NSShadow *shadow;
 @end
 
 @implementation BWStyledTextFieldCell
@@ -77,33 +77,22 @@
   if (cell)
   {
     cell->previousAttributes = [previousAttributes mutableCopy];
-    cell->shadow = [shadow retain];
-    cell->shadowColor = [shadowColor retain];
-    cell->startingColor = [startingColor retain];
-    cell->endingColor = [endingColor retain];
-    cell->solidColor = [solidColor retain];
+    cell->shadow = shadow;
+    cell->shadowColor = shadowColor;
+    cell->startingColor = startingColor;
+    cell->endingColor = endingColor;
+    cell->solidColor = solidColor;
   }
 
   return cell;
 }
 
-- (void)dealloc
-{
-	[shadow release];
-	[previousAttributes release];
-	[solidColor release];
-	[endingColor release];
-	[startingColor release];
-	[shadowColor release];
-	
-	[super dealloc];
-}
 
 #pragma mark Text attributes
 
 - (NSDictionary *)_textAttributes
 {
-	NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
+	NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
 	[attributes addEntriesFromDictionary:[super _textAttributes]];
 	
 	// Shadow code
@@ -124,7 +113,7 @@
 
 - (void)changeShadow
 {
-	NSShadow *tempShadow = [[[NSShadow alloc] init] autorelease];
+	NSShadow *tempShadow = [[NSShadow alloc] init];
 	[tempShadow setShadowColor:shadowColor];
 		
 	if (shadowIsBelow)
@@ -139,7 +128,7 @@
 
 - (void)awakeFromNib
 {
-	NSMutableDictionary *attributes = [[[NSMutableDictionary alloc] init] autorelease];
+	NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
 	[attributes addEntriesFromDictionary:[super _textAttributes]];
 	self.previousAttributes = attributes;
 	
@@ -157,9 +146,9 @@
 		
 		NSSize boundSizeWithFullWidth = NSMakeSize([self controlView].frame.size.width,ceilf(textHeight));
 		
-		NSImage *image = [[[NSImage alloc] initWithSize:boundSizeWithFullWidth] autorelease];
+		NSImage *image = [[NSImage alloc] initWithSize:boundSizeWithFullWidth];
 		
-		NSGradient *gradient = [[[NSGradient alloc] initWithStartingColor:self.startingColor endingColor:self.endingColor] autorelease];
+		NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:self.startingColor endingColor:self.endingColor];
 		
 		[image lockFocus];
 		[gradient drawInRect:NSMakeRect(0,0,boundSizeWithFullWidth.width,boundSizeWithFullWidth.height) angle:270];
@@ -194,8 +183,7 @@
 {
 	if (startingColor != color) 
 	{
-        [startingColor release];
-        startingColor = [color retain];
+        startingColor = color;
 		
 		[self applyGradient];
     }
@@ -205,8 +193,7 @@
 {	
 	if (endingColor != color) 
 	{
-        [endingColor release];
-        endingColor = [color retain];
+        endingColor = color;
 		
 		[self applyGradient];
     }
@@ -216,8 +203,7 @@
 {
 	if (solidColor != color) 
 	{
-        [solidColor release];
-        solidColor = [color retain];
+        solidColor = color;
 		
 		[self setTextColor:solidColor];
     }
@@ -244,8 +230,7 @@
 {
 	if (shadowColor != color) 
 	{
-        [shadowColor release];
-        shadowColor = [color retain];
+        shadowColor = color;
 		
 		[self changeShadow];
     }

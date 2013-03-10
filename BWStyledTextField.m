@@ -38,12 +38,12 @@
 
 - (NSColor *)shadowColor
 {
-	return [[self cell] shadowColor];
+	return (NSColor *)[[self cell] shadowColor];
 }
 
 - (void)setShadowColor:(NSColor *)color
 {
-	[[self cell] setShadowColor:color];
+	[[self cell] setShadowColor:(__bridge CGColorRef)(color)];
 	
 	[self setNeedsDisplay:YES];
 }
