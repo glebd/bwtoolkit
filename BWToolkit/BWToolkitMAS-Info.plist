@@ -16,8 +16,14 @@
 	<string>FMWK</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleSupportedPlatforms</key>
+	<array>
+		<string>MacOSX</string>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.2.5</string>
+	<key>Mach-OLC_VERSION_MIN </key>
+	<string>10.6</string>
 	<key>NSPrincipalClass</key>
 	<string>BWToolkit</string>
 </dict>
