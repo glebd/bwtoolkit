@@ -171,8 +171,6 @@
 		C7D4AD0E12C939E8000FD3F9 /* BWStyledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE077B0FD79CE9001A1C3F /* BWStyledTextField.m */; };
 		C7D4AD0F12C939E8000FD3F9 /* BWStyledTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07C10FD7BB18001A1C3F /* BWStyledTextFieldCell.m */; };
 		C7D4AD1212C939E8000FD3F9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
-		C7DE52F21325CECF009F7FA7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D1AC9730486D14A00FE50C9 /* Info.plist */; };
-		C7DE52F31325CED4009F7FA7 /* BWToolkit-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53DF68FE067E5B5A0090B5B0 /* BWToolkit-Info.plist */; };
 		CA0D2A260E2F034000E8680C /* NSWindow-NSTimeMachineSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0D2A250E2F034000E8680C /* NSWindow-NSTimeMachineSupport.h */; };
 		CA0DDBD00FDA586F006B3EA3 /* BWGradientWell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DDBCF0FDA586F006B3EA3 /* BWGradientWell.m */; };
 		CA0DDC210FDA5EDA006B3EA3 /* BWGradientWellColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DDC200FDA5EDA006B3EA3 /* BWGradientWellColorWell.m */; };
@@ -1679,7 +1677,7 @@
 		0259C573FE90428111CA0C5A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 			};
 			buildConfigurationList = C056398B08A954F8003078D8 /* Build configuration list for PBXProject "BWToolkit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1763,7 +1761,6 @@
 				CA405AEB0EBF2FE30010580A /* TransparentScrollerKnobTop.tif in Resources */,
 				CAEB14750F4A538100E57E67 /* License.rtf in Resources */,
 				CAEB14770F4A538A00E57E67 /* Release Notes.rtf in Resources */,
-				C7DE52F31325CED4009F7FA7 /* BWToolkit-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1872,7 +1869,6 @@
 				0F952B0A1F77FEC5001AEAA8 /* BWTransparentScroller.classdescription in Resources */,
 				0F952B101F77FEC5001AEAA8 /* BWTransparentTextFieldCell.classdescription in Resources */,
 				CAAC34290FE8DDC600C66575 /* Library-StyledTextField.tif in Resources */,
-				C7DE52F21325CECF009F7FA7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2143,6 +2139,7 @@
 				INFOPLIST_FILE = "BWToolkit/BWToolkit-Info.plist";
 				INSTALL_PATH = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonwalkin.BWToolkitFramework;
 				PRODUCT_NAME = BWTK;
 				SKIP_INSTALL = NO;
 			};
@@ -2166,6 +2163,7 @@
 				INSTALL_MODE_FLAG = "go-w,a+rX";
 				INSTALL_PATH = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonwalkin.BWToolkitFramework;
 				PRODUCT_NAME = BWTK;
 				SKIP_INSTALL = NO;
 			};
@@ -2187,6 +2185,7 @@
 				GCC_PREFIX_HEADER = BWToolkit_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = BWToolkit/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonwalkin.BWToolkit;
 				PRODUCT_NAME = BWToolkit;
 				WRAPPER_EXTENSION = ibplugin;
 			};
@@ -2205,6 +2204,7 @@
 				GCC_PREFIX_HEADER = BWToolkit_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = BWToolkit/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonwalkin.BWToolkit;
 				PRODUCT_NAME = BWToolkit;
 				WRAPPER_EXTENSION = ibplugin;
 			};
@@ -2247,12 +2247,18 @@
 			buildSettings = {
 				"ARCHS[sdk=macosx10.6]" = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -2280,12 +2286,18 @@
 			buildSettings = {
 				"ARCHS[sdk=macosx10.6]" = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -2330,6 +2342,7 @@
 				INFOPLIST_FILE = "BWToolkit/BWToolkitMAS-Info.plist";
 				INSTALL_PATH = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonwalkin.BWToolkitFrameworkMAS;
 				PRODUCT_NAME = BWTKMAS;
 				SKIP_INSTALL = NO;
 			};
@@ -2354,6 +2367,7 @@
 				INSTALL_MODE_FLAG = "go-w,a+rX";
 				INSTALL_PATH = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonwalkin.BWToolkitFrameworkMAS;
 				PRODUCT_NAME = BWTKMAS;
 				SKIP_INSTALL = NO;
 			};
